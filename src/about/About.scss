@@ -2,4 +2,10 @@ div#about-page {
     h1 {
         color: red;
     }
+
+    > p {
+        > a {
+            color: green;
+        }
+    }
 }
