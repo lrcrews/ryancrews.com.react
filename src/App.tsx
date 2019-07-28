@@ -5,8 +5,6 @@ import routes from './routes';
 
 import PageNotFound from './404/PageNotFound';
 
-import './App.css';
-
 const App: React.FC = () => {
     return (
         <section>
