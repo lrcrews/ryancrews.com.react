@@ -1,20 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link, Route, Switch } from 'react-router-dom';
+
+import routes from './routes';
+
+import PageNotFound from './404/PageNotFound';
+
 import './App.css';
 
 const App: React.FC = () => {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <section>
+            <header>site header</header>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">About</Link>
+                </li>
+                <li>
+                    <Link to="/disclosure">Disclosure</Link>
+                </li>
+                <li>
+                    <Link to="/about/more">About More</Link>
+                </li>
+            </ul>
+            <Switch>
+                {routes.map((route, i) => (
+                    <Route key={i} exact path={route.path} render={(props): JSX.Element => <route.component />} />
+                ))}
+                <Route component={PageNotFound} />
+            </Switch>
+            <footer>site footer</footer>
+        </section>
     );
 };
 
