@@ -1,11 +1,129 @@
+@import '../sass-mixins/mixins.scss';
+
 div#about-page {
-    h1 {
-        color: red;
+    width: 100%;
+
+    a,
+    span.link {
+        color: $grey-3;
+        font-style: oblique;
+        font-weight: 600;
+        text-decoration: underline;
+
+        &:hover {
+            color: $blue-2;
+        }
+
+        &:active,
+        &:visited {
+            color: $grey-3;
+        }
     }
 
-    > p {
-        > a {
-            color: green;
+    > div {
+        &#background {
+            background-color: $blue-2;
+            height: calc(100% - 32px);
+            margin: 0 16px 16px;
+            position: fixed;
+            width: calc(100% - 32px);
+
+            @media (max-width: 832px) {
+                height: 100%;
+                margin: 0;
+                width: 100%;
+            }
+        }
+
+        &#content {
+            position: relative;
+
+            // Mask
+
+            > div {
+                background-color: #ffffff;
+                bottom: 0;
+                height: 16px;
+                position: fixed;
+                width: 100%;
+                z-index: 100;
+
+                @media (max-width: 832px) {
+                    display: none;
+                }
+            }
+
+            // Clouds
+
+            > section {
+                background-color: transparent;
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            // Content
+
+            > main {
+                background: rgba(107, 104, 104, 0.6);
+                left: calc(50% - 400px);
+                margin: 40px 0 80px;
+                padding: 32px 0;
+                position: absolute;
+                width: 800px;
+
+                @media (max-width: 832px) {
+                    left: 16px;
+                    width: calc(100% - 32px);
+                }
+
+                > * {
+                    padding: 0 32px;
+                }
+
+                > h1 {
+                    @include font-title;
+                    color: $grey-4;
+                    font-size: $gigantic;
+                    line-height: $gigantic-line-height;
+                    padding-bottom: 8px;
+
+                    @media (max-width: 480px) {
+                        font-size: $huge;
+                        line-height: $huge-line-height;
+                    }
+                }
+
+                > h2 {
+                    color: $grey-2;
+
+                    &.intro {
+                        padding-bottom: 24px;
+                    }
+                }
+
+                > p {
+                    color: $grey-2;
+                    font-size: $normal;
+                    line-height: $normal-line-height;
+
+                    > span {
+                        font-style: oblique;
+                        font-weight: 600;
+                    }
+                }
+
+                > div {
+                    margin: 40px 0;
+                }
+
+                > ul {
+                    padding: 0;
+                    width: 100%;
+                }
+            }
         }
     }
 }

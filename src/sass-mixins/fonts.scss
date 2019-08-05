@@ -32,6 +32,13 @@ $small-line-height: 1rem;
     line-height: $normal-line-height;
 }
 
+@mixin font-small {
+    @extend %main-font;
+    color: $grey-10;
+    font-size: $small;
+    line-height: $small-line-height;
+}
+
 @mixin font-title {
     @extend %accent-font;
     color: $grey-9;
