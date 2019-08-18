@@ -15,6 +15,7 @@ interface AboutProps {}
 
 interface AboutState {
     scrollTop: number;
+    windowWidth: number;
 }
 
 class About extends React.Component<AboutProps, AboutState> {
@@ -40,6 +41,7 @@ class About extends React.Component<AboutProps, AboutState> {
         super(props);
         this.state = {
             scrollTop: 0,
+            windowWidth: window.innerWidth,
         };
         this.handleScroll = this.handleScroll.bind(this);
     }
@@ -56,10 +58,10 @@ class About extends React.Component<AboutProps, AboutState> {
         this.setState({ scrollTop: window.scrollY });
     }
 
-    cloudLeft(cloud: CloudOffsets, scrollTop: number): string {
+    cloudLeft(cloud: CloudOffsets, scrollTop: number, windowWidth: number): string {
         return cloud.onLeft
             ? `${cloud.left - scrollTop * cloud.animationFactor}px`
-            : `calc(100% - 320px - ${cloud.left}px + ${scrollTop * cloud.animationFactor}px)`;
+            : `${windowWidth - 320 - cloud.left + scrollTop * cloud.animationFactor}px`;
     }
 
     cloudTop(cloud: CloudOffsets): string {
@@ -76,7 +78,7 @@ class About extends React.Component<AboutProps, AboutState> {
                             return (
                                 <Cloud
                                     key={i}
-                                    left={this.cloudLeft(cloud, this.state.scrollTop)}
+                                    left={this.cloudLeft(cloud, this.state.scrollTop, this.state.windowWidth)}
                                     top={this.cloudTop(cloud)}
                                 ></Cloud>
                             );
