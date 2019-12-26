@@ -1,21 +1,40 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import ListItem from './ListItem';
+
+import './Home.scss';
+
+const posts = [
+    {
+        createdAtTimestampInSeconds: Date.now() / 1000,
+        link: '/',
+        score: 42,
+        source: 'design.inspiration.com',
+        title: 'Post title in big blue text.',
+        user: { link: '/', name: 'categoryLink' },
+    },
+];
 
 const Home: React.FC = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
-            <h2>the page of home</h2>
-            <h3 className="font-section-header">
-                You may be wondering, "How does he come up with all these page designs?"
-            </h3>
-            <p>
-                Some paragraph content here. I'm merely an engineer who happens to enjoy design, so when I see a design
-                I like I want to see if I can recreate it (or something similar). For instance, this page is based on
-                the level "map" screen of a fantastic came called{' '}
-                <a href="https://www.dots.co/twodots/" target="_blank">
-                    Two Dots
-                </a>
-            </p>
+        <div id="home-page">
+            <main>
+                <h1>Celebrating classic list sites</h1>
+                <p>This design is a love-letter to old reddit and digg and the like.</p>
+                <p>
+                    (Wondering why? Check out the <Link to="/about">about</Link> page!)
+                </p>
+                <ul>
+                    {posts.map((post, index) => {
+                        return (
+                            <li key={index}>
+                                <ListItem {...post} rank={index + 1} />
+                            </li>
+                        );
+                    })}
+                </ul>
+            </main>
         </div>
     );
 };

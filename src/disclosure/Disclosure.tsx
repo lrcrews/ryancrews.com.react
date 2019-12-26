@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Disclosure.scss';
+
 const Disclosure: React.FC = () => {
     return (
         <section id="disclosure-page">

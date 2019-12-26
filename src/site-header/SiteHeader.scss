@@ -7,8 +7,12 @@ div#site-header {
     width: 100%;
 
     > * {
-        display: block;
+        display: inline-block;
         margin: 0 20px;
         padding: 8px 0;
+    }
+
+    > div {
+        float: right;
     }
 }

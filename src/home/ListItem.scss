@@ -1,0 +1,73 @@
+@import '../sass-mixins/mixins.scss';
+
+div.list-item {
+    width: 100%;
+
+    > * {
+        display: inline-block;
+        margin-right: 8px;
+        vertical-align: top;
+    }
+
+    .votes {
+        > div {
+            background-color: $grey-2;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 20px;
+            margin-bottom: 4px;
+            position: relative;
+            width: 20px;
+
+            &:hover {
+                background-color: $grey-3;
+
+                > div {
+                    border-color: $grey-7;
+                }
+            }
+
+            > div {
+                left: 4px;
+                position: absolute;
+
+                &.up-vote {
+                    border-bottom: 12px solid $grey-5;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    height: 0;
+                    top: 2px;
+                    width: 0;
+                }
+
+                &.down-vote {
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-top: 12px solid $grey-5;
+                    height: 0;
+                    top: 5px;
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    > section {
+        > header {
+            > a {
+                @include font-subtitle;
+            }
+
+            > span {
+                @include font-small;
+                color: $grey-5;
+                margin-left: 8px;
+            }
+        }
+
+        > footer {
+            @include font-small;
+            color: $grey-7;
+        }
+    }
+}

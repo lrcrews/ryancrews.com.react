@@ -1,0 +1,18 @@
+@import '../sass-mixins/mixins.scss';
+
+div#home-page {
+    width: 100%;
+
+    > main {
+        padding: 20px;
+
+        > p {
+            @include font-normal;
+        }
+
+        > ul {
+            border-top: 1px solid $blue-6;
+            padding-top: 20px;
+        }
+    }
+}

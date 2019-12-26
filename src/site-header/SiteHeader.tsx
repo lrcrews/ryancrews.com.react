@@ -7,6 +7,9 @@ const SiteHeader: React.FC = props => {
     return (
         <div id="site-header">
             <Link to="/">ryancrews.com</Link>
+            <div>
+                <Link to="/about">about</Link> | <Link to="/disclosure">disclosure</Link>
+            </div>
         </div>
     );
 };
