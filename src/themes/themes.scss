@@ -1,0 +1,12 @@
+// https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+
+$themes: (
+  light: (
+    background: #fff,
+    on-background: #408bbd,
+  ),
+  dark: (
+    background: #222,
+    on-background: #ddd,
+  ),
+);

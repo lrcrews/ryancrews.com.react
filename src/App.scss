@@ -1,3 +1,6 @@
+@import "./themes/themes.scss";
+@import "./themes/theme-handler.scss";
+
 .App {
   text-align: center;
 }
@@ -14,14 +17,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  @include themify($themes) {
+    color: themed("on-background");
+    background-color: themed("background");
+  }
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
