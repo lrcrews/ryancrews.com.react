@@ -6,13 +6,15 @@ $themes: (
     border: #dcdcdc,
     brand-primary: #61bfff,
     brand-secondary: #207fff,
-    on-background: #408bbd,
+    link: #207fff,
+    on-background: #222,
   ),
   dark: (
     background: #222,
     border: #dcdcdc,
     brand-primary: #61bfff,
     brand-secondary: #d3f3ff,
-    on-background: #ddd,
+    link: #61bfff,
+    on-background: #fff,
   ),
 );

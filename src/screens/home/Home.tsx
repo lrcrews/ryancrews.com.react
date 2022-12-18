@@ -14,7 +14,7 @@ export default function HomeScreen() {
   return (
     <div className={`theme-${themeName}`}>
       <SiteHeader />
-      <main>
+      <main className="home-screen">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
