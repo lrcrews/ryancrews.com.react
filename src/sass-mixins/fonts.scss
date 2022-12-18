@@ -1,0 +1,65 @@
+%accent-font {
+  font-family: "Inconsolata", monospace;
+}
+
+%main-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+%mono-font {
+  font-family: "Courier New", Courier, monospace;
+}
+
+@mixin font-body-large {
+  @extend %main-font;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+@mixin font-body-medium {
+  @extend %main-font;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin font-body-small {
+  @extend %main-font;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin font-code {
+  @extend %mono-font;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@mixin font-headline-large {
+  @extend %accent-font;
+  font-size: 42px;
+  line-height: 56px;
+}
+
+@mixin font-headline-medium {
+  @extend %accent-font;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin font-label-large {
+  @extend %accent-font;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin font-label-medium {
+  @extend %accent-font;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+@mixin font-label-small {
+  @extend %accent-font;
+  font-size: 12px;
+  line-height: 16px;
+}

@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-import { ThemeProvider } from "./themes";
+import { ThemeContext, ThemeProvider } from "./themes";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/routes";
 
 function App() {
   const [systemTheme, setSystemTheme] = useState("light");
+
+  const { themeName, setThemeName } = useContext(ThemeContext);
 
   useEffect(() => {
     // Add listener to update styles
@@ -32,9 +34,7 @@ function App() {
 
   return (
     <ThemeProvider themeName={systemTheme}>
-      <div className={`App theme-${systemTheme}`}>
-        <RouterProvider router={router} />
-      </div>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

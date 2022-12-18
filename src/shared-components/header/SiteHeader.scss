@@ -1,0 +1,47 @@
+@import "../../sass-mixins//fonts.scss";
+@import "../../sass-mixins/sizes.scss";
+
+@import "../../themes/themes.scss";
+@import "../../themes/theme-handler.scss";
+
+#site-header {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: themed("border");
+    color: themed("on-background");
+  }
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-sizing: border-box;
+  height: $site-header-height;
+  padding: 4px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .logo {
+    height: 40px;
+    margin-top: -3px;
+
+    > img {
+      height: 100%;
+    }
+  }
+
+  .links {
+    float: right;
+    margin-top: 4px;
+
+    > * {
+      display: inline-block;
+      margin-left: 20px;
+      vertical-align: middle;
+    }
+  }
+}
