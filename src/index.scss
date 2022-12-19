@@ -1,0 +1,21 @@
+@import "./themes/themes.scss";
+@import "./themes/theme-handler.scss";
+
+body {
+  margin: 0;
+}
+
+ol,
+ul {
+  clear: both;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited {
+  @include themify($themes) {
+    color: themed("link");
+  }
+}
