@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { ThemeContext, ThemeProvider } from "./themes";
+import { ThemeProvider } from "./themes";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/routes";
 
 function App() {
   const [systemTheme, setSystemTheme] = useState("light");
-
-  const { themeName, setThemeName } = useContext(ThemeContext);
 
   useEffect(() => {
     // Add listener to update styles

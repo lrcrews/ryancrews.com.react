@@ -3,18 +3,24 @@
 $themes: (
   light: (
     background: #fff,
+    background-hover: darken(#fff, 15%),
     border: #dcdcdc,
     brand-primary: #61bfff,
     brand-secondary: #207fff,
+    brand-secondary-hover: darken(#207fff, 15%),
     link: #207fff,
     on-background: #222,
+    on-brand: #fff,
   ),
   dark: (
     background: #222,
+    background-hover: lighten(#222, 15%),
     border: #dcdcdc,
     brand-primary: #61bfff,
     brand-secondary: #d3f3ff,
+    brand-secondary-hover: lighten(#d3f3ff, 15%),
     link: #61bfff,
     on-background: #fff,
+    on-brand: #222,
   ),
 );
