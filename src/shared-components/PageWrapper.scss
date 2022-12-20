@@ -1,0 +1,8 @@
+@import "../themes/themes.scss";
+@import "../themes/theme-handler.scss";
+
+.page-wrapper {
+  @include themify($themes) {
+    background-color: themed("background");
+  }
+}

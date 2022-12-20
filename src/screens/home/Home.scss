@@ -1,7 +1,6 @@
 @import "../../themes/themes.scss";
 @import "../../themes/theme-handler.scss";
 
-@import "../../sass-mixins/fonts.scss";
 @import "../../sass-mixins/sizes.scss";
 
 .home-screen {
@@ -9,14 +8,9 @@
 
   @include themify($themes) {
     color: themed("on-background");
-    background-color: themed("background");
   }
 
-  .splash {
-    text-align: center;
-
-    > p {
-      @include font-body-large;
-    }
+  .tile-group {
+    margin: 80px 0;
   }
 }

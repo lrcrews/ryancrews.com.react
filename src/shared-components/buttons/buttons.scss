@@ -1,1 +1,62 @@
-// nothing to see here, a bit of laziness for my blog... go check out index.scss for the styles!
+@import "../../themes/themes.scss";
+@import "../../themes/theme-handler.scss";
+
+@import "../../sass-mixins/fonts.scss";
+
+.buttonContainer {
+  margin: 20px 0;
+  text-align: center;
+
+  > .baseButton {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.baseButton,
+a.baseButton {
+  @include font-label-medium;
+
+  appearance: none;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  min-width: 80px;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: 0.15s ease;
+}
+
+.baseButton-primary,
+a.baseButton-primary {
+  @include themify($themes) {
+    background-color: themed("brand-secondary");
+    border-color: themed("brand-secondary");
+    color: themed("on-brand");
+
+    &:active,
+    &:hover {
+      background-color: themed("brand-secondary-hover");
+    }
+  }
+}
+
+.baseButton-secondary,
+a.baseButton-secondary {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: themed("border");
+    color: themed("on-background");
+
+    &:active,
+    &:hover {
+      background-color: themed("background-hover");
+      border-color: themed("brand-secondary");
+    }
+  }
+}

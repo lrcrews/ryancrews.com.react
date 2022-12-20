@@ -49,17 +49,20 @@
 @mixin font-label-large {
   @extend %accent-font;
   font-size: 24px;
+  font-weight: 700;
   line-height: 32px;
 }
 
 @mixin font-label-medium {
   @extend %accent-font;
   font-size: 16px;
+  font-weight: 700;
   line-height: 21px;
 }
 
 @mixin font-label-small {
   @extend %accent-font;
   font-size: 12px;
+  font-weight: 700;
   line-height: 16px;
 }

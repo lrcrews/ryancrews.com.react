@@ -2,8 +2,9 @@ $site-content-padding: 20px;
 $site-footer-height: 24px;
 $site-header-height: 40px;
 
+$narrow-screen-breakpoint: 840px;
+
 @mixin main-content-wrapper {
-  box-sizing: border-box;
   min-height: 100vh;
   padding: ($site-header-height + $site-content-padding) $site-content-padding
     $site-footer-height;

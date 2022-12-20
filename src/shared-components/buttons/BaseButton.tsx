@@ -5,15 +5,11 @@ import {
   ReactNode,
 } from "react";
 
+import "./buttons.scss";
+
 export enum ButtonKind {
   Primary,
   Secondary,
-}
-
-export enum ButtonSize {
-  Small,
-  Regular,
-  Large,
 }
 
 type _ButtonProps = {
@@ -24,7 +20,6 @@ type _ButtonProps = {
 
   className?: string;
   isSubmit?: boolean;
-  size?: ButtonSize;
 
   children: ReactNode;
 
@@ -40,7 +35,6 @@ function BaseButton(props: ButtonProps) {
     onClick,
     className = undefined,
     isSubmit = false,
-    size = ButtonSize.Regular,
     children,
     ...otherProps
   } = props;
@@ -57,18 +51,6 @@ function BaseButton(props: ButtonProps) {
       case ButtonKind.Primary:
       default:
         classString += " baseButton-primary";
-        break;
-    }
-
-    switch (size) {
-      case ButtonSize.Small:
-        classString += " baseButton-small";
-        break;
-      case ButtonSize.Large:
-        classString += " base-button-large";
-        break;
-      case ButtonSize.Regular:
-      default:
         break;
     }
 
