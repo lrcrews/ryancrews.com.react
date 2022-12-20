@@ -6,7 +6,7 @@ import logo from "./logo40h.png";
 
 import "./SiteHeader.scss";
 
-export default function SiteHeader() {
+function SiteHeader() {
   return (
     <header id="site-header">
       <Link to={HOME_PATH} className="logo">
@@ -19,3 +19,5 @@ export default function SiteHeader() {
     </header>
   );
 }
+
+export default SiteHeader;

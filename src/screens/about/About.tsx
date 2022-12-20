@@ -2,7 +2,7 @@ import { SiteFooter, SiteHeader } from "../../shared-components";
 
 import "./About.scss";
 
-export default function AboutScreen() {
+function AboutScreen() {
   return (
     <div>
       <SiteHeader />
@@ -13,3 +13,5 @@ export default function AboutScreen() {
     </div>
   );
 }
+
+export default AboutScreen;

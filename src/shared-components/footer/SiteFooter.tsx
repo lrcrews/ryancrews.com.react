@@ -6,7 +6,7 @@ import { ThemeContext } from "../../themes";
 
 import "./SiteFooter.scss";
 
-export default function SiteFooter() {
+function SiteFooter() {
   const { themeName, setThemeName } = useContext(ThemeContext);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -45,3 +45,5 @@ export default function SiteFooter() {
     </footer>
   );
 }
+
+export default SiteFooter;

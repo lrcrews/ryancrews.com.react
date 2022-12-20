@@ -2,3 +2,120 @@
 @import "../../themes/theme-handler.scss";
 
 @import "../../sass-mixins/fonts.scss";
+@import "../../sass-mixins/sizes.scss";
+
+.tileContainer {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(
+    auto-fill,
+    calc(25% - 15px)
+  ); // TODO: probably update this when first using standalone tile container
+}
+
+.tileContainer-withImage {
+  grid-template-areas: "imageTile imageTile contentTiles contentTiles contentTiles";
+  grid-template-columns:
+    calc(20% - 16px) calc(20% - 16px) calc(20% - 16px) calc(20% - 16px)
+    calc(20% - 16px);
+  grid-template-rows: auto;
+
+  @media (max-width: $narrow-screen-breakpoint) {
+    grid-template-areas: "contentTiles contentTiles contentTiles contentTiles contentTiles";
+  }
+
+  .tileContainer {
+    grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+  }
+
+  .tileContainer--image {
+    grid-area: imageTile;
+    min-width: 0;
+
+    @media (max-width: $narrow-screen-breakpoint) {
+      display: none;
+    }
+  }
+
+  .tileContainer--content {
+    grid-area: contentTiles;
+    min-width: 0;
+  }
+}
+
+.baseTile {
+  @include themify($themes) {
+    border-color: themed("border");
+    box-shadow: 0 0 8px 1px rgba(themed("on-background"), 20%) inset;
+    color: themed("on-background");
+
+    &:active,
+    &:hover {
+      background-color: themed("background-hover");
+      border-color: themed("brand-secondary");
+      box-shadow: 0 0 1px 1px rgba(themed("brand-primary"), 20%) inset;
+      color: themed("on-background");
+    }
+
+    &:visited {
+      color: themed("on-background");
+    }
+  }
+
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: block;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.15s ease;
+}
+
+.baseTile-ad {
+  @include themify($themes) {
+    border-color: themed("sacrotees");
+    box-shadow: 0 0 8px 1px rgba(themed("sacrotees"), 20%) inset;
+
+    &:active,
+    &:hover {
+      background-color: themed("background-hover");
+      border-color: themed("sacrotees");
+      box-shadow: 0 0 1px 1px rgba(themed("sacrotees"), 20%) inset;
+    }
+  }
+
+  &:hover {
+    transform: perspective(800px) rotateY(-8deg) rotateX(-8deg);
+  }
+
+  img {
+    border-radius: 8px;
+    width: 100%;
+  }
+}
+
+.baseTile-fullImage {
+  @include themify($themes) {
+    box-shadow: none;
+
+    &:active,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  border-width: 0;
+  padding: 0;
+
+  &:hover {
+    transform: perspective(800px) rotateY(8deg);
+  }
+
+  img {
+    border-radius: 8px;
+    width: 100%;
+  }
+}

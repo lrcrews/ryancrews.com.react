@@ -5,19 +5,18 @@ import "./tiles.scss";
 
 export enum TileKind {
   Ad,
-  Primary,
-  Secondary,
+  FullImage,
 }
 
 type _TileProps = {
-  kind: TileKind;
   route: string;
 
   className?: string;
+  kind?: TileKind;
 
   children: ReactNode;
 
-  [remainingProp: string]: any;
+  [otherProps: string]: any;
 };
 
 export type TileProps = _TileProps & HTMLAttributes<HTMLAnchorElement>;
@@ -32,12 +31,8 @@ function BaseTile(props: TileProps) {
       case TileKind.Ad:
         classString += " baseTile-ad";
         break;
-      case TileKind.Secondary:
-        classString += " baseTile-secondary";
-        break;
-      case TileKind.Primary:
-      default:
-        classString += " baseTile-primary";
+      case TileKind.FullImage:
+        classString += " baseTile-fullImage";
         break;
     }
 
@@ -48,7 +43,11 @@ function BaseTile(props: TileProps) {
     return classString;
   }
 
-  return (
+  return kind === TileKind.Ad ? (
+    <a href={route} className={cssClasses()} {...otherProps}>
+      {children}
+    </a>
+  ) : (
     <Link to={route} className={cssClasses()} {...otherProps}>
       {children}
     </Link>

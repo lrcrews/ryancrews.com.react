@@ -9,7 +9,7 @@ type PageWrapperProps = {
   children: ReactNode;
 };
 
-export default function PageWrapper(props: PageWrapperProps) {
+function PageWrapper(props: PageWrapperProps) {
   const { children } = props;
   const { themeName } = useContext(ThemeContext);
 
@@ -23,3 +23,5 @@ export default function PageWrapper(props: PageWrapperProps) {
     </div>
   );
 }
+
+export default PageWrapper;

@@ -8,7 +8,7 @@ import {
 
 import "./Splash.scss";
 
-export default function Splash() {
+function Splash() {
   return (
     <div className="splash">
       <h1>A Blog for Code and Food</h1>
@@ -28,3 +28,5 @@ export default function Splash() {
     </div>
   );
 }
+
+export default Splash;

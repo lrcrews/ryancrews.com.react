@@ -48,6 +48,10 @@ p {
   @include font-label-small;
 }
 
+.label {
+  @include font-label-medium;
+}
+
 .u-textAlignCentered {
   text-align: center;
 }

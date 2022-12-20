@@ -5,7 +5,7 @@ import Splash from "./components/Splash";
 
 import "./Home.scss";
 
-export default function HomeScreen() {
+function HomeScreen() {
   return (
     <PageWrapper>
       <main className="home-screen">
@@ -17,3 +17,5 @@ export default function HomeScreen() {
     </PageWrapper>
   );
 }
+
+export default HomeScreen;

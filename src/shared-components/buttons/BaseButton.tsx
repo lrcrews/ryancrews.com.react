@@ -23,7 +23,7 @@ type _ButtonProps = {
 
   children: ReactNode;
 
-  [remainingProp: string]: any;
+  [otherProps: string]: any;
 };
 
 export type ButtonProps = _ButtonProps &

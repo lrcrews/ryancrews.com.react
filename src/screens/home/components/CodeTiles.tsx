@@ -1,17 +1,24 @@
+import { ABOUT_PATH } from "../../../routes/routes";
+import {
+  AdName,
+  AdTile,
+  BaseTile,
+  FullImageTile,
+  TileContainer,
+} from "../../../shared-components";
+
 import code from "./markus-spiske-MgtHZ4zlC1U-unsplash.jpg";
 
 import "./CodeTiles.scss";
-import { Link } from "react-router-dom";
-import { ABOUT_PATH } from "../../../routes/routes";
 
-export default function CodeTiles() {
+function CodeTiles() {
   return (
-    <div className="tileContainer tileContainer-withPrimary">
-      <div className="tileContainer--primary">
-        <Link to={ABOUT_PATH} className="baseTile baseTile-primary">
+    <TileContainer withImageTile>
+      <div className="tileContainer--image">
+        <FullImageTile route={ABOUT_PATH}>
           <img src={code} className="code-link-image" alt="meaningless code." />
           <div className="code-link-text">GoTo Code</div>
-        </Link>
+        </FullImageTile>
         <div className="small-label u-textAlignCentered">
           Photo by{" "}
           <a
@@ -31,12 +38,34 @@ export default function CodeTiles() {
           </a>
         </div>
       </div>
-      <div className="tileContainer--secondary tileContainer">
-        <div className="baseTile baseTile-secondary">Secondary Tile</div>
-        <div className="baseTile baseTile-secondary">Secondary Tile</div>
-        <div className="baseTile baseTile-ad">Ad Tile</div>
-        <div className="baseTile baseTile-secondary">Secondary Tile</div>
-      </div>
-    </div>
+      <TileContainer className="tileContainer--content">
+        <BaseTile route={ABOUT_PATH}>
+          <div className="label">Useful Tools</div>
+          <p>A collection of useful tools to help with devlopment 🛠</p>
+        </BaseTile>
+        <BaseTile route={ABOUT_PATH}>
+          <div className="label">I Wrote a Book!</div>
+          <p>Well... I'm writing a book, it'll surely be done soon 🤞</p>
+        </BaseTile>
+        <AdTile adName={AdName.OriginalCoder} />
+        <BaseTile route={ABOUT_PATH}>
+          <div className="label">Blog Posts</div>
+          <p>
+            My thoughts on things related to programming, working in the
+            industry, interesting code patterns, and other loosely related
+            topics 🤯
+          </p>
+        </BaseTile>
+        <BaseTile route={ABOUT_PATH}>
+          <div className="label">My Projects</div>
+          <p>
+            Pages dedicated to side projects, with helpful information and links
+            to the code 👨‍💻
+          </p>
+        </BaseTile>
+      </TileContainer>
+    </TileContainer>
   );
 }
+
+export default CodeTiles;
