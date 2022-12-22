@@ -1,6 +1,6 @@
 import BaseTile, { TileKind } from "./BaseTile";
 
-import original_coder from "./original_coder_227x260.png";
+import original_coder from "./original_coder.jpg";
 
 export enum AdName {
   GeekyShirts = "geeky_shirts",

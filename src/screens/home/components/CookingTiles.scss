@@ -2,23 +2,21 @@
 
 // Image is same in all themes, hence not using theme colors on top.
 
-.code-link-text {
+.cooking-link-text {
   @include font-label-large;
 
   background-color: rgba(0, 0, 0, 80%);
   border-radius: 4px;
   bottom: 40px;
   color: aliceblue;
-  left: 20px;
   padding: 20px 12px;
   position: absolute;
   transition: 0.15s ease;
-  width: calc(100% - 40px);
 }
 
 .baseTile {
   &:hover {
-    .code-link-text {
+    .cooking-link-text {
       background-color: rgba(#207fff, 80%);
     }
   }

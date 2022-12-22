@@ -40,6 +40,10 @@ h1 {
   @include font-headline-large;
 }
 
+h2 {
+  @include font-headline-medium;
+}
+
 p {
   @include font-body-medium;
 }

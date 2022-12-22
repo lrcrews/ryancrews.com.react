@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { HOME_PATH } from "../../routes/routes";
+import { ABOUT_PATH, HOME_PATH } from "../../routes/routes";
 
 import logo from "./logo40h.png";
 
@@ -13,8 +13,12 @@ function SiteHeader() {
         <img src={logo} alt="Logo, click to go to home page." />
       </Link>
       <ul className="links">
-        <li>foo</li>
-        <li>bar</li>
+        <li>
+          <Link to={ABOUT_PATH}>code</Link>
+        </li>
+        <li>
+          <Link to={ABOUT_PATH}>food</Link>
+        </li>
       </ul>
     </header>
   );

@@ -43,6 +43,12 @@
   }
 }
 
+.tileContainer-withImage-horizontal {
+  grid-template-areas:
+    "imageTile imageTile imageTile imageTile imageTile"
+    "contentTiles contentTiles contentTiles contentTiles contentTiles";
+}
+
 .baseTile {
   @include themify($themes) {
     border-color: themed("border");
