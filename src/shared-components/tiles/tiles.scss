@@ -26,6 +26,10 @@
 
   .tileContainer {
     grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+
+    @media (max-width: $mobile-screen-breakpoint) {
+      grid-template-columns: repeat(auto-fill, 100%);
+    }
   }
 
   .tileContainer--image {

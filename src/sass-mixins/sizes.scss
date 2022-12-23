@@ -1,7 +1,8 @@
 $site-content-padding: 20px;
-$site-footer-height: 24px;
+$site-footer-height: 28px;
 $site-header-height: 40px;
 
+$mobile-screen-breakpoint: 600px;
 $narrow-screen-breakpoint: 840px;
 
 @mixin main-content-wrapper {

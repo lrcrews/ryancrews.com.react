@@ -50,7 +50,7 @@ function CookingTiles() {
             non-video ad for cool clothes and the recipe 👨‍🍳
           </p>
           <p>
-            Mostly for my own sanity, as wanting to toss hot oil at the people
+            Mostly for my own sanity, as wanting to toss hot oil on the people
             who run recipe sites feels like an unhealthy emotion stemming from
             the initial frustration at the slow load time, through the annoying
             jumping around of the recipe due to changing ads, past the heartfelt
@@ -59,7 +59,7 @@ function CookingTiles() {
             month unless I sign in 🤬
           </p>
         </BaseTile>
-        <AdTile adName={AdName.OriginalCoder} />
+        <AdTile adName={AdName.AwesomeSkirts} />
       </TileContainer>
     </TileContainer>
   );

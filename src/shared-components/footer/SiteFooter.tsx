@@ -20,7 +20,7 @@ function SiteFooter() {
         <Link to={ABOUT_PATH}>About</Link>
       </div>
       <div className="theme-switcher">
-        Theme:{" "}
+        <span className="small-label">Theme: </span>
         <label>
           <input
             type="radio"
