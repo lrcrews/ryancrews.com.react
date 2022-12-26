@@ -7,18 +7,20 @@
 body {
   margin: 0;
 
-  main {
-    @include themify($themes) {
-      color: themed("on-background");
-    }
-
-    margin: 0 auto;
-    max-width: $narrow-screen-breakpoint;
-  }
-
   * {
     box-sizing: border-box;
   }
+}
+
+main {
+  @include main-content-wrapper;
+
+  @include themify($themes) {
+    color: themed("on-background");
+  }
+
+  margin: 0 auto;
+  max-width: $narrow-screen-breakpoint;
 }
 
 ol,

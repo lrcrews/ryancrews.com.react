@@ -1,15 +1,4 @@
-@import "../../themes/themes.scss";
-@import "../../themes/theme-handler.scss";
-
-@import "../../sass-mixins/sizes.scss";
-
 .home-screen {
-  @include main-content-wrapper;
-
-  @include themify($themes) {
-    color: themed("on-background");
-  }
-
   .tile-group {
     margin: 80px 0;
   }

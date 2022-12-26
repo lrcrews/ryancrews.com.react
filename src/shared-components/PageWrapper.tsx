@@ -4,6 +4,7 @@ import { SiteFooter, SiteHeader } from "./";
 import { ThemeContext } from "../themes";
 
 import "./PageWrapper.scss";
+import ScrollToTop from "../scrollToTop";
 
 type PageWrapperProps = {
   children: ReactNode;
@@ -16,6 +17,7 @@ function PageWrapper(props: PageWrapperProps) {
   return (
     <div className={`theme-${themeName}`}>
       <div className="page-wrapper">
+        <ScrollToTop />
         <SiteHeader />
         {children}
         <SiteFooter />

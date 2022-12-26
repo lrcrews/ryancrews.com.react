@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH } from "../../routes/routes";
+import { ABOUT_PATH, PRIVACY_PATH, TERMS_PATH } from "../../routes/routes";
 import { ThemeContext } from "../../themes";
 
 import "./SiteFooter.scss";
@@ -16,8 +16,9 @@ function SiteFooter() {
 
   return (
     <footer id="site-footer">
-      <div className="about-link">
-        <Link to={ABOUT_PATH}>About</Link>
+      <div className="about-links">
+        <Link to={ABOUT_PATH}>About</Link> | <Link to={TERMS_PATH}>Terms</Link>{" "}
+        | <Link to={PRIVACY_PATH}>Privacy Policy</Link>
       </div>
       <div className="theme-switcher">
         <span className="small-label">Theme: </span>
