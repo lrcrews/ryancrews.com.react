@@ -1,4 +1,4 @@
-import { ABOUT_PATH } from "../../../routes/routes";
+import { ABOUT_PATH, CODE_HOME_PATH } from "../../../routes/routes";
 import {
   AdName,
   AdTile,
@@ -15,7 +15,7 @@ function CodeTiles() {
   return (
     <TileContainer withImageTile>
       <div className="tileContainer--image">
-        <FullImageTile route={ABOUT_PATH}>
+        <FullImageTile route={CODE_HOME_PATH}>
           <img src={code} className="code-link-image" alt="meaningless code." />
           <div className="code-link-text">GoTo Code</div>
         </FullImageTile>

@@ -1,4 +1,4 @@
-import { ABOUT_PATH } from "../../../routes/routes";
+import { ABOUT_PATH, CODE_HOME_PATH } from "../../../routes/routes";
 
 import {
   ButtonContainer,
@@ -18,7 +18,7 @@ function Splash() {
         storyless, and to-the-point food recipes (mostly for my own sanity 👨‍🍳)
       </p>
       <ButtonContainer>
-        <LinkButton kind={ButtonKind.Primary} route={ABOUT_PATH}>
+        <LinkButton kind={ButtonKind.Primary} route={CODE_HOME_PATH}>
           Code
         </LinkButton>
         <LinkButton kind={ButtonKind.Secondary} route={ABOUT_PATH}>

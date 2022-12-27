@@ -1,0 +1,14 @@
+@import "../../sass-mixins/fonts.scss";
+
+.code-home-screen {
+  .subheader {
+    @include font-headline-medium;
+
+    font-style: oblique;
+    padding-bottom: 8px;
+  }
+
+  h2 {
+    padding-top: 28px;
+  }
+}

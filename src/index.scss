@@ -36,6 +36,12 @@ a:visited {
   @include themify($themes) {
     color: themed("link");
   }
+
+  &:hover {
+    @include themify($themes) {
+      color: themed("link-hover");
+    }
+  }
 }
 
 h1 {
