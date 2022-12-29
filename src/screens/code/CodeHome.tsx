@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH } from "../../routes/routes";
+import { ABOUT_PATH, POSTS_HOME_PATH } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
-
-import "./CodeHome.scss";
 
 function CodeHomeScreen() {
   return (
     <PageWrapper>
-      <main className="code-home-screen">
+      <main>
         <h1>Coding, Programming, Software Engineering</h1>
         <div className="subheader">
           (Really we just read code most the time)
         </div>
         <h2>
-          📝 <Link to={ABOUT_PATH}>Blog Posts</Link>
+          📝 <Link to={POSTS_HOME_PATH}>Blog Posts</Link>
         </h2>
         <p>
           A collection of different types of posts, from technical looks at code

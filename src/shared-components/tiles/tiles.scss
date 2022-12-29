@@ -67,7 +67,8 @@
       color: themed("on-background");
     }
 
-    &:visited {
+    &:visited,
+    &:visited:hover {
       color: themed("on-background");
     }
   }
@@ -127,5 +128,69 @@
   img {
     border-radius: 8px;
     width: 100%;
+  }
+}
+
+.postPreview {
+  border-left-style: solid;
+  border-left-width: 2px;
+  padding-left: 20px;
+  text-align: left;
+
+  &.cool_thing {
+    border-left-color: blue;
+  }
+
+  &.how_to {
+    border-left-color: green;
+  }
+
+  &.other {
+    border-left-color: gray;
+  }
+
+  &.the_art {
+    border-left-color: plum;
+  }
+
+  &.the_job {
+    border-left-color: slateblue;
+  }
+
+  > .teaser {
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:first-child {
+        margin-right: 12px;
+      }
+
+      &.label {
+        border-radius: 8px;
+        color: #fff; // same background colors in all themes, hence this color here.
+        padding: 2px 8px;
+      }
+
+      &.cool_thing {
+        background-color: blue;
+      }
+
+      &.how_to {
+        background-color: green;
+      }
+
+      &.other {
+        background-color: gray;
+      }
+
+      &.the_art {
+        background-color: plum;
+      }
+
+      &.the_job {
+        background-color: slateblue;
+      }
+    }
   }
 }

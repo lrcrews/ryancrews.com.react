@@ -3,7 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   AboutScreen,
   CodeHomeScreen,
+  HelloWorldScreen,
   HomeScreen,
+  PostsHomeScreen,
   PrivacyPolicyScreen,
   TermsScreen,
 } from "../screens";
@@ -15,6 +17,10 @@ export const PRIVACY_PATH = "/privacy-policy";
 export const TERMS_PATH = "/terms";
 
 export const CODE_HOME_PATH = "/code";
+export const POSTS_HOME_PATH = "/code/posts";
+
+// NEW_POST: Posts section of routes
+export const HELLO_WORLD_POST = "/code/posts/hello-world";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +32,10 @@ export const router = createBrowserRouter([
     element: <CodeHomeScreen />,
   },
   {
+    path: POSTS_HOME_PATH,
+    element: <PostsHomeScreen />,
+  },
+  {
     path: PRIVACY_PATH,
     element: <PrivacyPolicyScreen />,
   },
@@ -33,6 +43,12 @@ export const router = createBrowserRouter([
     path: TERMS_PATH,
     element: <TermsScreen />,
   },
+  // NEW_POST: Post section of routes... too.
+  {
+    path: HELLO_WORLD_POST,
+    element: <HelloWorldScreen />,
+  },
+  // Catch all
   {
     path: "*",
     element: <HomeScreen />,

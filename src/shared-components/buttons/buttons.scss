@@ -43,6 +43,11 @@ a.baseButton-primary {
     &:hover {
       background-color: themed("brand-secondary-hover");
     }
+
+    &:visited,
+    &:visited:hover {
+      color: themed("on-brand");
+    }
   }
 }
 
@@ -57,6 +62,11 @@ a.baseButton-secondary {
     &:hover {
       background-color: themed("background-hover");
       border-color: themed("brand-secondary");
+    }
+
+    &:visited,
+    &:visited:hover {
+      color: themed("on-background");
     }
   }
 }

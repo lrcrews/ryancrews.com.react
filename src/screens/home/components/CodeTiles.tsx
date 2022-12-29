@@ -1,4 +1,8 @@
-import { ABOUT_PATH, CODE_HOME_PATH } from "../../../routes/routes";
+import {
+  ABOUT_PATH,
+  CODE_HOME_PATH,
+  POSTS_HOME_PATH,
+} from "../../../routes/routes";
 import {
   AdName,
   AdTile,
@@ -44,23 +48,19 @@ function CodeTiles() {
           <p>A collection of useful tools to help with devlopment 🛠</p>
         </BaseTile>
         <BaseTile route={ABOUT_PATH}>
-          <div className="label">I Wrote a Book!</div>
-          <p>Well... I'm writing a book, it'll surely be done soon 🤞</p>
-        </BaseTile>
-        <AdTile adName={AdName.OriginalCoder} />
-        <BaseTile route={ABOUT_PATH}>
-          <div className="label">Blog Posts</div>
-          <p>
-            My thoughts on things related to programming, working in the
-            industry, interesting code patterns, and other loosely related
-            topics 🤯
-          </p>
-        </BaseTile>
-        <BaseTile route={ABOUT_PATH}>
           <div className="label">My Projects</div>
           <p>
             Pages dedicated to side projects, with helpful information and links
             to the code 👨‍💻
+          </p>
+        </BaseTile>
+        <AdTile adName={AdName.OriginalCoder} />
+        <BaseTile route={POSTS_HOME_PATH}>
+          <div className="label">Blog Posts</div>
+          <p>
+            My thoughts on things related to programming, working in the
+            industry, interesting code patterns, and other loosely related
+            topics 📝
           </p>
         </BaseTile>
       </TileContainer>

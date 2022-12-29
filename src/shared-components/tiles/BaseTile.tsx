@@ -6,6 +6,7 @@ import "./tiles.scss";
 export enum TileKind {
   Ad,
   FullImage,
+  PostPreview,
 }
 
 type _TileProps = {

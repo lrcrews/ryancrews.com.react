@@ -50,10 +50,22 @@ h1 {
 
 h2 {
   @include font-headline-medium;
+  padding-top: 28px;
 }
 
 p {
   @include font-body-medium;
+}
+
+.subheader {
+  @include font-headline-medium;
+
+  font-style: oblique;
+  padding-bottom: 8px;
+}
+
+.headline {
+  @include font-headline-medium;
 }
 
 .small-label {
@@ -62,6 +74,10 @@ p {
 
 .label {
   @include font-label-medium;
+}
+
+.text {
+  @include font-body-medium;
 }
 
 .u-textAlignCentered {

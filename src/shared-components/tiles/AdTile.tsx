@@ -5,9 +5,11 @@ import original_coder from "./original_coder.jpg";
 
 export enum AdName {
   AwesomeSkirts = "awesome_skirts",
-  GeekyShirts = "geeky_shirts",
   OriginalCoder = "original_coder",
 }
+
+// Using this as an easy hack for a "random ad" implementation.
+const NAMES_ARRAY = [AdName.AwesomeSkirts, AdName.OriginalCoder];
 
 const AD_CONTENT: { [key: string]: { content: string; image: string } } = {
   awesome_skirts: {
@@ -21,11 +23,15 @@ const AD_CONTENT: { [key: string]: { content: string; image: string } } = {
 };
 
 type AdTileProps = {
-  adName: string;
+  adName?: string;
 };
 
 function AdTile(props: AdTileProps) {
   const { adName } = props;
+
+  const contentKey = adName
+    ? adName
+    : NAMES_ARRAY[Math.floor(Math.random() * NAMES_ARRAY.length)];
 
   return (
     <BaseTile
@@ -34,8 +40,8 @@ function AdTile(props: AdTileProps) {
       target="_blank"
       rel="noreferrer"
     >
-      <img src={AD_CONTENT[adName].image} alt="Visit SACROtees." />
-      <p>{AD_CONTENT[adName].content}</p>
+      <img src={AD_CONTENT[contentKey].image} alt="Visit SACROtees." />
+      <p>{AD_CONTENT[contentKey].content}</p>
     </BaseTile>
   );
 }
