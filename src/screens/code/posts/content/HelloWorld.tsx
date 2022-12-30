@@ -5,15 +5,15 @@ function HelloWorldScreen() {
   return (
     <PostWrapper
       category={PostCategory.CoolThing}
-      subTitle="sometimes we need to POC some things"
+      subTitle="sometimes we need to POC things"
       title="Hello World!"
     >
       <p>
-        This is a test post for testing stuff. Such is the purpose of the Hello
-        and the Worlds.
+        This is a Proof-of-Concept post for testing stuff. Such is the purpose
+        of the Hellos and the Worlds.
       </p>
       <p>
-        What follows is a bunch of Snoop Dogg lorem impsum and tests of shared
+        What follows is a bunch of Snoop Dogg lorem ipsum and tests of shared
         components. Neat-o!
       </p>
       <p>

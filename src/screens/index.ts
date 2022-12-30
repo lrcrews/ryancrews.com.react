@@ -2,18 +2,23 @@ import AboutScreen from "./about/About";
 import PrivacyPolicyScreen from "./about/PrivacyPolicy";
 import TermsScreen from "./about/Terms";
 
+import HomeScreen from "./home/Home";
+
 import CodeHomeScreen from "./code/CodeHome";
-import HelloWorldScreen from "./code/posts/content/HelloWorld";
 import PostsHomeScreen, {
   PostCategoryDisplayName,
   PostCategory,
 } from "./code/posts/PostsHome";
+// NEW_POST: Posts section of imports
+import HelloWorldScreen from "./code/posts/content/HelloWorld";
 
-import HomeScreen from "./home/Home";
+import FoodHomeScreen from "./food/FoodHome";
+// NEW_RECIPE: Recipes section of imports
 
 export {
   AboutScreen,
   CodeHomeScreen,
+  FoodHomeScreen,
   HomeScreen,
   PostCategory,
   PostCategoryDisplayName,
@@ -22,4 +27,5 @@ export {
   TermsScreen,
   // NEW_POST: Posts section of screens
   HelloWorldScreen,
+  // NEW_RECIPE: Recipes section of screens
 };

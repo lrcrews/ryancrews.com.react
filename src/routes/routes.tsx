@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   AboutScreen,
   CodeHomeScreen,
+  FoodHomeScreen,
   HelloWorldScreen,
   HomeScreen,
   PostsHomeScreen,
@@ -22,6 +23,10 @@ export const POSTS_HOME_PATH = "/code/posts";
 // NEW_POST: Posts section of routes
 export const HELLO_WORLD_POST = "/code/posts/hello-world";
 
+export const FOOD_HOME_PATH = "/food";
+
+// NEW_RECIPES: Recipes section of routes
+
 export const router = createBrowserRouter([
   {
     path: ABOUT_PATH,
@@ -30,6 +35,10 @@ export const router = createBrowserRouter([
   {
     path: CODE_HOME_PATH,
     element: <CodeHomeScreen />,
+  },
+  {
+    path: FOOD_HOME_PATH,
+    element: <FoodHomeScreen />,
   },
   {
     path: POSTS_HOME_PATH,
@@ -48,6 +57,7 @@ export const router = createBrowserRouter([
     path: HELLO_WORLD_POST,
     element: <HelloWorldScreen />,
   },
+  // NEW_RECIPES: Recipes section of routes... too.
   // Catch all
   {
     path: "*",

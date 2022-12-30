@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH, CODE_HOME_PATH, HOME_PATH } from "../../routes/routes";
+import { CODE_HOME_PATH, FOOD_HOME_PATH, HOME_PATH } from "../../routes/routes";
 
 import logo from "./logo40h.png";
 
@@ -17,7 +17,7 @@ function SiteHeader() {
           <Link to={CODE_HOME_PATH}>code</Link>
         </li>
         <li>
-          <Link to={ABOUT_PATH}>food</Link>
+          <Link to={FOOD_HOME_PATH}>food</Link>
         </li>
       </ul>
     </header>

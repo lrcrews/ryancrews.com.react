@@ -1,4 +1,4 @@
-import { ABOUT_PATH } from "../../../routes/routes";
+import { FOOD_HOME_PATH } from "../../../routes/routes";
 import {
   AdName,
   AdTile,
@@ -15,7 +15,7 @@ function CookingTiles() {
   return (
     <TileContainer withImageTileHorizontal>
       <div className="tileContainer--image">
-        <FullImageTile route={ABOUT_PATH}>
+        <FullImageTile route={FOOD_HOME_PATH}>
           <img
             src={cooking}
             className="cooking-link-image"
@@ -43,11 +43,11 @@ function CookingTiles() {
         </div>
       </div>
       <TileContainer className="tileContainer--content">
-        <BaseTile route={ABOUT_PATH}>
+        <BaseTile route={FOOD_HOME_PATH}>
           <div className="label">Recipes!</div>
           <p>
-            ...and just recipes, no stories, no videos, no preamble, just one
-            non-video ad for cool clothes and the recipe 👨‍🍳
+            ...and just recipes, no stories, no videos, no preamble, no ads,
+            just the recipe 👨‍🍳
           </p>
           <p>
             Mostly for my own sanity, as wanting to toss hot oil on the people

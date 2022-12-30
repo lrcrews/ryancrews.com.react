@@ -76,6 +76,10 @@ p {
   @include font-label-medium;
 }
 
+.large-label {
+  @include font-label-large;
+}
+
 .text {
   @include font-body-medium;
 }
