@@ -1,0 +1,28 @@
+@import "../../../sass-mixins//fonts.scss";
+
+.ingredients {
+  .list {
+    @include font-body-medium;
+
+    padding-top: 16px;
+
+    .ingredient {
+      padding-bottom: 16px;
+
+      > * {
+        display: inline-block;
+        vertical-align: top;
+
+        &:first-child {
+          padding-right: 12px;
+          text-align: right;
+          width: 40px;
+        }
+
+        &:last-child {
+          width: calc(100% - 40px);
+        }
+      }
+    }
+  }
+}

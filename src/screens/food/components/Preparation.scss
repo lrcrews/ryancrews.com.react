@@ -1,0 +1,11 @@
+@import "../../../sass-mixins//fonts.scss";
+
+.preparation {
+  .list {
+    @include font-body-medium;
+
+    .step {
+      padding-bottom: 16px;
+    }
+  }
+}

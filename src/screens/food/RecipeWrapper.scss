@@ -1,0 +1,48 @@
+@import "../../sass-mixins/sizes.scss";
+
+@import "../../themes/themes.scss";
+@import "../../themes/theme-handler.scss";
+
+.recipe-screen {
+  > .content {
+    @include themify($themes) {
+      color: themed("on-background");
+    }
+
+    margin-bottom: 40px;
+
+    > * {
+      display: inline-block;
+      vertical-align: top;
+
+      > .section-header {
+        @include themify($themes) {
+          border-color: themed("brand-primary");
+        }
+
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+        margin-bottom: 32px;
+      }
+    }
+
+    > .ingrdients-wrapper {
+      margin-right: 40px;
+      width: 30%;
+
+      @media (max-width: $mobile-screen-breakpoint) {
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+
+    > .preparation-wrapper {
+      width: calc(70% - 40px);
+
+      @media (max-width: $mobile-screen-breakpoint) {
+        margin-top: 80px;
+        width: 100%;
+      }
+    }
+  }
+}

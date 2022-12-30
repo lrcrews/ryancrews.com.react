@@ -14,6 +14,7 @@ import HelloWorldScreen from "./code/posts/content/HelloWorld";
 
 import FoodHomeScreen from "./food/FoodHome";
 // NEW_RECIPE: Recipes section of imports
+import YakiSortaScreen from "./food/content/YakiSorta";
 
 export {
   AboutScreen,
@@ -28,4 +29,5 @@ export {
   // NEW_POST: Posts section of screens
   HelloWorldScreen,
   // NEW_RECIPE: Recipes section of screens
+  YakiSortaScreen,
 };

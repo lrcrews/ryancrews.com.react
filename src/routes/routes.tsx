@@ -9,6 +9,7 @@ import {
   PostsHomeScreen,
   PrivacyPolicyScreen,
   TermsScreen,
+  YakiSortaScreen,
 } from "../screens";
 
 export const HOME_PATH = "/";
@@ -26,6 +27,7 @@ export const HELLO_WORLD_POST = "/code/posts/hello-world";
 export const FOOD_HOME_PATH = "/food";
 
 // NEW_RECIPES: Recipes section of routes
+export const YAKI_SORTA_RECIPE = "/food/yaki-sorta";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,10 @@ export const router = createBrowserRouter([
     element: <HelloWorldScreen />,
   },
   // NEW_RECIPES: Recipes section of routes... too.
+  {
+    path: YAKI_SORTA_RECIPE,
+    element: <YakiSortaScreen />,
+  },
   // Catch all
   {
     path: "*",

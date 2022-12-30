@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH } from "../../routes/routes";
+import { YAKI_SORTA_RECIPE } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
 
 function FoodHomeScreen() {
@@ -17,7 +17,7 @@ function FoodHomeScreen() {
         <ul>
           {/* NEW_RECIPE: like a T0D0 comment for myself so I remember where I do the manual things */}
           <li>
-            <Link to={ABOUT_PATH} className="large-label">
+            <Link to={YAKI_SORTA_RECIPE} className="large-label">
               Yaki-Sorta
             </Link>
           </li>
