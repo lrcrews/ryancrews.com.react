@@ -1,7 +1,7 @@
 import "./Ingredients.scss";
 
 type Ingredient = {
-  count: number;
+  count: string;
   description: string;
 };
 

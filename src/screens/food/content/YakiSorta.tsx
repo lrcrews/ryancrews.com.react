@@ -9,37 +9,37 @@ function YakiSortaScreen() {
         <Ingredients
           ingredients={[
             {
-              count: 2,
+              count: "2",
               description:
                 "bags of yakisoba noodles (or 1 pound of frozen presteamed yakisoba noodles)",
             },
             {
-              count: 2,
+              count: "2",
               description: "tablespoons olive oil",
             },
             {
-              count: 1,
+              count: "1",
               description: "small yellow onion, thinly sliced",
             },
             {
-              count: 1,
+              count: "1",
               description: "large carrot, peeled and cut into matchsticks",
             },
             {
-              count: 1,
+              count: "1",
               description:
                 "large red bell pepper, stemmed, cored, and thinly sliced",
             },
             {
-              count: 1,
+              count: "1",
               description: "tablespoon minced garlic",
             },
             {
-              count: 1,
+              count: "1",
               description: "cup thinly sliced scallions",
             },
             {
-              count: 1,
+              count: "1",
               description: "cup (or more) roughly chopped cabbage",
             },
           ]}
@@ -48,39 +48,39 @@ function YakiSortaScreen() {
         <Ingredients
           ingredients={[
             {
-              count: 3,
+              count: "3",
               description: "tablespoons oyster sauce",
             },
             {
-              count: 2,
+              count: "2",
               description: "tablespoons Worcestershire sauce",
             },
             {
-              count: 1.5,
+              count: "1.5",
               description: "tablespoons soy sauce",
             },
             {
-              count: 1.5,
+              count: "1.5",
               description: "tablespoons sake",
             },
             {
-              count: 1,
+              count: "1",
               description: "tablespoon olive oil",
             },
             {
-              count: 1,
+              count: "1",
               description: "tablespoon ketchup",
             },
             {
-              count: 1,
+              count: "1",
               description: "teaspoon sugar",
             },
             {
-              count: 0.25,
+              count: "1/4",
               description: "teaspoon ginger",
             },
             {
-              count: 0.25,
+              count: "1/4",
               description: "teaspoon black pepper",
             },
           ]}

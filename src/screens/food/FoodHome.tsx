@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
 
-import { YAKI_SORTA_RECIPE } from "../../routes/routes";
+import {
+  BEEF_STIR_FRY_RECIPE,
+  CREAMY_CHICKEN_RECIPE,
+  FRIED_CHICKEN_NUGGETS_RECIPE,
+  GENERAL_TSOS_CHICKEN_RECIPE,
+  KOREAN_LETTUCE_WRAPS_RECIPE,
+  LEMON_GARLIC_BOK_CHOY_RECIPE,
+  NOBO_MISO_MARINATED_FISH_RECIPE,
+  SKAGENRORA_RECIPE,
+  SPAGHETTI_BOLOGNESE_RECIPE,
+  YAKI_SORTA_RECIPE,
+} from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
 
 function FoodHomeScreen() {
@@ -16,6 +27,51 @@ function FoodHomeScreen() {
         </p>
         <ul>
           {/* NEW_RECIPE: like a T0D0 comment for myself so I remember where I do the manual things */}
+          <li>
+            <Link to={BEEF_STIR_FRY_RECIPE} className="large-label">
+              Beef Stir Fry
+            </Link>
+          </li>
+          <li>
+            <Link to={CREAMY_CHICKEN_RECIPE} className="large-label">
+              Creamy Chicken
+            </Link>
+          </li>
+          <li>
+            <Link to={FRIED_CHICKEN_NUGGETS_RECIPE} className="large-label">
+              Fried Chicken Nuggets
+            </Link>
+          </li>
+          <li>
+            <Link to={GENERAL_TSOS_CHICKEN_RECIPE} className="large-label">
+              General Tso's Chicken
+            </Link>
+          </li>
+          <li>
+            <Link to={KOREAN_LETTUCE_WRAPS_RECIPE} className="large-label">
+              Korean Lettuce Wraps
+            </Link>
+          </li>
+          <li>
+            <Link to={LEMON_GARLIC_BOK_CHOY_RECIPE} className="large-label">
+              Lemon Garlic Sautéed Bok Choy
+            </Link>
+          </li>
+          <li>
+            <Link to={NOBO_MISO_MARINATED_FISH_RECIPE} className="large-label">
+              Nobu's Miso-Marinated Fish
+            </Link>
+          </li>
+          <li>
+            <Link to={SKAGENRORA_RECIPE} className="large-label">
+              Skagenrora (Swedish)
+            </Link>
+          </li>
+          <li>
+            <Link to={SPAGHETTI_BOLOGNESE_RECIPE} className="large-label">
+              Spaghetti Bolognese
+            </Link>
+          </li>
           <li>
             <Link to={YAKI_SORTA_RECIPE} className="large-label">
               Yaki-Sorta

@@ -19,7 +19,7 @@ function PageWrapper(props: PageWrapperProps) {
       <div className="page-wrapper">
         <ScrollToTop />
         <SiteHeader />
-        {children}
+        <div className="content">{children}</div>
         <SiteFooter />
       </div>
     </div>
