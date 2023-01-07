@@ -17,9 +17,12 @@ import FoodHomeScreen from "./food/FoodHome";
 
 // NEW_RECIPE: Recipes section of imports
 import BeefStirFryScreen from "./food/content/BeefStirFry";
+import BlackBeanFlautasScreen from "./food/content/BlackBeanFlautas";
+import ChickenMarsalaScreen from "./food/content/ChickenMarsala";
 import CreamyChickenScreen from "./food/content/CreamyChicken";
 import FriedChickenNuggetsScreen from "./food/content/FriedChickenNuggets";
 import GeneralTsosChickenScreen from "./food/content/GeneralTsosChicken";
+import GranolaScreen from "./food/content/Granola";
 import KoreanLettuceWrapsScreen from "./food/content/KoreanLettuceWraps";
 import LemonGarlicBokChoyScreen from "./food/content/LemonGarlicBokChoy";
 import NobuMisoMarinatedFishScreen from "./food/content/NobuMisoMarinatedFish";
@@ -41,9 +44,12 @@ export {
   HelloWorldScreen,
   // NEW_RECIPE: Recipes section of screens
   BeefStirFryScreen,
+  BlackBeanFlautasScreen,
+  ChickenMarsalaScreen,
   CreamyChickenScreen,
   FriedChickenNuggetsScreen,
   GeneralTsosChickenScreen,
+  GranolaScreen,
   KoreanLettuceWrapsScreen,
   LemonGarlicBokChoyScreen,
   NobuMisoMarinatedFishScreen,

@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 
 import {
   BEEF_STIR_FRY_RECIPE,
+  BLACK_BEAN_FLAUTAS_RECIPE,
+  CHICKEN_MARSALA_RECIPE,
   CREAMY_CHICKEN_RECIPE,
   FRIED_CHICKEN_NUGGETS_RECIPE,
   GENERAL_TSOS_CHICKEN_RECIPE,
+  GRANOLA_RECIPE,
   KOREAN_LETTUCE_WRAPS_RECIPE,
   LEMON_GARLIC_BOK_CHOY_RECIPE,
   NOBO_MISO_MARINATED_FISH_RECIPE,
@@ -25,11 +28,21 @@ function FoodHomeScreen() {
           better than an onion, or sake substituted for part of the soy sauce...
           but it's hard to remember all those changes).
         </p>
-        <ul>
+        <ul className="u-list-of-links">
           {/* NEW_RECIPE: like a T0D0 comment for myself so I remember where I do the manual things */}
           <li>
             <Link to={BEEF_STIR_FRY_RECIPE} className="large-label">
               Beef Stir Fry
+            </Link>
+          </li>
+          <li>
+            <Link to={BLACK_BEAN_FLAUTAS_RECIPE} className="large-label">
+              Black Bean Flautas
+            </Link>
+          </li>
+          <li>
+            <Link to={CHICKEN_MARSALA_RECIPE} className="large-label">
+              Chicken Marsala
             </Link>
           </li>
           <li>
@@ -45,6 +58,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={GENERAL_TSOS_CHICKEN_RECIPE} className="large-label">
               General Tso's Chicken
+            </Link>
+          </li>
+          <li>
+            <Link to={GRANOLA_RECIPE} className="large-label">
+              Granola
             </Link>
           </li>
           <li>

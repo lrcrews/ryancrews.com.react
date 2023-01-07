@@ -29,6 +29,12 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  &.u-list-of-links {
+    > li {
+      margin-bottom: 16px;
+    }
+  }
 }
 
 a,

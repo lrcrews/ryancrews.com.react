@@ -3,11 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   AboutScreen,
   BeefStirFryScreen,
+  BlackBeanFlautasScreen,
+  ChickenMarsalaScreen,
   CodeHomeScreen,
   CreamyChickenScreen,
   FoodHomeScreen,
   FriedChickenNuggetsScreen,
   GeneralTsosChickenScreen,
+  GranolaScreen,
   HelloWorldScreen,
   HomeScreen,
   KoreanLettuceWrapsScreen,
@@ -37,9 +40,12 @@ export const FOOD_HOME_PATH = "/food";
 
 // NEW_RECIPES: Recipes section of routes
 export const BEEF_STIR_FRY_RECIPE = "/food/beef-stir-fry";
+export const BLACK_BEAN_FLAUTAS_RECIPE = "/food/black-bean-flautas";
+export const CHICKEN_MARSALA_RECIPE = "/food/chicken-marsala";
 export const CREAMY_CHICKEN_RECIPE = "/food/creamy-chicken";
 export const FRIED_CHICKEN_NUGGETS_RECIPE = "/food/fried-chicken-nuggets";
 export const GENERAL_TSOS_CHICKEN_RECIPE = "/food/general-tsos-chicken";
+export const GRANOLA_RECIPE = "/food/granola";
 export const KOREAN_LETTUCE_WRAPS_RECIPE = "/food/korean-lettuce-wraps";
 export const LEMON_GARLIC_BOK_CHOY_RECIPE = "/food/lemon-garlic-bok-choy";
 export const NOBO_MISO_MARINATED_FISH_RECIPE = "/food/nobu-miso-marinated-fish";
@@ -83,6 +89,14 @@ export const router = createBrowserRouter([
     element: <BeefStirFryScreen />,
   },
   {
+    path: BLACK_BEAN_FLAUTAS_RECIPE,
+    element: <BlackBeanFlautasScreen />,
+  },
+  {
+    path: CHICKEN_MARSALA_RECIPE,
+    element: <ChickenMarsalaScreen />,
+  },
+  {
     path: CREAMY_CHICKEN_RECIPE,
     element: <CreamyChickenScreen />,
   },
@@ -93,6 +107,10 @@ export const router = createBrowserRouter([
   {
     path: GENERAL_TSOS_CHICKEN_RECIPE,
     element: <GeneralTsosChickenScreen />,
+  },
+  {
+    path: GRANOLA_RECIPE,
+    element: <GranolaScreen />,
   },
   {
     path: KOREAN_LETTUCE_WRAPS_RECIPE,
