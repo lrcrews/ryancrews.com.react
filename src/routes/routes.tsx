@@ -3,7 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   AboutScreen,
   BeefStirFryScreen,
+  BeerBatteredFishScreen,
   BlackBeanFlautasScreen,
+  CauliflowerHotWingsScreen,
   ChickenMarsalaScreen,
   CodeHomeScreen,
   CreamyChickenScreen,
@@ -40,7 +42,9 @@ export const FOOD_HOME_PATH = "/food";
 
 // NEW_RECIPES: Recipes section of routes
 export const BEEF_STIR_FRY_RECIPE = "/food/beef-stir-fry";
+export const BEER_BATTERED_FISH_RECIPE = "/food/beer-battered-fish";
 export const BLACK_BEAN_FLAUTAS_RECIPE = "/food/black-bean-flautas";
+export const CAULIFLOWER_HOT_WINGS_RECIPE = "/food/cauliflower-hot-wings";
 export const CHICKEN_MARSALA_RECIPE = "/food/chicken-marsala";
 export const CREAMY_CHICKEN_RECIPE = "/food/creamy-chicken";
 export const FRIED_CHICKEN_NUGGETS_RECIPE = "/food/fried-chicken-nuggets";
@@ -89,8 +93,16 @@ export const router = createBrowserRouter([
     element: <BeefStirFryScreen />,
   },
   {
+    path: BEER_BATTERED_FISH_RECIPE,
+    element: <BeerBatteredFishScreen />,
+  },
+  {
     path: BLACK_BEAN_FLAUTAS_RECIPE,
     element: <BlackBeanFlautasScreen />,
+  },
+  {
+    path: CAULIFLOWER_HOT_WINGS_RECIPE,
+    element: <CauliflowerHotWingsScreen />,
   },
   {
     path: CHICKEN_MARSALA_RECIPE,

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 import {
   BEEF_STIR_FRY_RECIPE,
+  BEER_BATTERED_FISH_RECIPE,
   BLACK_BEAN_FLAUTAS_RECIPE,
+  CAULIFLOWER_HOT_WINGS_RECIPE,
   CHICKEN_MARSALA_RECIPE,
   CREAMY_CHICKEN_RECIPE,
   FRIED_CHICKEN_NUGGETS_RECIPE,
@@ -36,8 +38,18 @@ function FoodHomeScreen() {
             </Link>
           </li>
           <li>
+            <Link to={BEER_BATTERED_FISH_RECIPE} className="large-label">
+              Beer Battered Fish
+            </Link>
+          </li>
+          <li>
             <Link to={BLACK_BEAN_FLAUTAS_RECIPE} className="large-label">
               Black Bean Flautas
+            </Link>
+          </li>
+          <li>
+            <Link to={CAULIFLOWER_HOT_WINGS_RECIPE} className="large-label">
+              Cauliflower Hot Wings
             </Link>
           </li>
           <li>

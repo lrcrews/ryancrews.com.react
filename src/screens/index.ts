@@ -17,7 +17,9 @@ import FoodHomeScreen from "./food/FoodHome";
 
 // NEW_RECIPE: Recipes section of imports
 import BeefStirFryScreen from "./food/content/BeefStirFry";
+import BeerBatteredFishScreen from "./food/content/BeerBatteredFish";
 import BlackBeanFlautasScreen from "./food/content/BlackBeanFlautas";
+import CauliflowerHotWingsScreen from "./food/content/CauliflowerHotWings";
 import ChickenMarsalaScreen from "./food/content/ChickenMarsala";
 import CreamyChickenScreen from "./food/content/CreamyChicken";
 import FriedChickenNuggetsScreen from "./food/content/FriedChickenNuggets";
@@ -44,7 +46,9 @@ export {
   HelloWorldScreen,
   // NEW_RECIPE: Recipes section of screens
   BeefStirFryScreen,
+  BeerBatteredFishScreen,
   BlackBeanFlautasScreen,
+  CauliflowerHotWingsScreen,
   ChickenMarsalaScreen,
   CreamyChickenScreen,
   FriedChickenNuggetsScreen,
