@@ -45,7 +45,7 @@ function CodeTiles() {
       <TileContainer className="tileContainer--content">
         <BaseTile route={ABOUT_PATH}>
           <div className="label">Useful Tools</div>
-          <p>A collection of useful tools to help with devlopment 🛠</p>
+          <p>A collection of useful tools to help with development 🛠</p>
         </BaseTile>
         <BaseTile route={ABOUT_PATH}>
           <div className="label">My Projects</div>

@@ -46,7 +46,7 @@ function NobuMisoMarinatedFishScreen() {
             "Heat an oven-proof skillet over high heat on the stovetop adding enough oil (vegetable) to coat bottom of pan.",
             "Lightly wipe off any excess miso clinging to the fillets, but don't rinse it off. Place the fish skin-side-up on the pan and cook until the bottom of the fish browns and blackens in spots, about 3 minutes. Flip and continue cooking until the other side is browned, 2 to 3 minutes.",
             "Transfer to the oven and bake for 5 to 10 minutes, until fish is opaque and flakes easily.",
-            "Serve over white rice with choice of side (like baby bok chow, or sautéed spinach, etc.).",
+            "Serve over white rice with choice of side (like baby bok choy, or sautéed spinach, etc.).",
           ]}
         />
       </>

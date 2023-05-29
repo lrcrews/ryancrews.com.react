@@ -70,11 +70,11 @@ function GeneralTsosChickenScreen() {
             "Start rice.",
             "In medium pan, heat sesame oil on medium-high until hot.",
             "Add the garlic and white ends of the green onion, season with salt and pepper, cook for 1 minute (or until fragrant).",
-            "Turn off heat and mix in ketchup, soy glaze, and as much sambal oelek as you'd like (more for spicier). Stir thouroughly to combine and transfer to bowl.",
+            "Turn off heat and mix in ketchup, soy glaze, and as much sambal oelek as you'd like (more for spicier). Stir thoroughly to combine and transfer to bowl.",
             "Season chicken with salt and pepper, toss to coat. Add corn starch, toss to coat.",
             "In pan used to make sauce, add thin layer of vegetable oil and heat on medium-high until hot.",
             "Once oil is hot enough to sizzle a piece of chicken immediately, add chicken in single layer (without pieces touching) and cook 7 to 9 minutes, turning pieces occasionally.",
-            "Transfer chicken to paper towels and immediately saeson with salt and pepper. Tranfer to bowl of sauce and thourgoughly coat chicken.",
+            "Transfer chicken to paper towels and immediately season with salt and pepper. Transfer to bowl of sauce and thorgoughly coat chicken.",
             "While chicken rests heat two teaspoons of olive oil on medium-high until hot. Add snow peas, season with salt and pepper, cook 1 to 2 minutes, stirring occasionally.",
             "Plate and enjoy!",
           ]}

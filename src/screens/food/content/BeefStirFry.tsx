@@ -41,7 +41,7 @@ function BeefStirFryScreen() {
               description: "teaspoon white miso paste",
             },
           ]}
-          title="Yakisoba"
+          title="Stir Fry"
         />
         <Ingredients
           ingredients={[
@@ -73,8 +73,8 @@ function BeefStirFryScreen() {
       <>
         <Preparation
           steps={[
-            "Put all the ingredient for the marinade in a bowl with the beef. Mix well and set aside for 30 minutes. Start the rice.",
-            "In a medium size pan over high heat, add oil, garlic and chiles and cook for 1 minute.",
+            "Put all the ingredients for the marinade in a bowl with the beef. Mix well and set aside for 30 minutes. Start the rice.",
+            "In a medium size pan over high heat, add oil, garlic, and chiles and cook for 1 minute.",
             "Add beef and cook for 3 minutes.",
             "Add pepper and green onion and cook for 2 minutes, stirring often.",
             "Turn the heat off, add hoisin sauce and miso paste, stir well until paste has dissolved. Serve stir fry with white rice.",

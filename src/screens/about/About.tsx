@@ -8,7 +8,7 @@ function AboutScreen() {
         <h2>Why does everything end up here?</h2>
         <p>
           With the latest interation of my blog there are many things that are a
-          work-in-progress. If you are seeing this message than you ended up
+          work-in-progress. If you are seeing this message then you ended up
           here before I have any (or all of the) pages set up. Congrats 🎉
         </p>
         <p>

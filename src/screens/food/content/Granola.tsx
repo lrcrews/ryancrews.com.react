@@ -22,7 +22,7 @@ function GranolaScreen() {
             },
             {
               count: "1/4",
-              description: "brown sugar",
+              description: "cup brown sugar",
             },
             {
               count: "1/4",
@@ -51,7 +51,7 @@ function GranolaScreen() {
             "Heat the oven to 250ºF.",
             "In a large bowl, combine the oats, pecans, coconut, brown sugar, and salt.",
             "Combine oil and maple syrup and add to mixture, stir to combine.",
-            "Transfer mixture to parchment paper lined backing sheet, spread evenly, and bake on middle rack for 1 hour and 15 minutes, stirring every 15 minutes.",
+            "Transfer mixture to parchment paper lined baking sheet, spread evenly, and bake on middle rack for 1 hour and 15 minutes, stirring every 15 minutes.",
             "Cool for 30 minutes.",
           ]}
         />

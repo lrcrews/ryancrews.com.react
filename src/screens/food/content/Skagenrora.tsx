@@ -53,7 +53,7 @@ function SkagenroraScreen() {
         <Preparation
           steps={[
             "Bake russet potatoes.",
-            "Combine remaining ingredients in a medium bowl and mix thouroughly. Refrigerate.",
+            "Combine remaining ingredients in a medium bowl and mix thoroughly. Refrigerate.",
             "Top baked potatoes with Skagenrora.",
             "Serve with additional hot sauce (Frank's) to taste.",
           ]}

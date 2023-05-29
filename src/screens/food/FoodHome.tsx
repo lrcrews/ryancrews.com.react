@@ -23,7 +23,7 @@ function FoodHomeScreen() {
       <main>
         <h1>Recipes</h1>
         <p>
-          Very bare-bones. This is a place for me and my wife to see altered
+          Very bare-bones. This is a place for my wife and me to see altered
           versions of recipes we enjoy (after-all, sometimes shallot works
           better than an onion, or sake substituted for part of the soy sauce...
           but it's hard to remember all those changes).

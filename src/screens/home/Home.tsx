@@ -1,4 +1,4 @@
-import { ABOUT_PATH, HELLO_WORLD_POST } from "../../routes/routes";
+import { HELLO_WORLD_POST } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
 import { PostPreviewTile } from "../../shared-components/tiles";
 import { PostCategory } from "../code/posts/PostsHome";
