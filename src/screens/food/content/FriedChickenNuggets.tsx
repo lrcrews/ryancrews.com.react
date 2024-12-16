@@ -13,7 +13,7 @@ function FriedChickenNuggetsScreen() {
               description: "chicken breasts",
             },
             {
-              count: "2",
+              count: "2+",
               description: "tablespoons dill pickle juice",
             },
             {
@@ -56,10 +56,10 @@ function FriedChickenNuggetsScreen() {
       <>
         <Preparation
           steps={[
-            "Cut chicken into bite-sized pieces and set aside.",
+            "Cut chicken into bite-sized pieces and place in bowl with dill pickle juice, let sit for at least 15 minutes.",
             "Combine remaining ingredients, except corn starch, in a medium bowl and mix thoroughly.",
             "Add corn starch a few teaspoons at a time and mix. Continue doing this until you form a thick batter.",
-            "Add the chicken to the batter, cover pieces thoroughly, and let set at least 30 minutes.",
+            "Add the chicken to the batter, cover pieces thoroughly, and let set at least 15 minutes.",
             "In deep skillet heat 1/2 - 1 inch oil to 375 (pieces should barely break surface). Fry chicken a few pieces at a time (don't let touch each other) 2 minutes on one side, then flip for 2 minutes on the other. Drain on paper towels, salt and black pepper immediately.",
             "Serve with sauces (hot sauce, ranch, etc.), and sides (corn on the cob and mashed potatoes, or spinach and sweet potato fries, etc.).",
           ]}

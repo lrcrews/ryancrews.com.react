@@ -4,8 +4,10 @@ import {
   BEEF_STIR_FRY_RECIPE,
   BEER_BATTERED_FISH_RECIPE,
   BLACK_BEAN_FLAUTAS_RECIPE,
+  BRAISED_CHICKEN_RECIPE,
   CAULIFLOWER_HOT_WINGS_RECIPE,
   CHICKEN_MARSALA_RECIPE,
+  CHICKEN_TIKKA_MASALA_RECIPE,
   CREAMY_CHICKEN_RECIPE,
   FRIED_CHICKEN_NUGGETS_RECIPE,
   GENERAL_TSOS_CHICKEN_RECIPE,
@@ -13,8 +15,10 @@ import {
   KOREAN_LETTUCE_WRAPS_RECIPE,
   LEMON_GARLIC_BOK_CHOY_RECIPE,
   NOBO_MISO_MARINATED_FISH_RECIPE,
+  ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
   SKAGENRORA_RECIPE,
   SPAGHETTI_BOLOGNESE_RECIPE,
+  TACOS_DE_CARNITAS_RECIPE,
   YAKI_SORTA_RECIPE,
 } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
@@ -48,6 +52,11 @@ function FoodHomeScreen() {
             </Link>
           </li>
           <li>
+            <Link to={BRAISED_CHICKEN_RECIPE} className="large-label">
+              Braised Chicken
+            </Link>
+          </li>
+          <li>
             <Link to={CAULIFLOWER_HOT_WINGS_RECIPE} className="large-label">
               Cauliflower Hot Wings
             </Link>
@@ -55,6 +64,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={CHICKEN_MARSALA_RECIPE} className="large-label">
               Chicken Marsala
+            </Link>
+          </li>
+          <li>
+            <Link to={CHICKEN_TIKKA_MASALA_RECIPE} className="large-label">
+              Chicken Tikka Masala
             </Link>
           </li>
           <li>
@@ -93,6 +107,11 @@ function FoodHomeScreen() {
             </Link>
           </li>
           <li>
+            <Link to={ONE_PAN_ORECCHIETTE_PASTA_RECIPE} className="large-label">
+              One-Pan Orecchiette Pasta
+            </Link>
+          </li>
+          <li>
             <Link to={SKAGENRORA_RECIPE} className="large-label">
               Skagenrora (Swedish)
             </Link>
@@ -100,6 +119,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={SPAGHETTI_BOLOGNESE_RECIPE} className="large-label">
               Spaghetti Bolognese
+            </Link>
+          </li>
+          <li>
+            <Link to={TACOS_DE_CARNITAS_RECIPE} className="large-label">
+              Tacos de Carnitas
             </Link>
           </li>
           <li>

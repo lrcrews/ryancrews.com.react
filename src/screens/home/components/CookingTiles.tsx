@@ -59,7 +59,7 @@ function CookingTiles() {
             month unless I sign in 🤬
           </p>
         </BaseTile>
-        <AdTile adName={AdName.AwesomeSkirts} />
+        <AdTile adName={AdName.AtomicWillWriteSomething} />
       </TileContainer>
     </TileContainer>
   );

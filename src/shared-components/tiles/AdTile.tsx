@@ -1,24 +1,24 @@
 import BaseTile, { TileKind } from "./BaseTile";
 
-import awesome_skirts from "./awesome_skirts.jpg";
-import original_coder from "./original_coder.jpg";
+import atomic_a_programmer from "./atomic_a_programmer.png";
+import atomic_will_write_something from "./atomic_will_write_something.png";
 
 export enum AdName {
-  AwesomeSkirts = "awesome_skirts",
-  OriginalCoder = "original_coder",
+  AtomicAProgrammer = "atomic_a_programmer",
+  AtomicWillWriteSomething = "atomic_will_write_something",
 }
 
 // Using this as an easy hack for a "random ad" implementation.
-const NAMES_ARRAY = [AdName.AwesomeSkirts, AdName.OriginalCoder];
+const NAMES_ARRAY = [AdName.AtomicAProgrammer, AdName.AtomicWillWriteSomething];
 
 const AD_CONTENT: { [key: string]: { content: string; image: string } } = {
-  awesome_skirts: {
-    content: "Stylish skirts!",
-    image: awesome_skirts,
+  atomic_a_programmer: {
+    content: "I just stare at my screen, but it looks like I'm working.",
+    image: atomic_a_programmer,
   },
-  original_coder: {
-    content: "Shirts for coders!",
-    image: original_coder,
+  atomic_will_write_something: {
+    content: "Words will appear here... Eventually.",
+    image: atomic_will_write_something,
   },
 };
 
@@ -36,11 +36,11 @@ function AdTile(props: AdTileProps) {
   return (
     <BaseTile
       kind={TileKind.Ad}
-      route="https://sacrotees.com"
+      route="http://ryancrews.com"
       target="_blank"
       rel="noreferrer"
     >
-      <img src={AD_CONTENT[contentKey].image} alt="Visit SACROtees." />
+      <img src={AD_CONTENT[contentKey].image} alt="Buy my book, please!" />
       <p>{AD_CONTENT[contentKey].content}</p>
     </BaseTile>
   );

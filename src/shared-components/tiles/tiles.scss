@@ -98,10 +98,6 @@
     }
   }
 
-  &:hover {
-    transform: perspective(800px) rotateY(-8deg) rotateX(-8deg);
-  }
-
   img {
     border-radius: 8px;
     width: 100%;
@@ -120,10 +116,6 @@
 
   border-width: 0;
   padding: 0;
-
-  &:hover {
-    transform: perspective(800px) rotateY(8deg);
-  }
 
   img {
     border-radius: 8px;

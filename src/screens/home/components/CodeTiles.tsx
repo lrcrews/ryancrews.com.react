@@ -54,7 +54,7 @@ function CodeTiles() {
             to the code 👨‍💻
           </p>
         </BaseTile>
-        <AdTile adName={AdName.OriginalCoder} />
+        <AdTile adName={AdName.AtomicAProgrammer} />
         <BaseTile route={POSTS_HOME_PATH}>
           <div className="label">Blog Posts</div>
           <p>
