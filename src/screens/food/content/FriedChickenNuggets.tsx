@@ -56,7 +56,7 @@ function FriedChickenNuggetsScreen() {
       <>
         <Preparation
           steps={[
-            "Cut chicken into bite-sized pieces and place in bowl with dill pickle juice, let sit for at least 15 minutes.",
+            "Cut chicken into bite-sized pieces and place in bowl with dill pickle juice, let sit for at least 15 minutes'.",
             "Combine remaining ingredients, except corn starch, in a medium bowl and mix thoroughly.",
             "Add corn starch a few teaspoons at a time and mix. Continue doing this until you form a thick batter.",
             "Add the chicken to the batter, cover pieces thoroughly, and let set at least 15 minutes.",
