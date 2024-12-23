@@ -40,6 +40,7 @@ import SkagenroraScreen from "./food/content/Skagenrora";
 import SpaghettiBologneseScreen from "./food/content/SpaghettiBolognese";
 import TacosDeCarnitasScreen from "./food/content/TacosDeCarnitas";
 import YakiSortaScreen from "./food/content/YakiSorta";
+import ZaatarChickenBurgersScreen from "./food/content/ZaatarChickenBurgers";
 import ZaatarRoastedChickenScreen from "./food/content/ZaatarRoastedChicken";
 
 export {
@@ -79,5 +80,6 @@ export {
   SpaghettiBologneseScreen,
   TacosDeCarnitasScreen,
   YakiSortaScreen,
+  ZaatarChickenBurgersScreen,
   ZaatarRoastedChickenScreen,
 };

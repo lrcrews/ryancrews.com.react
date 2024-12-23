@@ -25,6 +25,7 @@ import {
   SPAGHETTI_BOLOGNESE_RECIPE,
   TACOS_DE_CARNITAS_RECIPE,
   YAKI_SORTA_RECIPE,
+  ZAATAR_CHICKEN_BURGERS_RECIPE,
   ZAATAR_ROASTED_CHICKEN_RECIPE,
 } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
@@ -166,6 +167,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={YAKI_SORTA_RECIPE} className="large-label">
               Yaki-Sorta
+            </Link>
+          </li>
+          <li>
+            <Link to={ZAATAR_CHICKEN_BURGERS_RECIPE} className="large-label">
+              Za'atar Chicken Burgers
             </Link>
           </li>
           <li>

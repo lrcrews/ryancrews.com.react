@@ -35,6 +35,7 @@ import BeefSukiyakiRiceBowlScreen from "../screens/food/content/BeefSukiyakiRice
 import ZaatarRoastedChickenScreen from "../screens/food/content/ZaatarRoastedChicken";
 import KungPaoChickenScreen from "../screens/food/content/KungPaoChicken";
 import MisoGarlicCauliflowerBitesScreen from "../screens/food/content/MisoGarlicCauliflowerBites";
+import ZaatarChickenBurgersScreen from "../screens/food/content/ZaatarChickenBurgers";
 
 export const HOME_PATH = "/";
 
@@ -78,6 +79,7 @@ export const SKAGENRORA_RECIPE = "/food/skagenrora";
 export const SPAGHETTI_BOLOGNESE_RECIPE = "/food/spaghetti-bolognese";
 export const TACOS_DE_CARNITAS_RECIPE = "/food/tacos-de-carnitas";
 export const YAKI_SORTA_RECIPE = "/food/yaki-sorta";
+export const ZAATAR_CHICKEN_BURGERS_RECIPE = "/food/zaatar-chicken-burgers";
 export const ZAATAR_ROASTED_CHICKEN_RECIPE = "/food/zaatar-roasted-chicken";
 
 export const router = createBrowserRouter([
@@ -206,6 +208,10 @@ export const router = createBrowserRouter([
   {
     path: YAKI_SORTA_RECIPE,
     element: <YakiSortaScreen />,
+  },
+  {
+    path: ZAATAR_CHICKEN_BURGERS_RECIPE,
+    element: <ZaatarChickenBurgersScreen />,
   },
   {
     path: ZAATAR_ROASTED_CHICKEN_RECIPE,
