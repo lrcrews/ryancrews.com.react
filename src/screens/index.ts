@@ -36,6 +36,7 @@ import LemonGarlicBokChoyScreen from "./food/content/LemonGarlicBokChoy";
 import MisoGarlicCauliflowerBitesScreen from "./food/content/MisoGarlicCauliflowerBites";
 import NobuMisoMarinatedFishScreen from "./food/content/NobuMisoMarinatedFish";
 import OnePanOrecchiettePastaScreen from "./food/content/OnePanOrecchiettePasta";
+import PadThaiScreen from "./food/content/PadThai";
 import SkagenroraScreen from "./food/content/Skagenrora";
 import SpaghettiBologneseScreen from "./food/content/SpaghettiBolognese";
 import TacosDeCarnitasScreen from "./food/content/TacosDeCarnitas";
@@ -76,6 +77,7 @@ export {
   MisoGarlicCauliflowerBitesScreen,
   NobuMisoMarinatedFishScreen,
   OnePanOrecchiettePastaScreen,
+  PadThaiScreen,
   SkagenroraScreen,
   SpaghettiBologneseScreen,
   TacosDeCarnitasScreen,

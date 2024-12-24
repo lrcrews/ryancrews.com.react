@@ -21,6 +21,7 @@ import {
   MISO_GARLIC_CAULIFLOWER_BITES_RECIPE,
   NOBO_MISO_MARINATED_FISH_RECIPE,
   ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
+  PAD_THAI_RECIPE,
   SKAGENRORA_RECIPE,
   SPAGHETTI_BOLOGNESE_RECIPE,
   TACOS_DE_CARNITAS_RECIPE,
@@ -147,6 +148,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={ONE_PAN_ORECCHIETTE_PASTA_RECIPE} className="large-label">
               One-Pan Orecchiette Pasta
+            </Link>
+          </li>
+          <li>
+            <Link to={PAD_THAI_RECIPE} className="large-label">
+              Pad Thai
             </Link>
           </li>
           <li>
