@@ -37,6 +37,7 @@ import KungPaoChickenScreen from "../screens/food/content/KungPaoChicken";
 import MisoGarlicCauliflowerBitesScreen from "../screens/food/content/MisoGarlicCauliflowerBites";
 import ZaatarChickenBurgersScreen from "../screens/food/content/ZaatarChickenBurgers";
 import PadThaiScreen from "../screens/food/content/PadThai";
+import JapaneseChickenDonScreen from "../screens/food/content/JapaneseChickenDon";
 
 export const HOME_PATH = "/";
 
@@ -68,6 +69,7 @@ export const FRIED_POTATOES_AND_ONNIONS_RECIPE =
   "/food/fried-potatoes-and-onions";
 export const GENERAL_TSOS_CHICKEN_RECIPE = "/food/general-tsos-chicken";
 export const GRANOLA_RECIPE = "/food/granola";
+export const JAPANESE_CHICKEN_DON_RECIPE = "/food/japanese-chicken-don";
 export const KOREAN_LETTUCE_WRAPS_RECIPE = "/food/korean-lettuce-wraps";
 export const KUNG_PAO_CHICKEN_RECIPE = "/food/kung-pao-chicken";
 export const LEMON_GARLIC_BOK_CHOY_RECIPE = "/food/lemon-garlic-bok-choy";
@@ -170,6 +172,10 @@ export const router = createBrowserRouter([
   {
     path: GRANOLA_RECIPE,
     element: <GranolaScreen />,
+  },
+  {
+    path: JAPANESE_CHICKEN_DON_RECIPE,
+    element: <JapaneseChickenDonScreen />,
   },
   {
     path: KOREAN_LETTUCE_WRAPS_RECIPE,

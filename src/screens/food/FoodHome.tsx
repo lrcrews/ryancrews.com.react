@@ -15,6 +15,7 @@ import {
   FRIED_POTATOES_AND_ONNIONS_RECIPE,
   GENERAL_TSOS_CHICKEN_RECIPE,
   GRANOLA_RECIPE,
+  JAPANESE_CHICKEN_DON_RECIPE,
   KOREAN_LETTUCE_WRAPS_RECIPE,
   KUNG_PAO_CHICKEN_RECIPE,
   LEMON_GARLIC_BOK_CHOY_RECIPE,
@@ -115,6 +116,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={GRANOLA_RECIPE} className="large-label">
               Granola
+            </Link>
+          </li>
+          <li>
+            <Link to={JAPANESE_CHICKEN_DON_RECIPE} className="large-label">
+              Japanese Chicken Don
             </Link>
           </li>
           <li>
