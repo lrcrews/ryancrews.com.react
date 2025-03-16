@@ -38,6 +38,7 @@ import MisoGarlicCauliflowerBitesScreen from "../screens/food/content/MisoGarlic
 import ZaatarChickenBurgersScreen from "../screens/food/content/ZaatarChickenBurgers";
 import PadThaiScreen from "../screens/food/content/PadThai";
 import JapaneseChickenDonScreen from "../screens/food/content/JapaneseChickenDon";
+import CrispyBakedChickenFlautasScreen from "../screens/food/content/CrispyBakedChickenFlautas";
 
 export const HOME_PATH = "/";
 
@@ -64,6 +65,8 @@ export const CAULIFLOWER_HOT_WINGS_RECIPE = "/food/cauliflower-hot-wings";
 export const CHICKEN_MARSALA_RECIPE = "/food/chicken-marsala";
 export const CHICKEN_TIKKA_MASALA_RECIPE = "/food/chicken-tikka-masala";
 export const CREAMY_CHICKEN_RECIPE = "/food/creamy-chicken";
+export const CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE =
+  "/food/crispy-baked-chicken-flautas";
 export const FRIED_CHICKEN_NUGGETS_RECIPE = "/food/fried-chicken-nuggets";
 export const FRIED_POTATOES_AND_ONNIONS_RECIPE =
   "/food/fried-potatoes-and-onions";
@@ -156,6 +159,10 @@ export const router = createBrowserRouter([
   {
     path: CREAMY_CHICKEN_RECIPE,
     element: <CreamyChickenScreen />,
+  },
+  {
+    path: CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE,
+    element: <CrispyBakedChickenFlautasScreen />,
   },
   {
     path: FRIED_CHICKEN_NUGGETS_RECIPE,

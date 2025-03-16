@@ -11,6 +11,7 @@ import {
   CHICKEN_MARSALA_RECIPE,
   CHICKEN_TIKKA_MASALA_RECIPE,
   CREAMY_CHICKEN_RECIPE,
+  CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE,
   FRIED_CHICKEN_NUGGETS_RECIPE,
   FRIED_POTATOES_AND_ONNIONS_RECIPE,
   GENERAL_TSOS_CHICKEN_RECIPE,
@@ -93,6 +94,14 @@ function FoodHomeScreen() {
           <li>
             <Link to={CREAMY_CHICKEN_RECIPE} className="large-label">
               Creamy Chicken
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE}
+              className="large-label"
+            >
+              Crispy Baked Chicken Flautas
             </Link>
           </li>
           <li>

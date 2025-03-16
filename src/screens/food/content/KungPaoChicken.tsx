@@ -11,7 +11,7 @@ function KungPaoChickenScreen() {
             {
               count: "1/2",
               description:
-                "boneless, skinless chicken breast, cut into 1/4-inch-thick slices",
+                "pound boneless, skinless chicken breast, cut into 1/4-inch-thick slices",
             },
             {
               count: "1",
@@ -68,20 +68,20 @@ function KungPaoChickenScreen() {
               description: "tablespoons chicken broth",
             },
             {
-              count: "2",
-              description: "teaspoons balsamic vinegar",
-            },
-            {
-              count: "2",
-              description: "teaspoons chile-garlic sauce",
-            },
-            {
               count: "1",
               description: "tablespoon soy sauce",
             },
             {
               count: "1",
               description: "tablespoon sherry",
+            },
+            {
+              count: "2",
+              description: "teaspoons balsamic vinegar",
+            },
+            {
+              count: "2",
+              description: "teaspoons chile-garlic sauce",
             },
           ]}
           title="Sauce"

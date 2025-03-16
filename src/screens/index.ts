@@ -26,6 +26,7 @@ import CauliflowerHotWingsScreen from "./food/content/CauliflowerHotWings";
 import ChickenMarsalaScreen from "./food/content/ChickenMarsala";
 import ChickenTikkaMasalaScreen from "./food/content/ChickenTikkaMasala";
 import CreamyChickenScreen from "./food/content/CreamyChicken";
+import CrispyBakedChickenFlautasScreen from "./food/content/CrispyBakedChickenFlautas";
 import FriedChickenNuggetsScreen from "./food/content/FriedChickenNuggets";
 import FriedPotatoeAndOnionsScreen from "./food/content/FriedPotatoesAndOnions";
 import GeneralTsosChickenScreen from "./food/content/GeneralTsosChicken";
@@ -68,6 +69,7 @@ export {
   ChickenMarsalaScreen,
   ChickenTikkaMasalaScreen,
   CreamyChickenScreen,
+  CrispyBakedChickenFlautasScreen,
   FriedChickenNuggetsScreen,
   FriedPotatoeAndOnionsScreen,
   GeneralTsosChickenScreen,
