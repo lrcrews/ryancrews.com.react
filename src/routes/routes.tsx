@@ -37,8 +37,10 @@ import KungPaoChickenScreen from "../screens/food/content/KungPaoChicken";
 import MisoGarlicCauliflowerBitesScreen from "../screens/food/content/MisoGarlicCauliflowerBites";
 import ZaatarChickenBurgersScreen from "../screens/food/content/ZaatarChickenBurgers";
 import PadThaiScreen from "../screens/food/content/PadThai";
+import PorkTenderloinScreen from "../screens/food/content/PorkTenderloin";
 import JapaneseChickenDonScreen from "../screens/food/content/JapaneseChickenDon";
 import CrispyBakedChickenFlautasScreen from "../screens/food/content/CrispyBakedChickenFlautas";
+import RicePilafScreen from "../screens/food/content/RicePilaf";
 
 export const HOME_PATH = "/";
 
@@ -82,6 +84,8 @@ export const NOBO_MISO_MARINATED_FISH_RECIPE = "/food/nobu-miso-marinated-fish";
 export const ONE_PAN_ORECCHIETTE_PASTA_RECIPE =
   "/food/one-pan-orecchiette-pasta";
 export const PAD_THAI_RECIPE = "/food/pad-thai";
+export const PORK_TENDERLOIN_RECIPE = "/food/pork-tenderloin";
+export const RICE_PILAF_RECIPE = "/food/rice-pilaf";
 export const SKAGENRORA_RECIPE = "/food/skagenrora";
 export const SPAGHETTI_BOLOGNESE_RECIPE = "/food/spaghetti-bolognese";
 export const TACOS_DE_CARNITAS_RECIPE = "/food/tacos-de-carnitas";
@@ -211,6 +215,14 @@ export const router = createBrowserRouter([
   {
     path: PAD_THAI_RECIPE,
     element: <PadThaiScreen />,
+  },
+  {
+    path: PORK_TENDERLOIN_RECIPE,
+    element: <PorkTenderloinScreen />,
+  },
+  {
+    path: RICE_PILAF_RECIPE,
+    element: <RicePilafScreen />,
   },
   {
     path: SKAGENRORA_RECIPE,

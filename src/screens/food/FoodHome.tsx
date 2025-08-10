@@ -24,6 +24,8 @@ import {
   NOBO_MISO_MARINATED_FISH_RECIPE,
   ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
   PAD_THAI_RECIPE,
+  PORK_TENDERLOIN_RECIPE,
+  RICE_PILAF_RECIPE,
   SKAGENRORA_RECIPE,
   SPAGHETTI_BOLOGNESE_RECIPE,
   TACOS_DE_CARNITAS_RECIPE,
@@ -168,6 +170,16 @@ function FoodHomeScreen() {
           <li>
             <Link to={PAD_THAI_RECIPE} className="large-label">
               Pad Thai
+            </Link>
+          </li>
+          <li>
+            <Link to={PORK_TENDERLOIN_RECIPE} className="large-label">
+              Pork Tenderloin
+            </Link>
+          </li>
+          <li>
+            <Link to={RICE_PILAF_RECIPE} className="large-label">
+              Rice Pilaf
             </Link>
           </li>
           <li>
