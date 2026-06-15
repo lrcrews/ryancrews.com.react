@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH, HOME_PATH, POSTS_HOME_PATH } from "../../routes/routes";
+import { ABOUT_PATH, HOME_PATH, POSTS_HOME_PATH } from "../../routes/paths";
 import { PageWrapper } from "../../shared-components";
 
 function CodeHomeScreen() {

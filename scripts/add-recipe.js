@@ -5,9 +5,10 @@ const path = require("path");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT_DIR, "src/screens/food/content");
+const PATHS_PATH = path.join(ROOT_DIR, "src/routes/paths.ts");
 const ROUTES_PATH = path.join(ROOT_DIR, "src/routes/routes.tsx");
 const SCREENS_INDEX_PATH = path.join(ROOT_DIR, "src/screens/index.ts");
-const FOOD_HOME_PATH = path.join(ROOT_DIR, "src/screens/food/FoodHome.tsx");
+const RECIPES_PATH = path.join(ROOT_DIR, "src/screens/food/recipes.ts");
 
 function usage() {
   console.error(`Usage: npm run add-recipe -- path/to/recipe.json
@@ -15,6 +16,7 @@ function usage() {
 Example recipe.json:
 {
   "title": "Tomato Soup",
+  "tags": ["vegetarian", "onion"],
   "ingredients": [
     "2 tablespoons olive oil",
     "1 onion, diced",
@@ -129,6 +131,17 @@ function normalizeIngredientSections(recipe) {
 function validateRecipe(recipe) {
   if (!recipe.title) {
     throw new Error("Recipe must include a title.");
+  }
+
+  if (recipe.tags && !Array.isArray(recipe.tags)) {
+    throw new Error("Recipe tags must be an array of strings.");
+  }
+
+  if (
+    recipe.tags &&
+    recipe.tags.some((tag) => typeof tag !== "string" || tag.trim().length === 0)
+  ) {
+    throw new Error("Recipe tags must be non-empty strings.");
   }
 
   if (!Array.isArray(recipe.steps) || recipe.steps.length === 0) {
@@ -294,6 +307,34 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function insertSortedBlocksToEOF(
+  content,
+  startMarker,
+  insertion,
+  blockPattern,
+  getKey,
+) {
+  if (content.includes(insertion.trim())) {
+    return content;
+  }
+
+  const startMarkerIndex = content.indexOf(startMarker);
+
+  if (startMarkerIndex === -1) {
+    throw new Error(`Could not find marker: ${startMarker}`);
+  }
+
+  const startIndex = content.indexOf("\n", startMarkerIndex) + 1;
+  const section = content.slice(startIndex);
+  const blocks = section.match(blockPattern) || [];
+  const sortedBlocks = blocks
+    .filter((block) => block.trim().length > 0)
+    .concat(insertion)
+    .sort((left, right) => getKey(left).localeCompare(getKey(right)));
+
+  return `${content.slice(0, startIndex)}${sortedBlocks.join("")}`;
+}
+
 function insertSortedBlocks(
   content,
   startMarker,
@@ -323,9 +364,8 @@ function insertSortedBlocks(
 function updateRoutes(names) {
   let content = fs.readFileSync(ROUTES_PATH, "utf8");
 
-  const importInsertion = `  ${names.screenName},`;
-  const constantInsertion = `export const ${names.constantName} = "/food/${names.slug}";
-`;
+  const screenImportInsertion = `  ${names.screenName},`;
+  const pathImportInsertion = `  ${names.constantName},`;
   const routeInsertion = `  {
     path: ${names.constantName},
     element: <${names.screenName} />,
@@ -335,15 +375,12 @@ function updateRoutes(names) {
   content = insertSortedNamedImportMember(
     content,
     "../screens",
-    importInsertion,
+    screenImportInsertion,
   );
-  content = insertSortedBlocks(
+  content = insertSortedNamedImportMember(
     content,
-    "// NEW_RECIPES: Recipes section of routes",
-    "export const router",
-    constantInsertion,
-    /export const [A-Z0-9_]+[\s\S]*?;\n/g,
-    (block) => block.match(/export const ([A-Z0-9_]+)/)?.[1] || block,
+    "./paths",
+    pathImportInsertion,
   );
   content = insertSortedBlocks(
     content,
@@ -355,6 +392,23 @@ function updateRoutes(names) {
   );
 
   fs.writeFileSync(ROUTES_PATH, content);
+}
+
+function updateRoutePaths(names) {
+  let content = fs.readFileSync(PATHS_PATH, "utf8");
+
+  const constantInsertion = `export const ${names.constantName} = "/food/${names.slug}";
+`;
+
+  content = insertSortedBlocksToEOF(
+    content,
+    "// NEW_RECIPES: Recipes section of routes",
+    constantInsertion,
+    /export const [A-Z0-9_]+[\s\S]*?;\n/g,
+    (block) => block.match(/export const ([A-Z0-9_]+)/)?.[1] || block,
+  );
+
+  fs.writeFileSync(PATHS_PATH, content);
 }
 
 function updateScreensIndex(names) {
@@ -381,33 +435,35 @@ function updateScreensIndex(names) {
   fs.writeFileSync(SCREENS_INDEX_PATH, content);
 }
 
-function updateFoodHome(recipe, names) {
-  let content = fs.readFileSync(FOOD_HOME_PATH, "utf8");
+function updateRecipesCatalog(recipe, names) {
+  let content = fs.readFileSync(RECIPES_PATH, "utf8");
 
-  const importInsertion = `  ${names.constantName},
-`;
-  const linkInsertion = `          <li>
-            <Link to={${names.constantName}} className="large-label">
-              ${recipe.title}
-            </Link>
-          </li>
+  const tags = (recipe.tags || [])
+    .map((tag) => tag.trim().toLowerCase())
+    .sort((left, right) => left.localeCompare(right));
+  const importInsertion = `  ${names.constantName},`;
+  const recipeInsertion = `  {
+    path: ${names.constantName},
+    tags: [${tags.map(escapeString).join(", ")}],
+    title: ${escapeString(recipe.title)},
+  },
 `;
 
   content = insertSortedNamedImportMember(
     content,
-    "../../routes/routes",
+    "../../routes/paths",
     importInsertion,
   );
   content = insertSortedBlocks(
     content,
-    "{/* NEW_RECIPE: like a T0D0 comment for myself so I remember where I do the manual things */}",
-    "        </ul>",
-    linkInsertion,
-    /          <li>\n[\s\S]*?          <\/li>\n/g,
-    (block) => block.match(/>\n\s+(.+)\n\s+<\/Link>/)?.[1] || block,
+    "const recipeCatalog: RecipeSummary[] = [",
+    "];",
+    recipeInsertion,
+    /  \{\n[\s\S]*?  \},\n/g,
+    (block) => block.match(/title: "([^"]+)"/)?.[1] || block,
   );
 
-  fs.writeFileSync(FOOD_HOME_PATH, content);
+  fs.writeFileSync(RECIPES_PATH, content);
 }
 
 function main() {
@@ -427,9 +483,10 @@ function main() {
   }
 
   fs.writeFileSync(recipePath, generateRecipeScreen(recipe, names));
+  updateRoutePaths(names);
   updateRoutes(names);
   updateScreensIndex(names);
-  updateFoodHome(recipe, names);
+  updateRecipesCatalog(recipe, names);
 
   console.log(`Created ${path.relative(ROOT_DIR, recipePath)}`);
   console.log(`Added route /food/${names.slug}`);

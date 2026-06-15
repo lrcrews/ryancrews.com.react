@@ -4,7 +4,7 @@ import {
   CODE_HOME_PATH,
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
-} from "../../../routes/routes";
+} from "../../../routes/paths";
 import { PageWrapper } from "../../../shared-components";
 import { PostPreviewTile } from "../../../shared-components/tiles";
 

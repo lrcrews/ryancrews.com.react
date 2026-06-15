@@ -1,4 +1,4 @@
-import { CODE_HOME_PATH, FOOD_HOME_PATH } from "../../../routes/routes";
+import { CODE_HOME_PATH, FOOD_HOME_PATH } from "../../../routes/paths";
 
 import {
   ButtonContainer,

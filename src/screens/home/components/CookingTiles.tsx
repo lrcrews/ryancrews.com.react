@@ -1,4 +1,4 @@
-import { FOOD_HOME_PATH } from "../../../routes/routes";
+import { FOOD_HOME_PATH } from "../../../routes/paths";
 import {
   AdName,
   AdTile,

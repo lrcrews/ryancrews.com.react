@@ -2,7 +2,7 @@ import {
   ABOUT_PATH,
   CODE_HOME_PATH,
   POSTS_HOME_PATH,
-} from "../../../routes/routes";
+} from "../../../routes/paths";
 import {
   AdName,
   AdTile,

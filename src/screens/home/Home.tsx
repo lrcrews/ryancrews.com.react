@@ -1,4 +1,4 @@
-import { HELLO_ISSUES_POST } from "../../routes/routes";
+import { HELLO_ISSUES_POST } from "../../routes/paths";
 import { PageWrapper } from "../../shared-components";
 import { PostPreviewTile } from "../../shared-components/tiles";
 import { PostCategory } from "../code/posts/PostsHome";

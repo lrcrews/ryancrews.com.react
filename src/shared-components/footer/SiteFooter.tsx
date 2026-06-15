@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH, PRIVACY_PATH, TERMS_PATH } from "../../routes/routes";
+import { ABOUT_PATH, PRIVACY_PATH, TERMS_PATH } from "../../routes/paths";
 import { ThemeContext } from "../../themes";
 
 import "./SiteFooter.scss";

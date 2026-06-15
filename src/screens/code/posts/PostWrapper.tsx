@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import { POSTS_HOME_PATH } from "../../../routes/routes";
+import { POSTS_HOME_PATH } from "../../../routes/paths";
 import { AdTile, PageWrapper } from "../../../shared-components";
 import { PostCategory, PostCategoryDisplayName } from "./PostsHome";
 

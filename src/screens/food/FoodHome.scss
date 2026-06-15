@@ -1,0 +1,54 @@
+@import "../../sass-mixins/fonts.scss";
+@import "../../themes/theme-handler.scss";
+@import "../../themes/themes.scss";
+
+.foodFilters {
+  margin: 24px 0 32px;
+}
+
+.foodFilters-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.foodFilters-input {
+  @include font-body-medium;
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: themed("border");
+    color: themed("on-background");
+  }
+
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+}
+
+.foodFilters-clearButton {
+  flex-shrink: 0;
+}
+
+.foodFilters-helpText {
+  margin: 12px 0 16px;
+}
+
+.foodFilters-quickActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.foodFilters-tagButton.baseButton-secondary.foodFilters-tagButton-active {
+  @include themify($themes) {
+    background-color: themed("brand-secondary");
+    border-color: themed("brand-secondary");
+    color: themed("on-brand");
+  }
+}
+
+.foodFilters-emptyState {
+  margin-top: 24px;
+}
