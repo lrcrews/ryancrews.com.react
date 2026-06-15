@@ -13,6 +13,7 @@ import {
   CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE,
   FRIED_CHICKEN_NUGGETS_RECIPE,
   FRIED_POTATOES_AND_ONNIONS_RECIPE,
+  GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE,
   GENERAL_TSOS_CHICKEN_RECIPE,
   GRANOLA_RECIPE,
   JAPANESE_CHICKEN_DON_RECIPE,
@@ -117,6 +118,11 @@ function FoodHomeScreen() {
               className="large-label"
             >
               Fried Potatoes and Onions
+            </Link>
+          </li>
+          <li>
+            <Link to={GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE} className="large-label">
+              Gamja Jorim (Korean Braised Potatoes)
             </Link>
           </li>
           <li>

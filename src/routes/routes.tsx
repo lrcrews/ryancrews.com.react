@@ -12,6 +12,7 @@ import {
   CreamyChickenScreen,
   FoodHomeScreen,
   FriedChickenNuggetsScreen,
+  GamjaJorimKoreanBraisedPotatoesScreen,
   GeneralTsosChickenScreen,
   GranolaScreen,
   HelloWorldScreen,
@@ -72,6 +73,8 @@ export const CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE =
 export const FRIED_CHICKEN_NUGGETS_RECIPE = "/food/fried-chicken-nuggets";
 export const FRIED_POTATOES_AND_ONNIONS_RECIPE =
   "/food/fried-potatoes-and-onions";
+export const GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE =
+  "/food/gamja-jorim-korean-braised-potatoes";
 export const GENERAL_TSOS_CHICKEN_RECIPE = "/food/general-tsos-chicken";
 export const GRANOLA_RECIPE = "/food/granola";
 export const JAPANESE_CHICKEN_DON_RECIPE = "/food/japanese-chicken-don";
@@ -176,6 +179,10 @@ export const router = createBrowserRouter([
   {
     path: FRIED_POTATOES_AND_ONNIONS_RECIPE,
     element: <FriedPotatoeAndOnionsScreen />,
+  },
+  {
+    path: GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE,
+    element: <GamjaJorimKoreanBraisedPotatoesScreen />,
   },
   {
     path: GENERAL_TSOS_CHICKEN_RECIPE,

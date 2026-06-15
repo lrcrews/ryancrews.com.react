@@ -262,6 +262,38 @@ function insertSortedLines(content, startMarker, endMarker, insertion) {
   )}`;
 }
 
+function insertSortedNamedImportMember(content, importFrom, insertion) {
+  if (content.includes(insertion.trim())) {
+    return content;
+  }
+
+  const importPattern = new RegExp(
+    `import \\{\\n([\\s\\S]*?)\\n\\} from ${escapeRegExp(
+      JSON.stringify(importFrom),
+    )};`,
+  );
+  const match = content.match(importPattern);
+
+  if (!match) {
+    throw new Error(`Could not find named import from ${importFrom}`);
+  }
+
+  const memberLines = match[1]
+    .split("\n")
+    .filter((line) => line.trim().length > 0)
+    .concat(insertion.trimEnd())
+    .sort((left, right) => left.trim().localeCompare(right.trim()));
+  const replacement = `import {\n${memberLines.join("\n")}\n} from ${JSON.stringify(
+    importFrom,
+  )};`;
+
+  return content.replace(importPattern, replacement);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function insertSortedBlocks(
   content,
   startMarker,
@@ -300,17 +332,18 @@ function updateRoutes(names) {
   },
 `;
 
-  content = insertSortedLines(
+  content = insertSortedNamedImportMember(
     content,
-    "import {",
-    '} from "../screens";',
+    "../screens",
     importInsertion,
   );
-  content = insertSortedLines(
+  content = insertSortedBlocks(
     content,
     "// NEW_RECIPES: Recipes section of routes",
     "export const router",
     constantInsertion,
+    /export const [A-Z0-9_]+[\s\S]*?;\n/g,
+    (block) => block.match(/export const ([A-Z0-9_]+)/)?.[1] || block,
   );
   content = insertSortedBlocks(
     content,
@@ -360,10 +393,9 @@ function updateFoodHome(recipe, names) {
           </li>
 `;
 
-  content = insertSortedLines(
+  content = insertSortedNamedImportMember(
     content,
-    "import {",
-    '} from "../../routes/routes";',
+    "../../routes/routes",
     importInsertion,
   );
   content = insertSortedBlocks(

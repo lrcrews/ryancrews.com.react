@@ -1,0 +1,49 @@
+{
+  "title": "Gamja Jorim (Korean Braised Potatoes)",
+  "ingredients": [
+    {
+      "title": "Potatoes",
+      "items": [
+        {
+          "count": "3/4",
+          "description": "pound Yukon gold potatoes, cut into 1-inch chunks (typically half a bag)"
+        },
+        { "count": "1", "description": "tablespoon vegetable oil" },
+        "Salt"
+      ]
+    },
+    {
+      "title": "Sauce",
+      "items": [
+        { "count": "1/4", "description": "cup soy sauce" },
+        { "count": "1/4", "description": "cup water" },
+        { "count": "1 1/2", "description": "tablespoons brown sugar" },
+        { "count": "1", "description": "tablespoon honey or rice syrup" },
+        { "count": "1", "description": "tablespoon mirin" },
+        { "count": "2", "description": "cloves garlic, finely grated" }
+      ]
+    },
+    {
+      "title": "Finish",
+      "items": [
+        { "count": "1/2", "description": "teaspoon sesame oil" },
+        { "count": "1", "description": "tablespoon toasted sesame seeds" },
+        "Sliced scallions, optional"
+      ]
+    }
+  ],
+  "steps": [
+    "Preheat the oven to 400°F and place a baking sheet in the oven to preheat.",
+    "Toss the potatoes with the oil and a pinch of salt in a large bowl.",
+    "Carefully remove the hot baking sheet from the oven and spread the potatoes evenly onto the pan.",
+    "Roast the potatoes, turning halfway through, until the edges are golden and the potatoes still show slight resistance when pierced with a fork or skewer, 15 to 20 minutes.",
+    "After turning the potatoes halfway through cooking, combine the soy sauce, water, brown sugar, honey or rice syrup, mirin, and garlic in a wide skillet.",
+    "Bring the sauce to a gentle simmer over medium heat and cook until thickened, glossy, and briefly leaving a trail on the bottom of the pan when dragged with a spatula, 6 to 8 minutes.",
+    "Carefully loosen the potatoes from the baking sheet and add them directly into the simmering sauce.",
+    "Cook uncovered, stirring occasionally, until the potatoes are tender and the liquid thickens into a syrupy glaze, 12 to 15 minutes.",
+    "Remove the pan from the heat once the potatoes are glossy and evenly coated.",
+    "Transfer to a serving bowl, drizzle with sesame oil, sprinkle with toasted sesame seeds, and garnish with sliced scallions if using.",
+    "Serve warm or at room temperature with rice and other Korean side dishes."
+  ],
+  "sourceLink": "https://www.simplyrecipes.com/gamja-jorim-korean-braised-potatoes-recipe-11919335"
+}

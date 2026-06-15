@@ -29,6 +29,7 @@ import CreamyChickenScreen from "./food/content/CreamyChicken";
 import CrispyBakedChickenFlautasScreen from "./food/content/CrispyBakedChickenFlautas";
 import FriedChickenNuggetsScreen from "./food/content/FriedChickenNuggets";
 import FriedPotatoeAndOnionsScreen from "./food/content/FriedPotatoesAndOnions";
+import GamjaJorimKoreanBraisedPotatoesScreen from "./food/content/GamjaJorimKoreanBraisedPotatoes";
 import GeneralTsosChickenScreen from "./food/content/GeneralTsosChicken";
 import GranolaScreen from "./food/content/Granola";
 import JapaneseChickenDonScreen from "./food/content/JapaneseChickenDon";
@@ -74,6 +75,7 @@ export {
   CrispyBakedChickenFlautasScreen,
   FriedChickenNuggetsScreen,
   FriedPotatoeAndOnionsScreen,
+  GamjaJorimKoreanBraisedPotatoesScreen,
   GeneralTsosChickenScreen,
   GranolaScreen,
   JapaneseChickenDonScreen,
