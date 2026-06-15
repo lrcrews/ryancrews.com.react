@@ -1,44 +1,52 @@
+import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  BEEF_NEGIMAKI_RECIPE,
-  BEEF_STIR_FRY_RECIPE,
-  BEEF_SUKIYAKI_RICE_BOWL_RECIPE,
-  BEER_BATTERED_FISH_RECIPE,
-  BLACK_BEAN_FLAUTAS_RECIPE,
-  BRAISED_CHICKEN_RECIPE,
-  CAULIFLOWER_HOT_WINGS_RECIPE,
-  CHICKEN_MARSALA_RECIPE,
-  CHICKEN_TIKKA_MASALA_RECIPE,
-  CREAMY_CHICKEN_RECIPE,
-  CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE,
-  FRIED_CHICKEN_NUGGETS_RECIPE,
-  FRIED_POTATOES_AND_ONNIONS_RECIPE,
-  GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE,
-  GENERAL_TSOS_CHICKEN_RECIPE,
-  GRANOLA_RECIPE,
-  HOME_PATH,
-  JAPANESE_CHICKEN_DON_RECIPE,
-  KOREAN_LETTUCE_WRAPS_RECIPE,
-  KUNG_PAO_CHICKEN_RECIPE,
-  LEMON_GARLIC_BOK_CHOY_RECIPE,
-  MISO_GARLIC_CAULIFLOWER_BITES_RECIPE,
-  NOBO_MISO_MARINATED_FISH_RECIPE,
-  ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
-  OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE,
-  PAD_THAI_RECIPE,
-  PORK_TENDERLOIN_RECIPE,
-  RICE_PILAF_RECIPE,
-  SKAGENRORA_RECIPE,
-  SPAGHETTI_BOLOGNESE_RECIPE,
-  STOVE_TO_OVEN_STEAK_RECIPE,
-  TACOS_DE_CARNITAS_RECIPE,
-  YAKI_SORTA_RECIPE,
-  ZAATAR_CHICKEN_BURGERS_RECIPE,
-  ZAATAR_ROASTED_CHICKEN_RECIPE,
-} from "../../routes/routes";
-import { PageWrapper } from "../../shared-components";
+
+import { HOME_PATH } from "../../routes/routes";
+import { PageWrapper, SecondaryButton } from "../../shared-components";
+
+import { QUICK_FILTER_TAGS, recipes } from "./recipes";
+
+import "./FoodHome.scss";
 
 function FoodHomeScreen() {
+  const [filterValue, setFilterValue] = useState("");
+
+  const filterTerms = Array.from(
+    new Set(
+      filterValue
+        .split(",")
+        .map((term) => term.trim().toLowerCase())
+        .filter(Boolean)
+    )
+  );
+
+  const displayedRecipes = recipes.filter((recipe) =>
+    filterTerms.every((term) => {
+      const recipeTitle = recipe.title.toLowerCase();
+
+      return (
+        recipeTitle.includes(term) ||
+        recipe.tags.some((tag) => tag.toLowerCase().includes(term))
+      );
+    })
+  );
+
+  function handleFilterChange(event: ChangeEvent<HTMLInputElement>) {
+    setFilterValue(event.target.value);
+  }
+
+  function handleClearFilters() {
+    setFilterValue("");
+  }
+
+  function handleQuickFilterClick(tag: string) {
+    if (filterTerms.includes(tag)) {
+      return;
+    }
+
+    setFilterValue([...filterTerms, tag].join(", "));
+  }
+
   return (
     <PageWrapper>
       <main>
@@ -52,191 +60,60 @@ function FoodHomeScreen() {
           better than an onion, or sake substituted for part of the soy sauce...
           but it's hard to remember all those changes).
         </p>
+        <section className="foodFilters">
+          <div className="foodFilters-controls">
+            <input
+              aria-label="Filter recipes by tag or title"
+              className="foodFilters-input"
+              onChange={handleFilterChange}
+              placeholder="Filter by tags or title (for example: chicken, onion)"
+              type="text"
+              value={filterValue}
+            />
+            <SecondaryButton
+              className="foodFilters-clearButton"
+              onClick={handleClearFilters}
+            >
+              Clear
+            </SecondaryButton>
+          </div>
+          <p className="foodFilters-helpText">
+            Use comma-separated filters to match recipe tags or titles.
+          </p>
+          <div className="foodFilters-quickActions">
+            {QUICK_FILTER_TAGS.map((tag) => {
+              const isActive = filterTerms.includes(tag);
+
+              return (
+                <SecondaryButton
+                  aria-pressed={isActive}
+                  className={`foodFilters-tagButton ${
+                    isActive ? "foodFilters-tagButton-active" : ""
+                  }`}
+                  key={tag}
+                  onClick={() => handleQuickFilterClick(tag)}
+                >
+                  {tag}
+                </SecondaryButton>
+              );
+            })}
+          </div>
+        </section>
         <ul className="u-list-of-links">
           {/* NEW_RECIPE: like a T0D0 comment for myself so I remember where I do the manual things */}
-          <li>
-            <Link to={BEEF_NEGIMAKI_RECIPE} className="large-label">
-              Beef Negimaki (Beef and Scallion Roll)
-            </Link>
-          </li>
-          <li>
-            <Link to={BEEF_STIR_FRY_RECIPE} className="large-label">
-              Beef Stir Fry
-            </Link>
-          </li>
-          <li>
-            <Link to={BEEF_SUKIYAKI_RICE_BOWL_RECIPE} className="large-label">
-              Beef Sukiyaki Rice Bowl
-            </Link>
-          </li>
-          <li>
-            <Link to={BEER_BATTERED_FISH_RECIPE} className="large-label">
-              Beer Battered Fish
-            </Link>
-          </li>
-          <li>
-            <Link to={BLACK_BEAN_FLAUTAS_RECIPE} className="large-label">
-              Black Bean Flautas
-            </Link>
-          </li>
-          <li>
-            <Link to={BRAISED_CHICKEN_RECIPE} className="large-label">
-              Braised Chicken
-            </Link>
-          </li>
-          <li>
-            <Link to={CAULIFLOWER_HOT_WINGS_RECIPE} className="large-label">
-              Cauliflower Hot Wings
-            </Link>
-          </li>
-          <li>
-            <Link to={CHICKEN_MARSALA_RECIPE} className="large-label">
-              Chicken Marsala
-            </Link>
-          </li>
-          <li>
-            <Link to={CHICKEN_TIKKA_MASALA_RECIPE} className="large-label">
-              Chicken Tikka Masala
-            </Link>
-          </li>
-          <li>
-            <Link to={CREAMY_CHICKEN_RECIPE} className="large-label">
-              Creamy Chicken
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE}
-              className="large-label"
-            >
-              Crispy Baked Chicken Flautas
-            </Link>
-          </li>
-          <li>
-            <Link to={FRIED_CHICKEN_NUGGETS_RECIPE} className="large-label">
-              Fried Chicken Nuggets
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={FRIED_POTATOES_AND_ONNIONS_RECIPE}
-              className="large-label"
-            >
-              Fried Potatoes and Onions
-            </Link>
-          </li>
-          <li>
-            <Link to={GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE} className="large-label">
-              Gamja Jorim (Korean Braised Potatoes)
-            </Link>
-          </li>
-          <li>
-            <Link to={GENERAL_TSOS_CHICKEN_RECIPE} className="large-label">
-              General Tso's Chicken
-            </Link>
-          </li>
-          <li>
-            <Link to={GRANOLA_RECIPE} className="large-label">
-              Granola
-            </Link>
-          </li>
-          <li>
-            <Link to={JAPANESE_CHICKEN_DON_RECIPE} className="large-label">
-              Japanese Chicken Don
-            </Link>
-          </li>
-          <li>
-            <Link to={KOREAN_LETTUCE_WRAPS_RECIPE} className="large-label">
-              Korean Lettuce Wraps
-            </Link>
-          </li>
-          <li>
-            <Link to={KUNG_PAO_CHICKEN_RECIPE} className="large-label">
-              Kung Pao Chicken
-            </Link>
-          </li>
-          <li>
-            <Link to={LEMON_GARLIC_BOK_CHOY_RECIPE} className="large-label">
-              Lemon Garlic Sautéed Bok Choy
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={MISO_GARLIC_CAULIFLOWER_BITES_RECIPE}
-              className="large-label"
-            >
-              Miso-Garlic Cauliflower Bites
-            </Link>
-          </li>
-          <li>
-            <Link to={NOBO_MISO_MARINATED_FISH_RECIPE} className="large-label">
-              Nobu's Miso-Marinated Fish
-            </Link>
-          </li>
-          <li>
-            <Link to={ONE_PAN_ORECCHIETTE_PASTA_RECIPE} className="large-label">
-              One-Pan Orecchiette Pasta
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE}
-              className="large-label"
-            >
-              Oven Roasted Cola-Braised Pulled Pork
-            </Link>
-          </li>
-          <li>
-            <Link to={PAD_THAI_RECIPE} className="large-label">
-              Pad Thai
-            </Link>
-          </li>
-          <li>
-            <Link to={PORK_TENDERLOIN_RECIPE} className="large-label">
-              Pork Tenderloin
-            </Link>
-          </li>
-          <li>
-            <Link to={RICE_PILAF_RECIPE} className="large-label">
-              Rice Pilaf
-            </Link>
-          </li>
-          <li>
-            <Link to={SKAGENRORA_RECIPE} className="large-label">
-              Skagenrora (Swedish)
-            </Link>
-          </li>
-          <li>
-            <Link to={SPAGHETTI_BOLOGNESE_RECIPE} className="large-label">
-              Spaghetti Bolognese
-            </Link>
-          </li>
-          <li>
-            <Link to={STOVE_TO_OVEN_STEAK_RECIPE} className="large-label">
-              Stove-to-Oven Steak
-            </Link>
-          </li>
-          <li>
-            <Link to={TACOS_DE_CARNITAS_RECIPE} className="large-label">
-              Tacos de Carnitas
-            </Link>
-          </li>
-          <li>
-            <Link to={YAKI_SORTA_RECIPE} className="large-label">
-              Yaki-Sorta
-            </Link>
-          </li>
-          <li>
-            <Link to={ZAATAR_CHICKEN_BURGERS_RECIPE} className="large-label">
-              Za'atar Chicken Burgers
-            </Link>
-          </li>
-          <li>
-            <Link to={ZAATAR_ROASTED_CHICKEN_RECIPE} className="large-label">
-              Za'atar Roasted Chicken
-            </Link>
-          </li>
+          {displayedRecipes.map((recipe) => (
+            <li key={recipe.path}>
+              <Link to={recipe.path} className="large-label">
+                {recipe.title}
+              </Link>
+            </li>
+          ))}
         </ul>
+        {displayedRecipes.length === 0 ? (
+          <p className="foodFilters-emptyState">
+            No recipes match the current filter.
+          </p>
+        ) : null}
       </main>
     </PageWrapper>
   );
