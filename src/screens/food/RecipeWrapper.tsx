@@ -21,6 +21,9 @@ function RecipeWrapper(props: RecipeWrapperProps) {
   return (
     <PageWrapper>
       <main className="recipe-screen">
+        <p>
+          👈 <Link to={FOOD_HOME_PATH}>Back to recipes</Link>
+        </p>
         <h1>{title}</h1>
         <div className="content">
           <div className="ingrdients-wrapper">
@@ -40,9 +43,6 @@ function RecipeWrapper(props: RecipeWrapperProps) {
             </a>
           </p>
         )}
-        <p>
-          👈 <Link to={FOOD_HOME_PATH}>Back to recipes</Link>
-        </p>
       </main>
     </PageWrapper>
   );
