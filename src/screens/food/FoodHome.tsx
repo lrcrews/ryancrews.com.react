@@ -29,6 +29,7 @@ import {
   RICE_PILAF_RECIPE,
   SKAGENRORA_RECIPE,
   SPAGHETTI_BOLOGNESE_RECIPE,
+  STOVE_TO_OVEN_STEAK_RECIPE,
   TACOS_DE_CARNITAS_RECIPE,
   YAKI_SORTA_RECIPE,
   ZAATAR_CHICKEN_BURGERS_RECIPE,
@@ -204,6 +205,11 @@ function FoodHomeScreen() {
           <li>
             <Link to={SPAGHETTI_BOLOGNESE_RECIPE} className="large-label">
               Spaghetti Bolognese
+            </Link>
+          </li>
+          <li>
+            <Link to={STOVE_TO_OVEN_STEAK_RECIPE} className="large-label">
+              Stove-to-Oven Steak
             </Link>
           </li>
           <li>

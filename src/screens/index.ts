@@ -45,6 +45,7 @@ import PorkTenderloinScreen from "./food/content/PorkTenderloin";
 import RicePilafScreen from "./food/content/RicePilaf";
 import SkagenroraScreen from "./food/content/Skagenrora";
 import SpaghettiBologneseScreen from "./food/content/SpaghettiBolognese";
+import StoveToOvenSteakScreen from "./food/content/StoveToOvenSteak";
 import TacosDeCarnitasScreen from "./food/content/TacosDeCarnitas";
 import YakiSortaScreen from "./food/content/YakiSorta";
 import ZaatarChickenBurgersScreen from "./food/content/ZaatarChickenBurgers";
@@ -91,6 +92,7 @@ export {
   RicePilafScreen,
   SkagenroraScreen,
   SpaghettiBologneseScreen,
+  StoveToOvenSteakScreen,
   TacosDeCarnitasScreen,
   YakiSortaScreen,
   ZaatarChickenBurgersScreen,

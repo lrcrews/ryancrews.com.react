@@ -26,6 +26,7 @@ import {
   PrivacyPolicyScreen,
   SkagenroraScreen,
   SpaghettiBologneseScreen,
+  StoveToOvenSteakScreen,
   TacosDeCarnitasScreen,
   TermsScreen,
   YakiSortaScreen,
@@ -93,6 +94,7 @@ export const PORK_TENDERLOIN_RECIPE = "/food/pork-tenderloin";
 export const RICE_PILAF_RECIPE = "/food/rice-pilaf";
 export const SKAGENRORA_RECIPE = "/food/skagenrora";
 export const SPAGHETTI_BOLOGNESE_RECIPE = "/food/spaghetti-bolognese";
+export const STOVE_TO_OVEN_STEAK_RECIPE = "/food/stove-to-oven-steak";
 export const TACOS_DE_CARNITAS_RECIPE = "/food/tacos-de-carnitas";
 export const YAKI_SORTA_RECIPE = "/food/yaki-sorta";
 export const ZAATAR_CHICKEN_BURGERS_RECIPE = "/food/zaatar-chicken-burgers";
@@ -243,6 +245,10 @@ export const router = createBrowserRouter([
   {
     path: SPAGHETTI_BOLOGNESE_RECIPE,
     element: <SpaghettiBologneseScreen />,
+  },
+  {
+    path: STOVE_TO_OVEN_STEAK_RECIPE,
+    element: <StoveToOvenSteakScreen />,
   },
   {
     path: TACOS_DE_CARNITAS_RECIPE,
