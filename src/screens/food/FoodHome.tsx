@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { HOME_PATH } from "../../routes/routes";
+import { HOME_PATH } from "../../routes/paths";
 import { PageWrapper, SecondaryButton } from "../../shared-components";
 
 import { QUICK_FILTER_TAGS, recipes } from "./recipes";

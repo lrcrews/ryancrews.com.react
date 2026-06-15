@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { CODE_HOME_PATH, FOOD_HOME_PATH, HOME_PATH } from "../../routes/routes";
+import { CODE_HOME_PATH, FOOD_HOME_PATH, HOME_PATH } from "../../routes/paths";
 
 import logo from "./logo40h.png";
 

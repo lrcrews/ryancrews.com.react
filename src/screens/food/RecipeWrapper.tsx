@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import { FOOD_HOME_PATH } from "../../routes/routes";
+import { FOOD_HOME_PATH } from "../../routes/paths";
 
 import { PageWrapper } from "../../shared-components";
 

@@ -33,7 +33,7 @@ import {
   YAKI_SORTA_RECIPE,
   ZAATAR_CHICKEN_BURGERS_RECIPE,
   ZAATAR_ROASTED_CHICKEN_RECIPE,
-} from "../../routes/routes";
+} from "../../routes/paths";
 
 export const QUICK_FILTER_TAGS = [
   "chicken",
