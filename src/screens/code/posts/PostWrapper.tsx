@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
+import { POSTS_HOME_PATH } from "../../../routes/routes";
 import { AdTile, PageWrapper } from "../../../shared-components";
 import { PostCategory, PostCategoryDisplayName } from "./PostsHome";
 
@@ -19,6 +21,9 @@ function PostWrapper(props: PostWrapperProps) {
   return (
     <PageWrapper>
       <main className="post-screen">
+        <p>
+          👈 <Link to={POSTS_HOME_PATH}>Back to posts</Link>
+        </p>
         <h1>{title}</h1>
         {subTitle && <div className="subheader">({subTitle})</div>}
         <div className={`label categoryLabel ${category}`}>

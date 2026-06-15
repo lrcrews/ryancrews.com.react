@@ -19,7 +19,6 @@ jobs:
       github.event.label.name == 'Ready for dev' &&
       !contains(github.event.issue.labels.*.name, 'codex-tagged')
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
