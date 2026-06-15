@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import {
   BEEF_NEGIMAKI_RECIPE,
   BEEF_STIR_FRY_RECIPE,
@@ -23,6 +22,7 @@ import {
   MISO_GARLIC_CAULIFLOWER_BITES_RECIPE,
   NOBO_MISO_MARINATED_FISH_RECIPE,
   ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
+  OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE,
   PAD_THAI_RECIPE,
   PORK_TENDERLOIN_RECIPE,
   RICE_PILAF_RECIPE,
@@ -165,6 +165,14 @@ function FoodHomeScreen() {
           <li>
             <Link to={ONE_PAN_ORECCHIETTE_PASTA_RECIPE} className="large-label">
               One-Pan Orecchiette Pasta
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE}
+              className="large-label"
+            >
+              Oven Roasted Cola-Braised Pulled Pork
             </Link>
           </li>
           <li>

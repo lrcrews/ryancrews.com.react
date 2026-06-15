@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import {
   AboutScreen,
   BeefStirFryScreen,
@@ -21,6 +20,7 @@ import {
   LemonGarlicBokChoyScreen,
   NobuMisoMarinatedFishScreen,
   OnePanOrecchiettePastaScreen,
+  OvenRoastedColaBraisedPulledPorkScreen,
   PostsHomeScreen,
   PrivacyPolicyScreen,
   SkagenroraScreen,
@@ -83,6 +83,8 @@ export const MISO_GARLIC_CAULIFLOWER_BITES_RECIPE =
 export const NOBO_MISO_MARINATED_FISH_RECIPE = "/food/nobu-miso-marinated-fish";
 export const ONE_PAN_ORECCHIETTE_PASTA_RECIPE =
   "/food/one-pan-orecchiette-pasta";
+export const OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE =
+  "/food/oven-roasted-cola-braised-pulled-pork";
 export const PAD_THAI_RECIPE = "/food/pad-thai";
 export const PORK_TENDERLOIN_RECIPE = "/food/pork-tenderloin";
 export const RICE_PILAF_RECIPE = "/food/rice-pilaf";
@@ -92,7 +94,6 @@ export const TACOS_DE_CARNITAS_RECIPE = "/food/tacos-de-carnitas";
 export const YAKI_SORTA_RECIPE = "/food/yaki-sorta";
 export const ZAATAR_CHICKEN_BURGERS_RECIPE = "/food/zaatar-chicken-burgers";
 export const ZAATAR_ROASTED_CHICKEN_RECIPE = "/food/zaatar-roasted-chicken";
-
 export const router = createBrowserRouter([
   {
     path: ABOUT_PATH,
@@ -211,6 +212,10 @@ export const router = createBrowserRouter([
   {
     path: ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
     element: <OnePanOrecchiettePastaScreen />,
+  },
+  {
+    path: OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE,
+    element: <OvenRoastedColaBraisedPulledPorkScreen />,
   },
   {
     path: PAD_THAI_RECIPE,
