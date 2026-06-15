@@ -41,6 +41,7 @@ function FoodHomeScreen() {
 
   function handleQuickFilterClick(tag: string) {
     if (filterTerms.includes(tag)) {
+      setFilterValue(filterTerms.filter((term) => term !== tag).join(", "));
       return;
     }
 
