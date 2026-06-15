@@ -1,0 +1,74 @@
+# .github/workflows/tag-codex-ready-for-dev.yml
+name: Tag Codex when issue is ready for dev
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  tag-codex:
+    if: >
+      github.event.label.name == 'Ready for dev' &&
+      !contains(github.event.issue.labels.*.name, 'codex-tagged')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ask Codex to work on the issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.issue.number;
+
+            const issueUrl = context.payload.issue.html_url;
+            const issueTitle = context.payload.issue.title;
+
+            // Avoid duplicate @codex comments if the label is removed/re-added.
+            const comments = await github.paginate(
+              github.rest.issues.listComments,
+              { owner, repo, issue_number, per_page: 100 }
+            );
+
+            const alreadyTagged = comments.some(comment =>
+              comment.user?.type === "Bot" &&
+              comment.body?.includes("@codex") &&
+              comment.body?.includes("Ready for dev")
+            );
+
+            if (alreadyTagged) {
+              core.info("Codex was already tagged on this issue. Skipping.");
+              return;
+            }
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: `@codex this issue is now **Ready for dev**.
+
+            Please implement the requested change from this issue:
+
+            ${issueUrl}
+
+            Suggested workflow:
+            1. Create a branch for this issue.
+            2. Make the minimal focused change.
+            3. Add or update tests if appropriate.
+            4. Open a pull request linked to this issue.
+
+            Issue title: ${issueTitle}`
+            });
+
+            // Optional: add a marker label so the workflow can avoid re-tagging.
+            // Create this label manually in GitHub, or remove this block.
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels: ["codex-tagged"]
+            });
