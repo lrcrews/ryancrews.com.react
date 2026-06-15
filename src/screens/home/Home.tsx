@@ -1,4 +1,4 @@
-import { HELLO_WORLD_POST } from "../../routes/routes";
+import { HELLO_ISSUES_POST } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
 import { PostPreviewTile } from "../../shared-components/tiles";
 import { PostCategory } from "../code/posts/PostsHome";
@@ -18,10 +18,10 @@ function HomeScreen() {
           <h2>Latest Post</h2>
           {/* NEW_POST: like a T0D0 comment for myself so I remember where I do the manual things */}
           <PostPreviewTile
-            category={PostCategory.CoolThing}
-            route={HELLO_WORLD_POST}
-            teaser="In a world, where teasers have a voice, we have some writing."
-            title="Hello World"
+            category={PostCategory.HowTo}
+            route={HELLO_ISSUES_POST}
+            teaser="Using GitHub issues as the handoff point for small, verified content updates."
+            title="Hello issues!"
           />
         </div>
         <div className="tile-group">

@@ -11,6 +11,7 @@ import PostsHomeScreen, {
 } from "./code/posts/PostsHome";
 
 // NEW_POST: Posts section of imports
+import HelloIssuesScreen from "./code/posts/content/HelloIssues";
 import HelloWorldScreen from "./code/posts/content/HelloWorld";
 
 import FoodHomeScreen from "./food/FoodHome";
@@ -61,6 +62,7 @@ export {
   PrivacyPolicyScreen,
   TermsScreen,
   // NEW_POST: Posts section of screens
+  HelloIssuesScreen,
   HelloWorldScreen,
   // NEW_RECIPE: Recipes section of screens
   BeefNegimakiScreen,

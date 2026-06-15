@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH, POSTS_HOME_PATH } from "../../routes/routes";
+import { ABOUT_PATH, HOME_PATH, POSTS_HOME_PATH } from "../../routes/routes";
 import { PageWrapper } from "../../shared-components";
 
 function CodeHomeScreen() {
   return (
     <PageWrapper>
       <main>
+        <p>
+          👈 <Link to={HOME_PATH}>Back to home</Link>
+        </p>
         <h1>Coding, Programming, Software Engineering</h1>
         <div className="subheader">
           (Really we just read code most the time)

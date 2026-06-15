@@ -15,6 +15,7 @@ import {
   GamjaJorimKoreanBraisedPotatoesScreen,
   GeneralTsosChickenScreen,
   GranolaScreen,
+  HelloIssuesScreen,
   HelloWorldScreen,
   HomeScreen,
   KoreanLettuceWrapsScreen,
@@ -54,6 +55,7 @@ export const CODE_HOME_PATH = "/code";
 export const POSTS_HOME_PATH = "/code/posts";
 
 // NEW_POST: Posts section of routes
+export const HELLO_ISSUES_POST = "/code/posts/hello-issues";
 export const HELLO_WORLD_POST = "/code/posts/hello-world";
 
 export const FOOD_HOME_PATH = "/food";
@@ -125,6 +127,10 @@ export const router = createBrowserRouter([
     element: <TermsScreen />,
   },
   // NEW_POST: Post section of routes... too.
+  {
+    path: HELLO_ISSUES_POST,
+    element: <HelloIssuesScreen />,
+  },
   {
     path: HELLO_WORLD_POST,
     element: <HelloWorldScreen />,

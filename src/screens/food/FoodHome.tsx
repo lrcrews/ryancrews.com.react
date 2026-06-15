@@ -16,6 +16,7 @@ import {
   GAMJA_JORIM_KOREAN_BRAISED_POTATOES_RECIPE,
   GENERAL_TSOS_CHICKEN_RECIPE,
   GRANOLA_RECIPE,
+  HOME_PATH,
   JAPANESE_CHICKEN_DON_RECIPE,
   KOREAN_LETTUCE_WRAPS_RECIPE,
   KUNG_PAO_CHICKEN_RECIPE,
@@ -41,6 +42,9 @@ function FoodHomeScreen() {
   return (
     <PageWrapper>
       <main>
+        <p>
+          👈 <Link to={HOME_PATH}>Back to home</Link>
+        </p>
         <h1>Recipes</h1>
         <p>
           Very bare-bones. This is a place for me and my wife to see altered
