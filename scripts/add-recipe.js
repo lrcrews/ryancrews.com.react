@@ -307,7 +307,13 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function insertSortedLinesToEOF(content, startMarker, insertion) {
+function insertSortedBlocksToEOF(
+  content,
+  startMarker,
+  insertion,
+  blockPattern,
+  getKey,
+) {
   if (content.includes(insertion.trim())) {
     return content;
   }
@@ -320,13 +326,13 @@ function insertSortedLinesToEOF(content, startMarker, insertion) {
 
   const startIndex = content.indexOf("\n", startMarkerIndex) + 1;
   const section = content.slice(startIndex);
-  const lines = section
-    .split("\n")
-    .filter((line) => line.trim().length > 0)
-    .concat(insertion.trimEnd())
-    .sort((left, right) => left.trim().localeCompare(right.trim()));
+  const blocks = section.match(blockPattern) || [];
+  const sortedBlocks = blocks
+    .filter((block) => block.trim().length > 0)
+    .concat(insertion)
+    .sort((left, right) => getKey(left).localeCompare(getKey(right)));
 
-  return `${content.slice(0, startIndex)}${lines.join("\n")}\n`;
+  return `${content.slice(0, startIndex)}${sortedBlocks.join("")}`;
 }
 
 function insertSortedBlocks(
@@ -394,10 +400,12 @@ function updateRoutePaths(names) {
   const constantInsertion = `export const ${names.constantName} = "/food/${names.slug}";
 `;
 
-  content = insertSortedLinesToEOF(
+  content = insertSortedBlocksToEOF(
     content,
     "// NEW_RECIPES: Recipes section of routes",
     constantInsertion,
+    /export const [A-Z0-9_]+[\s\S]*?;\n/g,
+    (block) => block.match(/export const ([A-Z0-9_]+)/)?.[1] || block,
   );
 
   fs.writeFileSync(PATHS_PATH, content);
