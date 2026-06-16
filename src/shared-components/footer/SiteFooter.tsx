@@ -39,8 +39,11 @@ function SiteFooter() {
   return (
     <footer id="site-footer">
       <div className="about-links">
-        <Link to={ABOUT_PATH}>About</Link> | <Link to={TERMS_PATH}>Terms</Link>{" "}
-        | <Link to={PRIVACY_PATH}>Privacy Policy</Link>
+        <Link to={ABOUT_PATH}>About</Link>
+        <span className="footer-separator">|</span>
+        <Link to={TERMS_PATH}>Terms</Link>
+        <span className="footer-separator">|</span>
+        <Link to={PRIVACY_PATH}>Privacy Policy</Link>
       </div>
       <div className="footer-controls">
         {shouldShowCookMode && (
@@ -49,6 +52,7 @@ function SiteFooter() {
               type="checkbox"
               checked={isCookModeEnabled}
               onChange={handleCookModeChange}
+              title="Turn on to keep your screen from locking while you cook"
             />{" "}
             Cook mode
           </label>

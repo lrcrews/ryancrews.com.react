@@ -26,6 +26,15 @@
 
   .about-links {
     @include font-body-small;
+
+    align-items: center;
+    display: flex;
+    gap: 6px;
+  }
+
+  .footer-separator {
+    align-items: center;
+    display: inline-flex;
   }
 
   .footer-controls {
@@ -38,7 +47,16 @@
   .theme-switcher {
     @include font-body-small;
 
+    align-items: center;
+    display: flex;
+
+    input {
+      margin: 0 4px 0 0;
+    }
+
     > label {
+      align-items: center;
+      display: inline-flex;
       margin-left: 8px;
     }
   }
@@ -48,11 +66,17 @@
     flex-direction: column;
     height: $site-footer-mobile-height;
     justify-content: flex-start;
+    padding-left: $site-content-padding;
     padding-bottom: 4px;
     padding-top: 4px;
+    text-align: left;
 
     .footer-controls {
-      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
       width: 100%;
     }
   }

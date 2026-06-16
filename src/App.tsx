@@ -13,14 +13,14 @@ function App() {
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (e) =>
-        setSystemTheme(e.matches ? "dark" : "light")
+        setSystemTheme(e.matches ? "dark" : "light"),
       );
 
     // Setup dark/light mode for the first time
     setSystemTheme(
       window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
-        : "light"
+        : "light",
     );
 
     // Remove listener
