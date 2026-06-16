@@ -21,10 +21,11 @@ function SiteFooter() {
   const isRecipePage =
     location.pathname !== FOOD_HOME_PATH &&
     location.pathname.startsWith(`${FOOD_HOME_PATH}/`);
+  const shouldShowCookMode = isRecipePage && isSupported;
 
   useEffect(() => {
-    setCookModeEnabled(isRecipePage);
-  }, [isRecipePage, setCookModeEnabled]);
+    setCookModeEnabled(shouldShowCookMode);
+  }, [setCookModeEnabled, shouldShowCookMode]);
 
   function handleThemeChange(event: ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
@@ -42,22 +43,16 @@ function SiteFooter() {
         | <Link to={PRIVACY_PATH}>Privacy Policy</Link>
       </div>
       <div className="footer-controls">
-        <label
-          className="cook-mode-toggle"
-          title={
-            isSupported
-              ? undefined
-              : "Cook mode is unavailable in this browser."
-          }
-        >
-          <input
-            type="checkbox"
-            checked={isCookModeEnabled}
-            disabled={!isSupported}
-            onChange={handleCookModeChange}
-          />{" "}
-          Cook mode
-        </label>
+        {shouldShowCookMode && (
+          <label className="cook-mode-toggle">
+            <input
+              type="checkbox"
+              checked={isCookModeEnabled}
+              onChange={handleCookModeChange}
+            />{" "}
+            Cook mode
+          </label>
+        )}
         <div className="theme-switcher">
           <span className="small-label">Theme: </span>
           <label>

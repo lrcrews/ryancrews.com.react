@@ -77,6 +77,24 @@ describe("SiteFooter", () => {
     });
   });
 
+  test("hides cook mode away from recipe pages", () => {
+    mockWakeLock();
+
+    renderFooter([HOME_PATH]);
+
+    expect(
+      screen.queryByRole("checkbox", { name: /cook mode/i })
+    ).not.toBeInTheDocument();
+  });
+
+  test("hides cook mode when wake lock is unavailable", () => {
+    renderFooter([BRAISED_CHICKEN_RECIPE]);
+
+    expect(
+      screen.queryByRole("checkbox", { name: /cook mode/i })
+    ).not.toBeInTheDocument();
+  });
+
   test("turns cook mode off when leaving a recipe page", async () => {
     const { request, sentinel } = mockWakeLock();
 
@@ -91,38 +109,9 @@ describe("SiteFooter", () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByRole("checkbox", { name: /cook mode/i })).not.toBeChecked();
-      expect(sentinel.release).toHaveBeenCalled();
-    });
-  });
-
-  test("allows manual cook mode toggling away from recipe pages", async () => {
-    const { request, sentinel } = mockWakeLock();
-
-    renderFooter([HOME_PATH]);
-
-    const cookModeCheckbox = screen.getByRole("checkbox", {
-      name: /cook mode/i,
-    });
-
-    expect(cookModeCheckbox).not.toBeChecked();
-
-    await act(async () => {
-      await userEvent.click(cookModeCheckbox);
-    });
-
-    expect(cookModeCheckbox).toBeChecked();
-
-    await waitFor(() => {
-      expect(request).toHaveBeenCalledWith("screen");
-    });
-
-    await act(async () => {
-      await userEvent.click(cookModeCheckbox);
-    });
-
-    await waitFor(() => {
-      expect(cookModeCheckbox).not.toBeChecked();
+      expect(
+        screen.queryByRole("checkbox", { name: /cook mode/i })
+      ).not.toBeInTheDocument();
       expect(sentinel.release).toHaveBeenCalled();
     });
   });
