@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { CookModeProvider } from "./cook-mode";
 import { ThemeProvider } from "./themes";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/routes";
@@ -12,14 +13,14 @@ function App() {
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (e) =>
-        setSystemTheme(e.matches ? "dark" : "light")
+        setSystemTheme(e.matches ? "dark" : "light"),
       );
 
     // Setup dark/light mode for the first time
     setSystemTheme(
       window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
-        : "light"
+        : "light",
     );
 
     // Remove listener
@@ -32,7 +33,9 @@ function App() {
 
   return (
     <ThemeProvider themeName={systemTheme}>
-      <RouterProvider router={router} />
+      <CookModeProvider>
+        <RouterProvider router={router} />
+      </CookModeProvider>
     </ThemeProvider>
   );
 }

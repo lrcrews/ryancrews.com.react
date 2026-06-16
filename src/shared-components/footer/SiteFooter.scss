@@ -16,6 +16,7 @@
   bottom: 0;
   display: flex;
   height: $site-footer-height;
+  align-items: center;
   justify-content: space-between;
   left: 0;
   padding: 2px $site-content-padding 0;
@@ -25,13 +26,58 @@
 
   .about-links {
     @include font-body-small;
+
+    align-items: center;
+    display: flex;
+    gap: 6px;
   }
 
+  .footer-separator {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  .footer-controls {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+  }
+
+  .cook-mode-toggle,
   .theme-switcher {
     @include font-body-small;
 
+    align-items: center;
+    display: flex;
+
+    input {
+      margin: 0 4px 0 0;
+    }
+
     > label {
+      align-items: center;
+      display: inline-flex;
       margin-left: 8px;
+    }
+  }
+
+  @media screen and (max-width: $mobile-screen-breakpoint) {
+    align-items: flex-start;
+    flex-direction: column;
+    height: $site-footer-mobile-height;
+    justify-content: flex-start;
+    padding-left: $site-content-padding;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    text-align: left;
+
+    .footer-controls {
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
+      width: 100%;
     }
   }
 }

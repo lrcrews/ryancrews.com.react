@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 
+import { CookModeProvider } from "../../cook-mode";
 import { ThemeProvider } from "../../themes";
 
 import FoodHomeScreen from "./FoodHome";
@@ -13,7 +14,9 @@ function renderFoodHome() {
   return render(
     <MemoryRouter>
       <ThemeProvider themeName="light">
-        <FoodHomeScreen />
+        <CookModeProvider>
+          <FoodHomeScreen />
+        </CookModeProvider>
       </ThemeProvider>
     </MemoryRouter>
   );
