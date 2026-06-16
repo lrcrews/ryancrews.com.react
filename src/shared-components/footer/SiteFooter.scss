@@ -16,6 +16,7 @@
   bottom: 0;
   display: flex;
   height: $site-footer-height;
+  align-items: center;
   justify-content: space-between;
   left: 0;
   padding: 2px $site-content-padding 0;
@@ -27,11 +28,32 @@
     @include font-body-small;
   }
 
+  .footer-controls {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+  }
+
+  .cook-mode-toggle,
   .theme-switcher {
     @include font-body-small;
 
     > label {
       margin-left: 8px;
+    }
+  }
+
+  @media screen and (max-width: $mobile-screen-breakpoint) {
+    align-items: flex-start;
+    flex-direction: column;
+    height: $site-footer-mobile-height;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    padding-top: 4px;
+
+    .footer-controls {
+      justify-content: space-between;
+      width: 100%;
     }
   }
 }

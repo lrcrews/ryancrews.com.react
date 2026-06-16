@@ -1,17 +1,38 @@
-import { ChangeEvent, useContext } from "react";
-import { Link } from "react-router-dom";
+import { ChangeEvent, useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-import { ABOUT_PATH, PRIVACY_PATH, TERMS_PATH } from "../../routes/paths";
+import { CookModeContext } from "../../cook-mode";
+import {
+  ABOUT_PATH,
+  FOOD_HOME_PATH,
+  PRIVACY_PATH,
+  TERMS_PATH,
+} from "../../routes/paths";
 import { ThemeContext } from "../../themes";
 
 import "./SiteFooter.scss";
 
 function SiteFooter() {
   const { themeName, setThemeName } = useContext(ThemeContext);
+  const { isCookModeEnabled, isSupported, setCookModeEnabled } =
+    useContext(CookModeContext);
+  const location = useLocation();
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  const isRecipePage =
+    location.pathname !== FOOD_HOME_PATH &&
+    location.pathname.startsWith(`${FOOD_HOME_PATH}/`);
+
+  useEffect(() => {
+    setCookModeEnabled(isRecipePage);
+  }, [isRecipePage, setCookModeEnabled]);
+
+  function handleThemeChange(event: ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
     setThemeName(value);
+  }
+
+  function handleCookModeChange(event: ChangeEvent<HTMLInputElement>) {
+    setCookModeEnabled(event.target.checked);
   }
 
   return (
@@ -20,28 +41,46 @@ function SiteFooter() {
         <Link to={ABOUT_PATH}>About</Link> | <Link to={TERMS_PATH}>Terms</Link>{" "}
         | <Link to={PRIVACY_PATH}>Privacy Policy</Link>
       </div>
-      <div className="theme-switcher">
-        <span className="small-label">Theme: </span>
-        <label>
+      <div className="footer-controls">
+        <label
+          className="cook-mode-toggle"
+          title={
+            isSupported
+              ? undefined
+              : "Cook mode is unavailable in this browser."
+          }
+        >
           <input
-            type="radio"
-            name="theme"
-            value="light"
-            checked={themeName === "light"}
-            onChange={handleChange}
+            type="checkbox"
+            checked={isCookModeEnabled}
+            disabled={!isSupported}
+            onChange={handleCookModeChange}
           />{" "}
-          Light
+          Cook mode
         </label>
-        <label>
-          <input
-            type="radio"
-            name="theme"
-            value="dark"
-            checked={themeName === "dark"}
-            onChange={handleChange}
-          />{" "}
-          Dark
-        </label>
+        <div className="theme-switcher">
+          <span className="small-label">Theme: </span>
+          <label>
+            <input
+              type="radio"
+              name="theme"
+              value="light"
+              checked={themeName === "light"}
+              onChange={handleThemeChange}
+            />{" "}
+            Light
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="theme"
+              value="dark"
+              checked={themeName === "dark"}
+              onChange={handleThemeChange}
+            />{" "}
+            Dark
+          </label>
+        </div>
       </div>
     </footer>
   );

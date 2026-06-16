@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { CookModeProvider } from "./cook-mode";
 import { ThemeProvider } from "./themes";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/routes";
@@ -32,7 +33,9 @@ function App() {
 
   return (
     <ThemeProvider themeName={systemTheme}>
-      <RouterProvider router={router} />
+      <CookModeProvider>
+        <RouterProvider router={router} />
+      </CookModeProvider>
     </ThemeProvider>
   );
 }

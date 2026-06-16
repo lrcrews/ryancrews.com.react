@@ -1,5 +1,6 @@
 $site-content-padding: 20px;
 $site-footer-height: 28px;
+$site-footer-mobile-height: 52px;
 $site-header-height: 40px;
 
 $mobile-screen-breakpoint: 600px;
@@ -9,4 +10,8 @@ $narrow-screen-breakpoint: 840px;
   min-height: 100vh;
   padding: ($site-header-height + $site-content-padding) $site-content-padding
     $site-footer-height;
+
+  @media screen and (max-width: $mobile-screen-breakpoint) {
+    padding-bottom: $site-footer-mobile-height;
+  }
 }
