@@ -1,0 +1,12 @@
+.emptyContentState {
+  margin-top: 20px;
+  max-width: 640px;
+  text-align: center;
+
+  img {
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+  }
+}
