@@ -1,0 +1,45 @@
+.vibe-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.vibe-message {
+  max-width: 78%;
+}
+
+.vibe-message--ryan {
+  align-self: flex-start;
+}
+
+.vibe-message--codex {
+  align-self: flex-end;
+}
+
+.vibe-message-author {
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.vibe-message-body {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 18%);
+  padding: 12px 16px;
+}
+
+.vibe-message--ryan .vibe-message-body {
+  background-color: #d3f3ff;
+  color: #222;
+}
+
+.vibe-message--codex .vibe-message-body {
+  background-color: #222;
+  color: #fff;
+}
+
+.vibe-handshake {
+  font-size: 2rem;
+  text-align: center;
+}

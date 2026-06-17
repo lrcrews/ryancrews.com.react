@@ -20,6 +20,7 @@ import {
   HomeScreen,
   KoreanLettuceWrapsScreen,
   LemonGarlicBokChoyScreen,
+  MyFirstRealVibeScreen,
   NobuMisoMarinatedFishScreen,
   OnePanOrecchiettePastaScreen,
   OvenRoastedColaBraisedPulledPorkScreen,
@@ -72,6 +73,7 @@ import {
   KUNG_PAO_CHICKEN_RECIPE,
   LEMON_GARLIC_BOK_CHOY_RECIPE,
   MISO_GARLIC_CAULIFLOWER_BITES_RECIPE,
+  MY_FIRST_REAL_VIBE_POST,
   NOBO_MISO_MARINATED_FISH_RECIPE,
   ONE_PAN_ORECCHIETTE_PASTA_RECIPE,
   OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE,
@@ -129,6 +131,10 @@ export const router = createBrowserRouter([
   {
     path: HELLO_WORLD_POST,
     element: <HelloWorldScreen />,
+  },
+  {
+    path: MY_FIRST_REAL_VIBE_POST,
+    element: <MyFirstRealVibeScreen />,
   },
   // NEW_USEFUL_TOOL: Useful tools and code section of routes... too.
   // NEW_RECIPES: Recipes section of routes... too.

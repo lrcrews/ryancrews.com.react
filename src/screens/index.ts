@@ -17,6 +17,7 @@ import UsefulToolsAndCodeHomeScreen, {
 // NEW_POST: Posts section of imports
 import HelloIssuesScreen from "./code/posts/content/HelloIssues";
 import HelloWorldScreen from "./code/posts/content/HelloWorld";
+import MyFirstRealVibeScreen from "./code/posts/content/MyFirstRealVibe";
 
 // NEW_USEFUL_TOOL: Useful tools and code section of imports
 
@@ -73,6 +74,7 @@ export {
   // NEW_POST: Posts section of screens
   HelloIssuesScreen,
   HelloWorldScreen,
+  MyFirstRealVibeScreen,
   // NEW_USEFUL_TOOL: Useful tools and code section of screens
   // NEW_RECIPE: Recipes section of screens
   BeefNegimakiScreen,

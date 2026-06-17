@@ -5,6 +5,7 @@ import {
   CODE_HOME_PATH,
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
+  MY_FIRST_REAL_VIBE_POST,
 } from "../../../routes/paths";
 import {
   CategoryFilter,
@@ -30,6 +31,13 @@ export function PostCategoryDisplayName(category: PostCategory) {
 const postCategories = Object.values(PostCategory);
 
 const posts = [
+  {
+    category: PostCategory.HowTo,
+    route: MY_FIRST_REAL_VIBE_POST,
+    teaser:
+      "A look at the first session that felt less like prompting and more like collaborating.",
+    title: "My first real vibe",
+  },
   {
     category: PostCategory.HowTo,
     route: HELLO_ISSUES_POST,
