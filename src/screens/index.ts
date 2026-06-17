@@ -9,10 +9,16 @@ import PostsHomeScreen, {
   PostCategoryDisplayName,
   PostCategory,
 } from "./code/posts/PostsHome";
+import UsefulToolsAndCodeHomeScreen, {
+  UsefulToolCategory,
+  UsefulToolCategoryDisplayName,
+} from "./code/useful-tools-and-code/UsefulToolsAndCodeHome";
 
 // NEW_POST: Posts section of imports
 import HelloIssuesScreen from "./code/posts/content/HelloIssues";
 import HelloWorldScreen from "./code/posts/content/HelloWorld";
+
+// NEW_USEFUL_TOOL: Useful tools and code section of imports
 
 import FoodHomeScreen from "./food/FoodHome";
 
@@ -61,9 +67,13 @@ export {
   PostsHomeScreen,
   PrivacyPolicyScreen,
   TermsScreen,
+  UsefulToolCategory,
+  UsefulToolCategoryDisplayName,
+  UsefulToolsAndCodeHomeScreen,
   // NEW_POST: Posts section of screens
   HelloIssuesScreen,
   HelloWorldScreen,
+  // NEW_USEFUL_TOOL: Useful tools and code section of screens
   // NEW_RECIPE: Recipes section of screens
   BeefNegimakiScreen,
   BeefStirFryScreen,

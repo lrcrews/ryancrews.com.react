@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-import { ABOUT_PATH, HOME_PATH, POSTS_HOME_PATH } from "../../routes/paths";
+import {
+  ABOUT_PATH,
+  HOME_PATH,
+  POSTS_HOME_PATH,
+  USEFUL_TOOLS_AND_CODE_HOME_PATH,
+} from "../../routes/paths";
 import { PageWrapper } from "../../shared-components";
 
 function CodeHomeScreen() {
@@ -23,12 +28,15 @@ function CodeHomeScreen() {
           random bits of code that I find interesting or cool.
         </p>
         <h2>
-          🛠 <Link to={ABOUT_PATH}>Tools</Link>
+          🛠{" "}
+          <Link to={USEFUL_TOOLS_AND_CODE_HOME_PATH}>
+            Useful Tools & Code
+          </Link>
         </h2>
         <p>
-          Various tools, from the novel to the useful, that surely exist
-          elsewhere (but here there are far less ads and I don't have to search
-          for the ones I want).
+          Various tools, snippets, utility methods, and reference notes that
+          surely exist elsewhere (but here there are far less ads and I don't
+          have to search for the ones I want).
         </p>
         <h2>
           👨‍💻 <Link to={ABOUT_PATH}>Project Pages</Link>

@@ -6,10 +6,13 @@ export const TERMS_PATH = "/terms";
 
 export const CODE_HOME_PATH = "/code";
 export const POSTS_HOME_PATH = "/code/posts";
+export const USEFUL_TOOLS_AND_CODE_HOME_PATH = "/code/useful-tools-and-code";
 
 // NEW_POST: Posts section of routes
 export const HELLO_ISSUES_POST = "/code/posts/hello-issues";
 export const HELLO_WORLD_POST = "/code/posts/hello-world";
+
+// NEW_USEFUL_TOOL: Useful tools and code section of routes
 
 export const FOOD_HOME_PATH = "/food";
 

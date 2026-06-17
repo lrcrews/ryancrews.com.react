@@ -3,6 +3,7 @@ import BaseTile from "./BaseTile";
 import FullImageTile from "./FullImageTile";
 import PostPreviewTile from "./PostPreviewTile";
 import TileContainer from "./TileContainer";
+import UsefulToolPreviewTile from "./UsefulToolPreviewTile";
 
 export {
   AdName,
@@ -11,4 +12,5 @@ export {
   FullImageTile,
   PostPreviewTile,
   TileContainer,
+  UsefulToolPreviewTile,
 };

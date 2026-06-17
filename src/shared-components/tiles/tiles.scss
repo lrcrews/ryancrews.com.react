@@ -186,3 +186,41 @@
     }
   }
 }
+
+.usefulToolPreview {
+  border-left-style: solid;
+  border-left-width: 2px;
+  padding-left: 20px;
+  text-align: left;
+
+  &.css_snippet {
+    border-left-color: dodgerblue;
+  }
+
+  &.debugging_note {
+    border-left-color: darkorange;
+  }
+
+  &.reference {
+    border-left-color: slateblue;
+  }
+
+  &.tool {
+    border-left-color: darkcyan;
+  }
+
+  &.utility_method {
+    border-left-color: seagreen;
+  }
+
+  > .teaser {
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:first-child {
+        margin-right: 12px;
+      }
+    }
+  }
+}

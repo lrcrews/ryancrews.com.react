@@ -1,0 +1,16 @@
+.useful-tools-and-code-screen {
+  .useful-tool-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .useful-tools-and-code {
+    margin-top: 80px;
+
+    > * {
+      margin-top: 20px;
+    }
+  }
+}

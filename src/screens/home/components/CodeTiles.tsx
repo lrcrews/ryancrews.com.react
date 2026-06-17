@@ -2,6 +2,7 @@ import {
   ABOUT_PATH,
   CODE_HOME_PATH,
   POSTS_HOME_PATH,
+  USEFUL_TOOLS_AND_CODE_HOME_PATH,
 } from "../../../routes/paths";
 import {
   AdName,
@@ -43,9 +44,12 @@ function CodeTiles() {
         </div>
       </div>
       <TileContainer className="tileContainer--content">
-        <BaseTile route={ABOUT_PATH}>
-          <div className="label">Useful Tools</div>
-          <p>A collection of useful tools to help with development 🛠</p>
+        <BaseTile route={USEFUL_TOOLS_AND_CODE_HOME_PATH}>
+          <div className="label">Useful Tools & Code</div>
+          <p>
+            A collection of useful tools and code snippets to help with
+            development 🛠
+          </p>
         </BaseTile>
         <BaseTile route={ABOUT_PATH}>
           <div className="label">My Projects</div>

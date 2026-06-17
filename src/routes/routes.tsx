@@ -30,6 +30,7 @@ import {
   StoveToOvenSteakScreen,
   TacosDeCarnitasScreen,
   TermsScreen,
+  UsefulToolsAndCodeHomeScreen,
   YakiSortaScreen,
 } from "../screens";
 import FriedPotatoeAndOnionsScreen from "../screens/food/content/FriedPotatoesAndOnions";
@@ -84,6 +85,7 @@ import {
   STOVE_TO_OVEN_STEAK_RECIPE,
   TACOS_DE_CARNITAS_RECIPE,
   TERMS_PATH,
+  USEFUL_TOOLS_AND_CODE_HOME_PATH,
   YAKI_SORTA_RECIPE,
   ZAATAR_CHICKEN_BURGERS_RECIPE,
   ZAATAR_ROASTED_CHICKEN_RECIPE,
@@ -108,6 +110,10 @@ export const router = createBrowserRouter([
     element: <PostsHomeScreen />,
   },
   {
+    path: USEFUL_TOOLS_AND_CODE_HOME_PATH,
+    element: <UsefulToolsAndCodeHomeScreen />,
+  },
+  {
     path: PRIVACY_PATH,
     element: <PrivacyPolicyScreen />,
   },
@@ -124,6 +130,7 @@ export const router = createBrowserRouter([
     path: HELLO_WORLD_POST,
     element: <HelloWorldScreen />,
   },
+  // NEW_USEFUL_TOOL: Useful tools and code section of routes... too.
   // NEW_RECIPES: Recipes section of routes... too.
   {
     path: BEEF_NEGIMAKI_RECIPE,

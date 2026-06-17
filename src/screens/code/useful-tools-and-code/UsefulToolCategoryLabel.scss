@@ -1,0 +1,25 @@
+.usefulToolCategoryLabel {
+  border-radius: 8px;
+  color: #fff; // same background colors in all themes, hence this color here.
+  padding: 2px 8px;
+
+  &.css_snippet {
+    background-color: dodgerblue;
+  }
+
+  &.debugging_note {
+    background-color: darkorange;
+  }
+
+  &.reference {
+    background-color: slateblue;
+  }
+
+  &.tool {
+    background-color: darkcyan;
+  }
+
+  &.utility_method {
+    background-color: seagreen;
+  }
+}
