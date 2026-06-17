@@ -1,4 +1,37 @@
 .posts-screen {
+  .post-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .postCategoryLabel {
+    border-radius: 8px;
+    color: #fff; // same background colors in all themes, hence this color here.
+    padding: 2px 8px;
+
+    &.cool_thing {
+      background-color: blue;
+    }
+
+    &.how_to {
+      background-color: green;
+    }
+
+    &.other {
+      background-color: gray;
+    }
+
+    &.the_art {
+      background-color: plum;
+    }
+
+    &.the_job {
+      background-color: slateblue;
+    }
+  }
+
   .posts {
     margin-top: 80px;
 

@@ -31,6 +31,17 @@ function PostsHomeScreen() {
         </p>
         <h1>When you write enough code you want to write something else</h1>
         <div className="subheader">(...but, you know, still about code)</div>
+        <h2>Categories</h2>
+        <div className="post-categories">
+          {Object.values(PostCategory).map((category) => (
+            <div
+              className={`label postCategoryLabel ${category}`}
+              key={category}
+            >
+              {PostCategoryDisplayName(category)}
+            </div>
+          ))}
+        </div>
         <h2>Latest Post</h2>
         {/* NEW_POST: like a T0D0 comment for myself so I remember where I do the manual things */}
         <PostPreviewTile
