@@ -24,7 +24,9 @@ function SiteFooter() {
   const shouldShowCookMode = isRecipePage && isSupported;
 
   useEffect(() => {
-    setCookModeEnabled(shouldShowCookMode);
+    if (!shouldShowCookMode) {
+      setCookModeEnabled(false);
+    }
   }, [setCookModeEnabled, shouldShowCookMode]);
 
   function handleThemeChange(event: ChangeEvent<HTMLInputElement>) {

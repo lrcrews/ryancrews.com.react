@@ -61,7 +61,7 @@ describe("SiteFooter", () => {
     delete (navigator as Navigator & { wakeLock?: unknown }).wakeLock;
   });
 
-  test("automatically enables cook mode on recipe pages", async () => {
+  test("shows cook mode unchecked on recipe pages", () => {
     const { request } = mockWakeLock();
 
     renderFooter([BRAISED_CHICKEN_RECIPE]);
@@ -70,7 +70,20 @@ describe("SiteFooter", () => {
       name: /cook mode/i,
     });
 
-    expect(cookModeCheckbox).toBeChecked();
+    expect(cookModeCheckbox).not.toBeChecked();
+    expect(request).not.toHaveBeenCalled();
+  });
+
+  test("enables cook mode when selected on recipe pages", async () => {
+    const { request } = mockWakeLock();
+
+    renderFooter([BRAISED_CHICKEN_RECIPE]);
+
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole("checkbox", { name: /cook mode/i })
+      );
+    });
 
     await waitFor(() => {
       expect(request).toHaveBeenCalledWith("screen");
@@ -99,6 +112,12 @@ describe("SiteFooter", () => {
     const { request, sentinel } = mockWakeLock();
 
     renderFooter([BRAISED_CHICKEN_RECIPE]);
+
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole("checkbox", { name: /cook mode/i })
+      );
+    });
 
     await waitFor(() => {
       expect(request).toHaveBeenCalledWith("screen");
