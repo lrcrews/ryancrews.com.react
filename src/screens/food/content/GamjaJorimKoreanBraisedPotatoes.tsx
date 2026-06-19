@@ -35,12 +35,12 @@ function GamjaJorimKoreanBraisedPotatoesScreen() {
               description: "cup water",
             },
             {
-              count: "1 1/2",
+              count: "1.5",
               description: "tablespoons brown sugar",
             },
             {
               count: "1",
-              description: "tablespoon honey or rice syrup",
+              description: "tablespoon maple syrup",
             },
             {
               count: "1",
@@ -83,7 +83,7 @@ function GamjaJorimKoreanBraisedPotatoesScreen() {
             "Toss the potatoes with the oil and a pinch of salt in a large bowl.",
             "Carefully remove the hot baking sheet from the oven and spread the potatoes evenly onto the pan.",
             "Roast the potatoes, turning halfway through, until the edges are golden and the potatoes still show slight resistance when pierced with a fork or skewer, 15 to 20 minutes.",
-            "After turning the potatoes halfway through cooking, combine the soy sauce, water, brown sugar, honey or rice syrup, mirin, and garlic in a wide skillet.",
+            "After turning the potatoes halfway through cooking, combine the soy sauce, water, brown sugar, maple syrup, mirin, and garlic in a wide skillet.",
             "Bring the sauce to a gentle simmer over medium heat and cook until thickened, glossy, and briefly leaving a trail on the bottom of the pan when dragged with a spatula, 6 to 8 minutes.",
             "Carefully loosen the potatoes from the baking sheet and add them directly into the simmering sauce.",
             "Cook uncovered, stirring occasionally, until the potatoes are tender and the liquid thickens into a syrupy glaze, 12 to 15 minutes.",
