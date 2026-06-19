@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { CODE_HOME_PATH } from "../../../routes/paths";
+import {
+  CODE_HOME_PATH,
+  COLOR_CONVERTER_TOOL,
+} from "../../../routes/paths";
 import {
   CategoryFilter,
   EmptyContentState,
@@ -32,6 +35,12 @@ const usefulToolsAndCode: {
   title: string;
 }[] = [
   // NEW_USEFUL_TOOL: Useful tools and code section of preview data
+  {
+    category: UsefulToolCategory.Tool,
+    route: COLOR_CONVERTER_TOOL,
+    teaser: "Convert between hex, RGB, and HSL with a live swatch.",
+    title: "Color Converter",
+  },
 ];
 
 function UsefulToolsAndCodeHomeScreen() {

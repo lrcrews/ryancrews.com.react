@@ -1,0 +1,143 @@
+@import "../../../../sass-mixins/fonts.scss";
+@import "../../../../themes/theme-handler.scss";
+@import "../../../../themes/themes.scss";
+
+.colorConverter {
+  display: grid;
+  gap: 20px;
+}
+
+.colorConverter-panel {
+  @include themify($themes) {
+    background-color: themed("background-hover");
+    border-color: themed("border");
+    box-shadow: 0 0 8px 1px rgba(themed("on-background"), 10%) inset;
+  }
+
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 20px;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.colorConverter-panel-preview {
+  display: grid;
+  gap: 16px;
+}
+
+.colorConverter-swatch {
+  align-content: end;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  box-shadow: inset 0 -48px 72px rgba(0, 0, 0, 35%);
+  color: #fff;
+  display: grid;
+  gap: 6px;
+  min-height: 220px;
+  padding: 24px;
+}
+
+.colorConverter-swatchValue {
+  @include font-label-medium;
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 45%);
+}
+
+.colorConverter-copyMessage {
+  margin: 0;
+  min-height: 24px;
+}
+
+.colorConverter-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.colorConverter-presetButton {
+  @include font-label-medium;
+
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  min-width: 96px;
+  padding: 12px 16px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 45%);
+}
+
+.colorConverter-field {
+  display: grid;
+  gap: 8px;
+
+  span {
+    @include font-label-medium;
+  }
+
+  input {
+    @include font-body-medium;
+    @include themify($themes) {
+      background-color: themed("background");
+      border-color: themed("border");
+      color: themed("on-background");
+    }
+
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+}
+
+.colorConverter-fieldHint {
+  margin-bottom: 0;
+}
+
+.colorConverter-channelGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.colorConverter-outputGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.colorConverter-outputCard {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: themed("border");
+  }
+
+  align-items: center;
+  border: 1px solid;
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.colorConverter-outputLabel {
+  @include font-label-medium;
+
+  margin-bottom: 4px;
+}
+
+.colorConverter-outputValue {
+  @include font-code;
+}
+
+@media (max-width: 900px) {
+  .colorConverter-channelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .colorConverter-outputCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
