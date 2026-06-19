@@ -8,6 +8,7 @@ import {
   CauliflowerHotWingsScreen,
   ChickenMarsalaScreen,
   ChickenTikkaMasalaScreen,
+  ColorConverterScreen,
   CodeHomeScreen,
   CreamyChickenScreen,
   FoodHomeScreen,
@@ -57,6 +58,7 @@ import {
   CAULIFLOWER_HOT_WINGS_RECIPE,
   CHICKEN_MARSALA_RECIPE,
   CHICKEN_TIKKA_MASALA_RECIPE,
+  COLOR_CONVERTER_TOOL,
   CODE_HOME_PATH,
   CREAMY_CHICKEN_RECIPE,
   CRISPY_BAKED_CHICKEN_FLAUTAS_RECIPE,
@@ -137,6 +139,10 @@ export const router = createBrowserRouter([
     element: <MyFirstRealVibeScreen />,
   },
   // NEW_USEFUL_TOOL: Useful tools and code section of routes... too.
+  {
+    path: COLOR_CONVERTER_TOOL,
+    element: <ColorConverterScreen />,
+  },
   // NEW_RECIPES: Recipes section of routes... too.
   {
     path: BEEF_NEGIMAKI_RECIPE,

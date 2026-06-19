@@ -1,0 +1,275 @@
+@import "../../../../../sass-mixins/fonts.scss";
+@import "../../../../../themes/theme-handler.scss";
+@import "../../../../../themes/themes.scss";
+
+.useful-tool-screen {
+  > .label.usefulToolCategoryLabel {
+    display: none;
+  }
+
+  > h1 {
+    @include font-headline-large;
+
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  > .subheader {
+    @include font-body-medium;
+
+    margin: 0 auto 28px;
+    max-width: 620px;
+    text-align: center;
+  }
+}
+
+.colorConverterWorkspace,
+.colorConverterPreviewPanel {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: rgba(themed("border"), 90%);
+    box-shadow:
+      0 12px 24px rgba(15, 23, 42, 6%),
+      0 2px 6px rgba(15, 23, 42, 4%);
+  }
+
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.colorConverterWorkspace {
+  @include themify($themes) {
+    background-image: linear-gradient(
+      to right,
+      transparent calc(50% - 0.5px),
+      rgba(themed("border"), 90%) calc(50% - 0.5px),
+      rgba(themed("border"), 90%) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  }
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.colorConverterEditor {
+  min-width: 0;
+}
+
+.colorConverterSectionHeading {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+
+  h2 {
+    @include font-label-large;
+
+    margin: 0;
+  }
+}
+
+.colorConverterChannelGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.colorConverterField {
+  display: grid;
+  gap: 8px;
+
+  span {
+    @include font-label-medium;
+  }
+
+  input {
+    @include font-body-medium;
+    @include themify($themes) {
+      background-color: themed("background");
+      border-color: rgba(themed("border"), 95%);
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 5%);
+      color: themed("on-background");
+    }
+
+    border: 1px solid;
+    border-radius: 12px;
+    min-width: 0;
+    padding: 14px 16px;
+  }
+}
+
+.colorConverterHint,
+.colorConverterStatus {
+  @include font-body-small;
+  @include themify($themes) {
+    color: rgba(themed("on-background"), 70%);
+  }
+
+  margin: 18px 0 0;
+}
+
+.colorConverterInputWithButton {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: rgba(themed("border"), 95%);
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 5%);
+  }
+
+  align-items: center;
+  border: 1px solid;
+  border-radius: 12px;
+  display: flex;
+  gap: 8px;
+  padding-right: 8px;
+}
+
+.colorConverterHexInput {
+  @include font-body-medium;
+  @include themify($themes) {
+    background-color: transparent;
+    color: themed("on-background");
+  }
+
+  border: 0;
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+}
+
+.colorConverterPreviewPanel {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  margin-top: 18px;
+}
+
+.colorConverterPreviewSwatch {
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 35%);
+  min-height: 132px;
+}
+
+.colorConverterOutputs {
+  align-content: center;
+  display: grid;
+  gap: 14px;
+}
+
+.colorConverter-outputRow {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: rgba(themed("border"), 95%);
+    box-shadow:
+      0 8px 16px rgba(15, 23, 42, 4%),
+      inset 0 1px 0 rgba(255, 255, 255, 45%);
+  }
+
+  align-items: center;
+  border: 1px solid;
+  border-radius: 14px;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.colorConverter-outputContent {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  min-width: 0;
+}
+
+.colorConverter-outputBadge {
+  @include font-label-small;
+
+  background-color: rgba(94, 157, 255, 12%);
+  border-radius: 8px;
+  color: #3371ea;
+  padding: 8px 10px;
+}
+
+.colorConverter-outputValue {
+  @include font-label-large;
+  @include themify($themes) {
+    color: themed("on-background");
+  }
+
+  min-width: 0;
+}
+
+.colorConverter-iconButton {
+  @include themify($themes) {
+    color: rgba(themed("on-background"), 56%);
+  }
+
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  height: 36px;
+  justify-content: center;
+  padding: 0;
+  width: 36px;
+}
+
+.colorConverter-icon {
+  fill: none;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  width: 20px;
+}
+
+@media (max-width: 900px) {
+  .colorConverterWorkspace,
+  .colorConverterPreviewPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .colorConverterWorkspace {
+    @include themify($themes) {
+      background-image: linear-gradient(
+        to bottom,
+        transparent calc(50% - 0.5px),
+        rgba(themed("border"), 90%) calc(50% - 0.5px),
+        rgba(themed("border"), 90%) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      );
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .colorConverterSurface {
+    padding: 16px;
+  }
+
+  .colorConverterWorkspace,
+  .colorConverterPreviewPanel {
+    padding: 16px;
+  }
+
+  .colorConverterChannelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .colorConverter-outputContent {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .colorConverter-outputValue {
+    @include font-label-medium;
+  }
+}

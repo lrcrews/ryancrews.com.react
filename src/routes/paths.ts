@@ -14,6 +14,7 @@ export const HELLO_WORLD_POST = "/code/posts/hello-world";
 export const MY_FIRST_REAL_VIBE_POST = "/code/posts/my-first-real-vibe";
 
 // NEW_USEFUL_TOOL: Useful tools and code section of routes
+export const COLOR_CONVERTER_TOOL = "/code/useful-tools-and-code/color-converter";
 
 export const FOOD_HOME_PATH = "/food";
 

@@ -2,14 +2,13 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import { USEFUL_TOOLS_AND_CODE_HOME_PATH } from "../../../routes/paths";
-import { AdTile, PageWrapper } from "../../../shared-components";
+import { PageWrapper } from "../../../shared-components";
 import {
   UsefulToolCategory,
   UsefulToolCategoryDisplayName,
 } from "./UsefulToolsAndCodeHome";
 
 import "./UsefulToolCategoryLabel.scss";
-import "./UsefulToolWrapper.scss";
 
 type UsefulToolWrapperProps = {
   category: UsefulToolCategory;
@@ -36,10 +35,7 @@ function UsefulToolWrapper(props: UsefulToolWrapperProps) {
         <div className={`label usefulToolCategoryLabel ${category}`}>
           {UsefulToolCategoryDisplayName(category)}
         </div>
-        <div className="useful-tool-wrapper">
-          <AdTile />
-          <div>{children}</div>
-        </div>
+        {children}
       </main>
     </PageWrapper>
   );
