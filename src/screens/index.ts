@@ -20,6 +20,7 @@ import HelloWorldScreen from "./code/posts/content/HelloWorld";
 import MyFirstRealVibeScreen from "./code/posts/content/MyFirstRealVibe";
 
 // NEW_USEFUL_TOOL: Useful tools and code section of imports
+import ButtonWithSelectScreen from "./code/useful-tools-and-code/content/button-with-select/ButtonWithSelectScreen";
 import ColorConverterScreen from "./code/useful-tools-and-code/content/color-converter/ColorConverter";
 
 import FoodHomeScreen from "./food/FoodHome";
@@ -77,6 +78,7 @@ export {
   HelloWorldScreen,
   MyFirstRealVibeScreen,
   // NEW_USEFUL_TOOL: Useful tools and code section of screens
+  ButtonWithSelectScreen,
   ColorConverterScreen,
   // NEW_RECIPE: Recipes section of screens
   BeefNegimakiScreen,
