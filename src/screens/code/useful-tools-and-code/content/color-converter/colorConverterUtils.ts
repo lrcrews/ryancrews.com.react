@@ -52,7 +52,7 @@ function decimalToHex(value: number) {
 function parseNumericDraft(
   value: string,
   range: NumericRange,
-  requireInteger: boolean
+  requireInteger: boolean,
 ) {
   if (!value.trim()) {
     return null;
@@ -94,7 +94,7 @@ export function parseHexColor(value: string): RGBColor | null {
 
 export function rgbToHex(color: RGBColor) {
   return `#${decimalToHex(color.r)}${decimalToHex(color.g)}${decimalToHex(
-    color.b
+    color.b,
   )}`;
 }
 
@@ -115,8 +115,7 @@ export function rgbToHsl(color: RGBColor): HSLColor {
     };
   }
 
-  const saturation =
-    chroma / (1 - Math.abs(2 * lightness - 1));
+  const saturation = chroma / (1 - Math.abs(2 * lightness - 1));
 
   let hue = 0;
 
@@ -133,7 +132,7 @@ export function rgbToHsl(color: RGBColor): HSLColor {
   }
 
   return {
-    h: Math.round(((hue * 60) + 360) % 360),
+    h: Math.round((hue * 60 + 360) % 360),
     s: Math.round(saturation * 100),
     l: Math.round(lightness * 100),
   };
@@ -227,6 +226,10 @@ export function createColorDrafts(color: RGBColor) {
 
 export function formatRgbString(color: RGBColor) {
   return `rgb(${color.r}, ${color.g}, ${color.b})`;
+}
+
+export function formatRgbChannels(color: RGBColor) {
+  return `${color.r}, ${color.g}, ${color.b}`;
 }
 
 export function formatHslString(color: HSLColor) {
