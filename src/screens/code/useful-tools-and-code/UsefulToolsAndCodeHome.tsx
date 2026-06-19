@@ -38,7 +38,7 @@ const usefulToolsAndCode: {
   {
     category: UsefulToolCategory.Tool,
     route: COLOR_CONVERTER_TOOL,
-    teaser: "Convert between hex, RGB, and HSL with a live swatch.",
+    teaser: "Convert between hex and RGB with a live swatch.",
     title: "Color Converter",
   },
 ];
