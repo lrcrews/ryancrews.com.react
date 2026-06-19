@@ -33,6 +33,7 @@
     @include font-label-large;
 
     margin: 0 0 10px;
+    padding-top: 0;
   }
 
   p {
@@ -45,7 +46,11 @@
 .buttonWithSelectDemoPanel {
   @include themify($themes) {
     background:
-      linear-gradient(135deg, rgba(themed("brand-secondary"), 10%), transparent),
+      linear-gradient(
+        135deg,
+        rgba(themed("brand-secondary"), 10%),
+        transparent
+      ),
       themed("background");
     border-color: rgba(themed("border"), 92%);
   }
@@ -54,7 +59,7 @@
   border-radius: 18px;
   display: grid;
   gap: 16px;
-  justify-items: start;
+  place-items: center;
   padding: 20px;
 }
 
@@ -65,6 +70,7 @@
   }
 
   margin: 0;
+  text-align: center;
 }
 
 .buttonWithSelectNotes {
@@ -80,6 +86,7 @@
     @include font-label-large;
 
     margin: 0 0 10px;
+    padding-top: 0;
   }
 
   p {
@@ -130,7 +137,10 @@
     color: themed("on-brand");
   }
 
+  align-items: center;
   border-left: 1px solid;
+  display: inline-flex;
+  justify-content: center;
   padding: 0 14px;
 }
 
@@ -223,6 +233,7 @@
 }
 
 .buttonWithSelect-chevron {
+  display: block;
   fill: none;
   height: 18px;
   stroke: currentColor;
@@ -245,7 +256,7 @@
   }
 
   .buttonWithSelectDemoPanel {
-    justify-items: stretch;
+    min-height: 0;
   }
 
   .buttonWithSelect,

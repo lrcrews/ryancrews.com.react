@@ -2,9 +2,7 @@ import { useState } from "react";
 
 import UsefulToolWrapper from "../../UsefulToolWrapper";
 import { UsefulToolCategory } from "../../UsefulToolsAndCodeHome";
-import ButtonWithSelect, {
-  ButtonWithSelectAction,
-} from "./ButtonWithSelect";
+import ButtonWithSelect, { ButtonWithSelectAction } from "./ButtonWithSelect";
 
 function ButtonWithSelectScreen() {
   const [lastTriggeredAction, setLastTriggeredAction] = useState(
@@ -24,7 +22,8 @@ function ButtonWithSelectScreen() {
     },
     {
       title: "Draft blog post",
-      description: "Switch to the action that starts writing the companion post.",
+      description:
+        "Switch to the action that starts writing the companion post.",
       action: () => setLastTriggeredAction("Ran: Draft blog post."),
     },
   ];
@@ -32,7 +31,7 @@ function ButtonWithSelectScreen() {
   return (
     <UsefulToolWrapper
       category={UsefulToolCategory.Tool}
-      subTitle="A split button keeps one fast default action while letting people choose a different one."
+      subTitle="A split button keeps one fast default action while letting people choose a different action if desired."
       title="Button with Select"
     >
       <div className="buttonWithSelectSurface">
