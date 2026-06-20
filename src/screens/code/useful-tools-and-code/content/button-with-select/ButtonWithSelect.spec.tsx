@@ -140,4 +140,70 @@ describe("ButtonWithSelect", () => {
     expect(secondAction).toHaveBeenCalledTimes(1);
     expect(thirdAction).not.toHaveBeenCalled();
   });
+
+  test("falls back to an in-range action when the actions array shrinks", async () => {
+    const firstAction = jest.fn();
+    const secondAction = jest.fn();
+    const thirdAction = jest.fn();
+
+    const { rerender } = render(
+      <ButtonWithSelect
+        actions={[
+          {
+            title: "Preview component",
+            description: "Default preview action",
+            action: firstAction,
+          },
+          {
+            title: "Copy import path",
+            description: "Copy helper action",
+            action: secondAction,
+          },
+          {
+            title: "Draft blog post",
+            description: "Draft helper action",
+            action: thirdAction,
+          },
+        ]}
+      />
+    );
+
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole("button", { name: /choose action/i }),
+      );
+    });
+
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole("menuitemradio", { name: /draft blog post/i }),
+      );
+    });
+
+    rerender(
+      <ButtonWithSelect
+        actions={[
+          {
+            title: "Preview component",
+            description: "Default preview action",
+            action: firstAction,
+          },
+        ]}
+      />
+    );
+
+    expect(
+      screen.getByRole("button", { name: "Preview component" }),
+    ).toBeInTheDocument();
+
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole("button", { name: "Preview component" }),
+      );
+    });
+
+    expect(firstAction).toHaveBeenCalledTimes(1);
+    expect(secondAction).not.toHaveBeenCalled();
+    expect(thirdAction).not.toHaveBeenCalled();
+  });
 });

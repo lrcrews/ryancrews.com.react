@@ -56,25 +56,20 @@ function ButtonWithSelect(props: ButtonWithSelectProps) {
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const menuId = useId();
+  const clampedSelectedIndex = clampSelectedIndex(actions.length, selectedIndex);
 
   useEffect(() => {
-    if (actions.length === 0) {
-      return;
+    if (selectedIndex !== clampedSelectedIndex) {
+      setSelectedIndex(clampedSelectedIndex);
     }
-
-    const maxIndex = actions.length - 1;
-
-    if (selectedIndex > maxIndex) {
-      setSelectedIndex(maxIndex);
-    }
-  }, [actions.length, selectedIndex]);
+  }, [clampedSelectedIndex, selectedIndex]);
 
   useEffect(() => {
     if (!isMenuOpen) {
       return;
     }
 
-    optionRefs.current[selectedIndex]?.focus();
+    optionRefs.current[clampedSelectedIndex]?.focus();
 
     function handlePointerDown(event: MouseEvent) {
       if (!containerRef.current?.contains(event.target as Node)) {
@@ -96,13 +91,13 @@ function ButtonWithSelect(props: ButtonWithSelectProps) {
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("keydown", handleDocumentKeyDown);
     };
-  }, [isMenuOpen, selectedIndex]);
+  }, [clampedSelectedIndex, isMenuOpen]);
 
   if (actions.length === 0) {
     return null;
   }
 
-  const selectedAction = actions[selectedIndex];
+  const selectedAction = actions[clampedSelectedIndex];
 
   function closeMenu(restoreToggleFocus = false) {
     setIsMenuOpen(false);
@@ -199,7 +194,7 @@ function ButtonWithSelect(props: ButtonWithSelectProps) {
         >
           {actions.map((action, index) => (
             <button
-              aria-checked={selectedIndex === index}
+              aria-checked={clampedSelectedIndex === index}
               className="buttonWithSelect-option"
               key={action.title}
               onClick={() => selectAction(index)}
@@ -214,7 +209,7 @@ function ButtonWithSelect(props: ButtonWithSelectProps) {
                 <span className="buttonWithSelect-optionTitle">
                   {action.title}
                 </span>
-                {selectedIndex === index && (
+                {clampedSelectedIndex === index && (
                   <span className="buttonWithSelect-selectedBadge">
                     Selected
                   </span>
