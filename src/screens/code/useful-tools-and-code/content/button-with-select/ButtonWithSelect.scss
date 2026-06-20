@@ -1,0 +1,282 @@
+@import "../../../../../sass-mixins/fonts.scss";
+@import "../../../../../themes/theme-handler.scss";
+@import "../../../../../themes/themes.scss";
+
+.buttonWithSelectSurface {
+  display: grid;
+  gap: 20px;
+}
+
+.buttonWithSelectShowcase,
+.buttonWithSelectNoteCard {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: rgba(themed("border"), 92%);
+    box-shadow:
+      0 12px 24px rgba(15, 23, 42, 6%),
+      0 2px 6px rgba(15, 23, 42, 4%);
+    color: themed("on-background");
+  }
+
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+.buttonWithSelectShowcase {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+}
+
+.buttonWithSelectCopy {
+  h2 {
+    @include font-label-large;
+
+    margin: 0 0 10px;
+    padding-top: 0;
+  }
+
+  p {
+    @include font-body-medium;
+
+    margin: 0;
+  }
+}
+
+.buttonWithSelectDemoPanel {
+  @include themify($themes) {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(themed("brand-secondary"), 10%),
+        transparent
+      ),
+      themed("background");
+    border-color: rgba(themed("border"), 92%);
+  }
+
+  border: 1px solid;
+  border-radius: 18px;
+  display: grid;
+  gap: 16px;
+  place-items: center;
+  padding: 20px;
+}
+
+.buttonWithSelectStatus {
+  @include font-body-small;
+  @include themify($themes) {
+    color: rgba(themed("on-background"), 74%);
+  }
+
+  margin: 0;
+  text-align: center;
+}
+
+.buttonWithSelectNotes {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.buttonWithSelectNoteCard {
+  padding: 20px;
+
+  h2 {
+    @include font-label-large;
+
+    margin: 0 0 10px;
+    padding-top: 0;
+  }
+
+  p {
+    @include font-body-medium;
+
+    margin: 0;
+  }
+}
+
+.buttonWithSelect {
+  display: inline-flex;
+  position: relative;
+}
+
+.buttonWithSelect-control {
+  border-radius: 14px;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.buttonWithSelect-primary,
+.buttonWithSelect-toggle {
+  @include font-label-medium;
+
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  min-height: 48px;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.buttonWithSelect-primary {
+  @include themify($themes) {
+    background-color: themed("brand-secondary");
+    color: themed("on-brand");
+  }
+
+  min-width: 210px;
+  padding: 0 18px;
+}
+
+.buttonWithSelect-toggle {
+  @include themify($themes) {
+    background-color: rgba(themed("brand-secondary"), 92%);
+    border-left-color: rgba(themed("on-brand"), 20%);
+    color: themed("on-brand");
+  }
+
+  align-items: center;
+  border-left: 1px solid;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0 14px;
+}
+
+.buttonWithSelect-primary:hover,
+.buttonWithSelect-primary:focus-visible,
+.buttonWithSelect-toggle:hover,
+.buttonWithSelect-toggle:focus-visible {
+  @include themify($themes) {
+    background-color: themed("brand-secondary-hover");
+  }
+
+  outline: 0;
+}
+
+.buttonWithSelect-menu {
+  @include themify($themes) {
+    background-color: themed("background");
+    border-color: rgba(themed("border"), 94%);
+    box-shadow:
+      0 18px 32px rgba(15, 23, 42, 12%),
+      0 6px 14px rgba(15, 23, 42, 8%);
+  }
+
+  border: 1px solid;
+  border-radius: 16px;
+  display: grid;
+  gap: 8px;
+  min-width: min(320px, calc(100vw - 32px));
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 2;
+}
+
+.buttonWithSelect-option {
+  @include themify($themes) {
+    background-color: themed("background");
+    color: themed("on-background");
+  }
+
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  text-align: left;
+  width: 100%;
+}
+
+.buttonWithSelect-option:hover,
+.buttonWithSelect-option:focus-visible {
+  @include themify($themes) {
+    background-color: themed("background-hover");
+  }
+
+  outline: 0;
+}
+
+.buttonWithSelect-option[aria-checked="true"] {
+  @include themify($themes) {
+    background-color: rgba(themed("brand-secondary"), 10%);
+  }
+}
+
+.buttonWithSelect-optionTitleRow {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.buttonWithSelect-optionTitle {
+  @include font-label-medium;
+}
+
+.buttonWithSelect-optionDescription {
+  @include font-body-small;
+  @include themify($themes) {
+    color: rgba(themed("on-background"), 72%);
+  }
+}
+
+.buttonWithSelect-selectedBadge {
+  @include font-label-small;
+
+  color: #3371ea;
+  white-space: nowrap;
+}
+
+.buttonWithSelect-chevron {
+  display: block;
+  fill: none;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+  width: 18px;
+}
+
+@media (max-width: 720px) {
+  .buttonWithSelectNotes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .buttonWithSelectShowcase,
+  .buttonWithSelectNoteCard {
+    padding: 18px;
+  }
+
+  .buttonWithSelectDemoPanel {
+    min-height: 0;
+  }
+
+  .buttonWithSelect,
+  .buttonWithSelect-control {
+    display: flex;
+    width: 100%;
+  }
+
+  .buttonWithSelect-primary {
+    min-width: 0;
+  }
+
+  .buttonWithSelect-primary,
+  .buttonWithSelect-toggle {
+    justify-content: center;
+  }
+
+  .buttonWithSelect-menu {
+    left: 0;
+    min-width: 0;
+    right: 0;
+  }
+}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
+  BUTTON_WITH_SELECT_TOOL,
   CODE_HOME_PATH,
   COLOR_CONVERTER_TOOL,
 } from "../../../routes/paths";
@@ -35,6 +36,12 @@ const usefulToolsAndCode: {
   title: string;
 }[] = [
   // NEW_USEFUL_TOOL: Useful tools and code section of preview data
+  {
+    category: UsefulToolCategory.Tool,
+    route: BUTTON_WITH_SELECT_TOOL,
+    teaser: "A split button with a default action and an accessible chooser.",
+    title: "Button with Select",
+  },
   {
     category: UsefulToolCategory.Tool,
     route: COLOR_CONVERTER_TOOL,

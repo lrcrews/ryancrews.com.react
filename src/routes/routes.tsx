@@ -4,6 +4,7 @@ import {
   BeefStirFryScreen,
   BeerBatteredFishScreen,
   BlackBeanFlautasScreen,
+  ButtonWithSelectScreen,
   BraisedChickenScreen,
   CauliflowerHotWingsScreen,
   ChickenMarsalaScreen,
@@ -54,6 +55,7 @@ import {
   BEEF_SUKIYAKI_RICE_BOWL_RECIPE,
   BEER_BATTERED_FISH_RECIPE,
   BLACK_BEAN_FLAUTAS_RECIPE,
+  BUTTON_WITH_SELECT_TOOL,
   BRAISED_CHICKEN_RECIPE,
   CAULIFLOWER_HOT_WINGS_RECIPE,
   CHICKEN_MARSALA_RECIPE,
@@ -139,6 +141,10 @@ export const router = createBrowserRouter([
     element: <MyFirstRealVibeScreen />,
   },
   // NEW_USEFUL_TOOL: Useful tools and code section of routes... too.
+  {
+    path: BUTTON_WITH_SELECT_TOOL,
+    element: <ButtonWithSelectScreen />,
+  },
   {
     path: COLOR_CONVERTER_TOOL,
     element: <ColorConverterScreen />,
