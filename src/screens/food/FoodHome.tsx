@@ -16,8 +16,8 @@ function FoodHomeScreen() {
       filterValue
         .split(",")
         .map((term) => term.trim().toLowerCase())
-        .filter(Boolean)
-    )
+        .filter(Boolean),
+    ),
   );
 
   const displayedRecipes = recipes.filter((recipe) =>
@@ -28,7 +28,7 @@ function FoodHomeScreen() {
         recipeTitle.includes(term) ||
         recipe.tags.some((tag) => tag.toLowerCase().includes(term))
       );
-    })
+    }),
   );
 
   function handleFilterChange(event: ChangeEvent<HTMLInputElement>) {
@@ -55,13 +55,10 @@ function FoodHomeScreen() {
           👈 <Link to={HOME_PATH}>Back to home</Link>
         </p>
         <h1>Recipes</h1>
-        <p>
-          Very bare-bones. This is a place for me and my wife to see altered
-          versions of recipes we enjoy (after-all, sometimes shallot works
-          better than an onion, or sake substituted for part of the soy sauce...
-          but it's hard to remember all those changes).
-        </p>
         <section className="foodFilters">
+          <p className="foodFilters-helpText">
+            Use comma-separated filters to match recipes.
+          </p>
           <div className="foodFilters-controls">
             <input
               aria-label="Filter recipes by tag or title"
@@ -78,9 +75,6 @@ function FoodHomeScreen() {
               Clear
             </SecondaryButton>
           </div>
-          <p className="foodFilters-helpText">
-            Use comma-separated filters to match recipe tags or titles.
-          </p>
           <div className="foodFilters-quickActions">
             {QUICK_FILTER_TAGS.map((tag) => {
               const isActive = filterTerms.includes(tag);

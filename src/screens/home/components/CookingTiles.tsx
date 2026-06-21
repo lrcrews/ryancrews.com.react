@@ -46,17 +46,17 @@ function CookingTiles() {
         <BaseTile route={FOOD_HOME_PATH}>
           <div className="label">Recipes!</div>
           <p>
-            ...and just recipes, no stories, no videos, no preamble, no ads,
-            just the recipe 👨‍🍳
+            ...and just recipes, no stories, no videos, no preamble, no
+            ever-changing ads, just recipes 👨‍🍳
           </p>
           <p>
             Mostly for my own sanity, as wanting to toss hot oil on the people
             who run recipe sites feels like an unhealthy emotion stemming from
-            the initial frustration at the slow load time, through the annoying
-            jumping around of the recipe due to changing ads, past the heartfelt
-            story of how the recipe impacted the authors life, and culminating
-            with the site trying to block me from seeing the recipe again this
-            month unless I sign in 🤬
+            the initial frustration at the slow load time; growing with the
+            annoying jumping around on the page due to changing ads; flursighing
+            as I scroll past the heartfelt story of how the recipe impacted the
+            authors life; and culminating with the site trying to block me from
+            seeing the recipe again this month unless I sign in 🤬
           </p>
         </BaseTile>
         <AdTile adName={AdName.AtomicWillWriteSomething} />

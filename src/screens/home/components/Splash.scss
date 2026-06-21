@@ -1,8 +1,6 @@
 @import "../../../sass-mixins/fonts.scss";
 
 .splash {
-  text-align: center;
-
   > p {
     @include font-body-large;
   }

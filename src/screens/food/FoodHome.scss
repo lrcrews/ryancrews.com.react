@@ -32,13 +32,14 @@
 }
 
 .foodFilters-helpText {
-  margin: 12px 0 16px;
+  margin-bottom: 16px;
 }
 
 .foodFilters-quickActions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 12px;
 }
 
 .foodFilters-tagButton.baseButton-secondary.foodFilters-tagButton-active {

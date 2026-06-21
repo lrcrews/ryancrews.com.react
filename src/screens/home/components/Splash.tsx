@@ -11,11 +11,14 @@ import "./Splash.scss";
 function Splash() {
   return (
     <div className="splash">
-      <h1>A Blog for Code and Food</h1>
+      <h1>Blog: Code, Food</h1>
       <p>
-        On this blog you'll find pages about code, tools to help in coding,
-        posts about the job of being a Software Engineer... and non-annoying,
-        storyless, and to-the-point food recipes (mostly for my own sanity 👨‍🍳)
+        On this blog you'll find pages about code, tools to help in coding, and
+        posts about the job of being a Software Engineer...
+      </p>
+      <p>
+        ...and to-the-point food recipes that are simple, storyless, static
+        pages (mostly for my own sanity 👨‍🍳)
       </p>
       <ButtonContainer>
         <LinkButton kind={ButtonKind.Primary} route={CODE_HOME_PATH}>
