@@ -1,32 +1,14 @@
 @import "../../../sass-mixins/fonts.scss";
+@import "./post-category-styles.scss";
 
 .post-screen {
   .categoryLabel {
+    @include post-category-background-colors;
+
     border-radius: 8px;
     color: #fff; // same background colors in all themes, hence this color here.
     margin-top: 20px;
     padding: 2px 8px;
-
-    // TODO: should probably make a `Tag` component or something
-    &.cool_thing {
-      background-color: blue;
-    }
-
-    &.how_to {
-      background-color: green;
-    }
-
-    &.other {
-      background-color: gray;
-    }
-
-    &.the_art {
-      background-color: plum;
-    }
-
-    &.the_job {
-      background-color: slateblue;
-    }
   }
 
   .post-wrapper {

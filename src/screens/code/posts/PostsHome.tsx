@@ -22,6 +22,7 @@ export enum PostCategory {
   Other = "other",
   TheArt = "the_art",
   TheJob = "the_job",
+  VibeCoding = "vibe_coding",
 }
 
 export function PostCategoryDisplayName(category: PostCategory) {
@@ -32,7 +33,7 @@ const postCategories = Object.values(PostCategory);
 
 const posts = [
   {
-    category: PostCategory.HowTo,
+    category: PostCategory.VibeCoding,
     route: MY_FIRST_REAL_VIBE_POST,
     teaser:
       "A look at the first session that felt less like prompting and more like collaborating.",

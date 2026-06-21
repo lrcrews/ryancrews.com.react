@@ -1,31 +1,13 @@
 import "./MyFirstRealVibe.scss";
 
-import { ReactNode } from "react";
-
+import { VibeMessage } from "../components";
 import PostWrapper from "../PostWrapper";
 import { PostCategory } from "../PostsHome";
-
-type VibeMessageProps = {
-  children: ReactNode;
-  from: "Ryan" | "Codex";
-};
-
-function VibeMessage(props: VibeMessageProps) {
-  const { children, from } = props;
-  const side = from === "Ryan" ? "ryan" : "codex";
-
-  return (
-    <div className={`vibe-message vibe-message--${side}`}>
-      <div className="vibe-message-author">{from}</div>
-      <div className="vibe-message-body">{children}</div>
-    </div>
-  );
-}
 
 function MyFirstRealVibeScreen() {
   return (
     <PostWrapper
-      category={PostCategory.HowTo}
+      category={PostCategory.VibeCoding}
       subTitle="Talking back and forth with my robot colleague"
       title="My first real vibe"
     >

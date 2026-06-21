@@ -18,7 +18,7 @@ function HomeScreen() {
           <h2>Latest Post</h2>
           {/* NEW_POST: like a T0D0 comment for myself so I remember where I do the manual things */}
           <PostPreviewTile
-            category={PostCategory.HowTo}
+            category={PostCategory.VibeCoding}
             route={MY_FIRST_REAL_VIBE_POST}
             teaser="A look at the first session that felt less like prompting and more like collaborating."
             title="My first real vibe"

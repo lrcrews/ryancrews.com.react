@@ -1,0 +1,24 @@
+$post-category-colors: (
+  cool_thing: blue,
+  how_to: green,
+  other: gray,
+  the_art: plum,
+  the_job: slateblue,
+  vibe_coding: #536878,
+);
+
+@mixin post-category-background-colors {
+  @each $category, $color in $post-category-colors {
+    &.#{$category} {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin post-category-border-left-colors {
+  @each $category, $color in $post-category-colors {
+    &.#{$category} {
+      border-left-color: $color;
+    }
+  }
+}
