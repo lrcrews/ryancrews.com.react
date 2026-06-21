@@ -1,4 +1,4 @@
-import { MY_FIRST_REAL_VIBE_POST } from "../../routes/paths";
+import { COLOR_CONVERT_POST } from "../../routes/paths";
 import { PageWrapper } from "../../shared-components";
 import { PostPreviewTile } from "../../shared-components/tiles";
 import { PostCategory } from "../code/posts/PostsHome";
@@ -19,9 +19,9 @@ function HomeScreen() {
           {/* NEW_POST: like a T0D0 comment for myself so I remember where I do the manual things */}
           <PostPreviewTile
             category={PostCategory.VibeCoding}
-            route={MY_FIRST_REAL_VIBE_POST}
-            teaser="A look at the first session that felt less like prompting and more like collaborating."
-            title="My first real vibe"
+            route={COLOR_CONVERT_POST}
+            teaser="Vibing my way to a useful color converter (HEX <-> RGB) tool."
+            title="Color Convert"
           />
         </div>
         <div className="tile-group">

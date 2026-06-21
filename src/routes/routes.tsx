@@ -9,6 +9,7 @@ import {
   CauliflowerHotWingsScreen,
   ChickenMarsalaScreen,
   ChickenTikkaMasalaScreen,
+  ColorConvertScreen,
   ColorConverterScreen,
   CodeHomeScreen,
   CreamyChickenScreen,
@@ -60,6 +61,7 @@ import {
   CAULIFLOWER_HOT_WINGS_RECIPE,
   CHICKEN_MARSALA_RECIPE,
   CHICKEN_TIKKA_MASALA_RECIPE,
+  COLOR_CONVERT_POST,
   COLOR_CONVERTER_TOOL,
   CODE_HOME_PATH,
   CREAMY_CHICKEN_RECIPE,
@@ -128,6 +130,10 @@ export const router = createBrowserRouter([
     element: <TermsScreen />,
   },
   // NEW_POST: Post section of routes... too.
+  {
+    path: COLOR_CONVERT_POST,
+    element: <ColorConvertScreen />,
+  },
   {
     path: HELLO_ISSUES_POST,
     element: <HelloIssuesScreen />,

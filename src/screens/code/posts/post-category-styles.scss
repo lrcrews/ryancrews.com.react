@@ -1,10 +1,17 @@
 $post-category-colors: (
   cool_thing: blue,
   how_to: green,
-  other: gray,
   the_art: plum,
   the_job: slateblue,
-  vibe_coding: #536878,
+  vibe_coding: #c0c0c0,
+);
+
+$post-category-text-colors: (
+  cool_thing: #fff,
+  how_to: #fff,
+  the_art: #fff,
+  the_job: #fff,
+  vibe_coding: #000,
 );
 
 @mixin post-category-background-colors {
@@ -19,6 +26,14 @@ $post-category-colors: (
   @each $category, $color in $post-category-colors {
     &.#{$category} {
       border-left-color: $color;
+    }
+  }
+}
+
+@mixin post-category-text-colors {
+  @each $category, $color in $post-category-text-colors {
+    &.#{$category} {
+      color: $color;
     }
   }
 }

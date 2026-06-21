@@ -57,6 +57,11 @@ function UsefulToolsAndCodeHomeScreen() {
     ? usefulToolsAndCode.filter((item) => item.category === selectedCategory)
     : usefulToolsAndCode;
   const latestUsefulToolOrCode = filteredUsefulToolsAndCode[0];
+  const remainingUsefulToolsAndCode = latestUsefulToolOrCode
+    ? filteredUsefulToolsAndCode.filter(
+        (item) => item.route !== latestUsefulToolOrCode.route
+      )
+    : filteredUsefulToolsAndCode;
 
   return (
     <PageWrapper>
@@ -92,8 +97,9 @@ function UsefulToolsAndCodeHomeScreen() {
           />
         )}
         <div className="useful-tools-and-code">
+          <h2>Other Tools or Code</h2>
           {/* NEW_USEFUL_TOOL: Useful tools and code section of tiles */}
-          {filteredUsefulToolsAndCode.map((item) => (
+          {remainingUsefulToolsAndCode.map((item) => (
             <UsefulToolPreviewTile
               category={item.category}
               key={item.route}

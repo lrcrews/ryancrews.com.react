@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import {
   CODE_HOME_PATH,
+  COLOR_CONVERT_POST,
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
   MY_FIRST_REAL_VIBE_POST,
@@ -19,7 +20,6 @@ import "./PostsHome.scss";
 export enum PostCategory {
   CoolThing = "cool_thing",
   HowTo = "how_to",
-  Other = "other",
   TheArt = "the_art",
   TheJob = "the_job",
   VibeCoding = "vibe_coding",
@@ -32,6 +32,13 @@ export function PostCategoryDisplayName(category: PostCategory) {
 const postCategories = Object.values(PostCategory);
 
 const posts = [
+  {
+    category: PostCategory.VibeCoding,
+    route: COLOR_CONVERT_POST,
+    teaser:
+      "A color converter session that moved from first pass to mockup polish to tiny UX corrections.",
+    title: "Color Convert",
+  },
   {
     category: PostCategory.VibeCoding,
     route: MY_FIRST_REAL_VIBE_POST,
@@ -56,12 +63,15 @@ const posts = [
 
 function PostsHomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState<PostCategory | null>(
-    null
+    null,
   );
   const filteredPosts = selectedCategory
     ? posts.filter((post) => post.category === selectedCategory)
     : posts;
   const latestPost = filteredPosts[0];
+  const remainingPosts = latestPost
+    ? filteredPosts.filter((post) => post.route !== latestPost.route)
+    : filteredPosts;
 
   return (
     <PageWrapper>
@@ -95,7 +105,8 @@ function PostsHomeScreen() {
           />
         )}
         <div className="posts">
-          {filteredPosts.map((post) => (
+          <h2>Other Posts</h2>
+          {remainingPosts.map((post) => (
             <PostPreviewTile
               category={post.category}
               key={post.route}
