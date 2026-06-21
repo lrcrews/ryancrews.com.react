@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import {
   AboutScreen,
+  ArtPostScreen,
   BeefStirFryScreen,
   BeerBatteredFishScreen,
   BlackBeanFlautasScreen,
@@ -50,6 +51,7 @@ import CrispyBakedChickenFlautasScreen from "../screens/food/content/CrispyBaked
 import RicePilafScreen from "../screens/food/content/RicePilaf";
 import {
   ABOUT_PATH,
+  ART_POST,
   BEEF_NEGIMAKI_RECIPE,
   BEEF_STIR_FRY_RECIPE,
   BEEF_SUKIYAKI_RICE_BOWL_RECIPE,
@@ -128,6 +130,10 @@ export const router = createBrowserRouter([
     element: <TermsScreen />,
   },
   // NEW_POST: Post section of routes... too.
+  {
+    path: ART_POST,
+    element: <ArtPostScreen />,
+  },
   {
     path: HELLO_ISSUES_POST,
     element: <HelloIssuesScreen />,

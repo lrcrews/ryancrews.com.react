@@ -9,6 +9,7 @@ export const POSTS_HOME_PATH = "/code/posts";
 export const USEFUL_TOOLS_AND_CODE_HOME_PATH = "/code/useful-tools-and-code";
 
 // NEW_POST: Posts section of routes
+export const ART_POST = "/code/posts/art-post";
 export const HELLO_ISSUES_POST = "/code/posts/hello-issues";
 export const HELLO_WORLD_POST = "/code/posts/hello-world";
 export const MY_FIRST_REAL_VIBE_POST = "/code/posts/my-first-real-vibe";

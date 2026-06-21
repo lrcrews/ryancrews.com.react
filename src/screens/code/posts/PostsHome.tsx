@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
+  ART_POST,
   CODE_HOME_PATH,
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
@@ -32,6 +33,13 @@ export function PostCategoryDisplayName(category: PostCategory) {
 const postCategories = Object.values(PostCategory);
 
 const posts = [
+  {
+    category: PostCategory.TheArt,
+    route: ART_POST,
+    teaser:
+      "A CSS remake of a simplified Great Wave scene using layered divs, gradients, and foam.",
+    title: "Art post",
+  },
   {
     category: PostCategory.VibeCoding,
     route: MY_FIRST_REAL_VIBE_POST,
