@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// npm run add-recipe -- scripts/json-recipes/<recipe-name>.json
+// npm run add-recipe -- src/screens/food/data/<recipe-name>.json
 
 const fs = require("fs");
 const path = require("path");
@@ -10,43 +10,31 @@ const DATA_DIR = path.join(ROOT_DIR, "src/screens/food/data");
 const RECIPES_PATH = path.join(ROOT_DIR, "src/screens/food/recipes.ts");
 
 function usage() {
-  console.error(`Usage: npm run add-recipe -- path/to/recipe.json
+  console.error(`Usage: npm run add-recipe -- src/screens/food/data/<recipe-name>.json
 
-Example recipe.json:
+Recipe JSON files should already use the app data shape:
 {
   "title": "Tomato Soup",
+  "path": "/food/tomato-soup",
   "tags": ["vegetarian", "onion"],
-  "ingredients": [
-    "2 tablespoons olive oil",
-    "1 onion, diced",
-    "28 ounces canned tomatoes"
-  ],
-  "steps": [
-    "Cook the onion in olive oil until softened.",
-    "Add tomatoes and simmer for 20 minutes.",
-    "Blend until smooth."
-  ],
-  "sourceLink": "https://example.com/tomato-soup"
-}
-
-Ingredient sections are also supported:
-{
-  "title": "Pad Thai",
-  "ingredients": [
+  "sourceLink": "https://example.com/tomato-soup",
+  "ingredientSections": [
     {
-      "title": "Sauce",
+      "title": "Soup",
       "items": [
-        { "count": "1/4", "description": "cup fresh lime juice" },
-        "3 tablespoons fish sauce"
+        { "count": "2", "description": "tablespoons olive oil" },
+        { "count": "1", "description": "onion, diced" }
       ]
     }
   ],
-  "steps": ["Make the sauce.", "Cook the noodles."],
-  "sourceLink": "https://example.com/pad-thai"
+  "steps": [
+    "Cook the onion in olive oil until softened.",
+    "Add tomatoes and simmer for 20 minutes."
+  ]
 }`);
 }
 
-function readRecipe() {
+function getRecipePath() {
   const inputPath = process.argv[2];
 
   if (!inputPath) {
@@ -55,7 +43,26 @@ function readRecipe() {
   }
 
   const fullPath = path.resolve(process.cwd(), inputPath);
-  const raw = fs.readFileSync(fullPath, "utf8");
+
+  if (!fullPath.startsWith(`${DATA_DIR}${path.sep}`)) {
+    throw new Error(
+      `Recipe JSON must already be in ${path.relative(ROOT_DIR, DATA_DIR)}.`,
+    );
+  }
+
+  if (path.extname(fullPath) !== ".json") {
+    throw new Error("Recipe file must be a JSON file.");
+  }
+
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Recipe data does not exist: ${fullPath}`);
+  }
+
+  return fullPath;
+}
+
+function readRecipe(recipePath) {
+  const raw = fs.readFileSync(recipePath, "utf8");
 
   return JSON.parse(raw);
 }
@@ -72,89 +79,70 @@ function toPascalCase(value) {
     .join("");
 }
 
-function toKebabCase(value) {
-  return value
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/&/g, " and ")
-    .replace(/[^a-zA-Z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-+/g, "-")
-    .toLowerCase();
+function getSlugFromFileName(fileName) {
+  return path.basename(fileName, ".json");
 }
 
-function normalizeIngredient(ingredient) {
-  if (typeof ingredient === "string") {
-    const match = ingredient.match(/^(\S+)\s+(.+)$/);
-
-    return {
-      count: match ? match[1] : "",
-      description: match ? match[2] : ingredient,
-    };
-  }
-
-  return {
-    count: ingredient.count || "",
-    description: ingredient.description,
-  };
+function getExpectedPath(fileName) {
+  return `/food/${getSlugFromFileName(fileName)}`;
 }
 
-function normalizeIngredientSections(recipe) {
-  if (!Array.isArray(recipe.ingredients) || recipe.ingredients.length === 0) {
-    throw new Error("Recipe must include at least one ingredient.");
-  }
-
-  if (recipe.ingredients.every((ingredient) => !ingredient.items)) {
-    return [
-      {
-        title: recipe.ingredientsTitle || recipe.title,
-        items: recipe.ingredients.map(normalizeIngredient),
-      },
-    ];
-  }
-
-  return recipe.ingredients.map((section) => ({
-    title: section.title || recipe.title,
-    items: section.items.map(normalizeIngredient),
-  }));
-}
-
-function validateRecipe(recipe) {
+function validateRecipe(recipe, fileName) {
   if (!recipe.title) {
     throw new Error("Recipe must include a title.");
   }
 
-  if (recipe.tags && !Array.isArray(recipe.tags)) {
-    throw new Error("Recipe tags must be an array of strings.");
+  const expectedPath = getExpectedPath(fileName);
+
+  if (recipe.path !== expectedPath) {
+    throw new Error(`Recipe path must be ${expectedPath}.`);
   }
 
   if (
-    recipe.tags &&
+    !Array.isArray(recipe.tags) ||
     recipe.tags.some(
       (tag) => typeof tag !== "string" || tag.trim().length === 0,
     )
   ) {
-    throw new Error("Recipe tags must be non-empty strings.");
+    throw new Error("Recipe tags must be an array of non-empty strings.");
   }
+
+  if (
+    !Array.isArray(recipe.ingredientSections) ||
+    recipe.ingredientSections.length === 0
+  ) {
+    throw new Error("Recipe must include at least one ingredient section.");
+  }
+
+  recipe.ingredientSections.forEach((section) => {
+    if (!section.title || !Array.isArray(section.items)) {
+      throw new Error("Ingredient sections must include a title and items.");
+    }
+
+    section.items.forEach((item) => {
+      if (typeof item.count !== "string" || typeof item.description !== "string") {
+        throw new Error(
+          "Ingredient items must include count and description strings.",
+        );
+      }
+
+      if (item.description.trim().length === 0) {
+        throw new Error("Ingredient descriptions must be non-empty strings.");
+      }
+    });
+  });
 
   if (!Array.isArray(recipe.steps) || recipe.steps.length === 0) {
     throw new Error("Recipe must include at least one step.");
   }
-}
 
-function toRecipeData(recipe, slug) {
-  const sourceLink = recipe.sourceLink || recipe.originalRecipeLink;
-
-  return {
-    title: recipe.title,
-    path: `/food/${slug}`,
-    tags: (recipe.tags || [])
-      .map((tag) => tag.trim().toLowerCase())
-      .sort((left, right) => left.localeCompare(right)),
-    ...(sourceLink ? { sourceLink } : {}),
-    ingredientSections: normalizeIngredientSections(recipe),
-    steps: recipe.steps,
-  };
+  if (
+    recipe.steps.some(
+      (step) => typeof step !== "string" || step.trim().length === 0,
+    )
+  ) {
+    throw new Error("Recipe steps must be non-empty strings.");
+  }
 }
 
 function insertSortedImport(content, importLine) {
@@ -232,29 +220,17 @@ function updateRecipesRegistry(names) {
 }
 
 function main() {
-  const recipe = readRecipe();
-  validateRecipe(recipe);
-
-  const slug = recipe.path
-    ? recipe.path.split("/").filter(Boolean).pop()
-    : toKebabCase(recipe.title);
-  const fileName = `${slug}.json`;
+  const recipePath = getRecipePath();
+  const fileName = path.basename(recipePath);
+  const slug = getSlugFromFileName(fileName);
   const importName = `${toPascalCase(slug)}Recipe`;
-  const recipePath = path.join(DATA_DIR, fileName);
+  const recipe = readRecipe(recipePath);
 
-  if (fs.existsSync(recipePath)) {
-    throw new Error(`Recipe data already exists: ${recipePath}`);
-  }
-
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  fs.writeFileSync(
-    recipePath,
-    `${JSON.stringify(toRecipeData(recipe, slug), null, 2)}\n`,
-  );
+  validateRecipe(recipe, fileName);
   updateRecipesRegistry({ fileName, importName });
 
-  console.log(`Created ${path.relative(ROOT_DIR, recipePath)}`);
-  console.log(`Added route /food/${slug}`);
+  console.log(`Registered ${path.relative(ROOT_DIR, recipePath)}`);
+  console.log(`Route available at ${recipe.path}`);
 }
 
 main();
