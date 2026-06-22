@@ -8,8 +8,7 @@ $narrow-screen-breakpoint: 840px;
 
 @mixin main-content-wrapper {
   min-height: 100vh;
-  padding: ($site-header-height + $site-content-padding) $site-content-padding
-    $site-footer-height;
+  padding: $site-header-height $site-content-padding $site-footer-height;
 
   @media screen and (max-width: $mobile-screen-breakpoint) {
     padding-bottom: $site-footer-mobile-height;

@@ -14,7 +14,7 @@ function HomeScreen() {
     <PageWrapper>
       <main className="home-screen">
         <Splash />
-        <div className="tile-group">
+        <div className="latest-post">
           <h2>Latest Post</h2>
           {/* NEW_POST: like a T0D0 comment for myself so I remember where I do the manual things */}
           <PostPreviewTile
