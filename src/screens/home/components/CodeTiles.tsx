@@ -1,5 +1,4 @@
 import {
-  ABOUT_PATH,
   CODE_HOME_PATH,
   POSTS_HOME_PATH,
   USEFUL_TOOLS_AND_CODE_HOME_PATH,
@@ -44,27 +43,20 @@ function CodeTiles() {
         </div>
       </div>
       <TileContainer className="tileContainer--content">
-        <BaseTile route={USEFUL_TOOLS_AND_CODE_HOME_PATH}>
-          <div className="label">Useful Tools & Code</div>
-          <p>
-            A collection of useful tools and code snippets to help with
-            development 🛠
-          </p>
-        </BaseTile>
-        <BaseTile route={ABOUT_PATH}>
-          <div className="label">My Projects</div>
-          <p>
-            Pages dedicated to side projects, with helpful information and links
-            to the code 👨‍💻
-          </p>
-        </BaseTile>
-        <AdTile adName={AdName.AtomicAProgrammer} />
         <BaseTile route={POSTS_HOME_PATH}>
           <div className="label">Blog Posts</div>
           <p>
             My thoughts on things related to programming, working in the
             industry, interesting code patterns, and other loosely related
             topics 📝
+          </p>
+        </BaseTile>
+        <AdTile adName={AdName.AtomicAProgrammer} />
+        <BaseTile route={USEFUL_TOOLS_AND_CODE_HOME_PATH}>
+          <div className="label">Useful Tools & Code</div>
+          <p>
+            A collection of useful tools and code snippets to help with
+            development 🛠
           </p>
         </BaseTile>
       </TileContainer>
