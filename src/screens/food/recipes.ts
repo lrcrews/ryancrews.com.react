@@ -27,6 +27,7 @@ import {
   OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE,
   PAD_THAI_RECIPE,
   PORK_TENDERLOIN_RECIPE,
+  REVERSE_SEAR_TRI_TIP_RECIPE,
   RICE_PILAF_RECIPE,
   SKAGENRORA_RECIPE,
   SPAGHETTI_BOLOGNESE_RECIPE,
@@ -62,6 +63,7 @@ import OnePanOrecchiettePastaScreen from "./content/OnePanOrecchiettePasta";
 import OvenRoastedColaBraisedPulledPorkScreen from "./content/OvenRoastedColaBraisedPulledPork";
 import PadThaiScreen from "./content/PadThai";
 import PorkTenderloinScreen from "./content/PorkTenderloin";
+import ReverseSearTriTipScreen from "./content/ReverseSearTriTip";
 import RicePilafScreen from "./content/RicePilaf";
 import SkagenroraScreen from "./content/Skagenrora";
 import SpaghettiBologneseScreen from "./content/SpaghettiBolognese";
@@ -70,7 +72,6 @@ import TacosDeCarnitasScreen from "./content/TacosDeCarnitas";
 import YakiSortaScreen from "./content/YakiSorta";
 import ZaatarChickenBurgersScreen from "./content/ZaatarChickenBurgers";
 import ZaatarRoastedChickenScreen from "./content/ZaatarRoastedChicken";
-
 export const QUICK_FILTER_TAGS = [
   "chicken",
   "beef",
@@ -302,7 +303,14 @@ const recipeCatalog: RecipeSummary[] = [
   {
     Screen: GranolaScreen,
     path: GRANOLA_RECIPE,
-    tags: ["brown sugar", "coconut", "maple syrup", "oats", "pecans", "vegetarian"],
+    tags: [
+      "brown sugar",
+      "coconut",
+      "maple syrup",
+      "oats",
+      "pecans",
+      "vegetarian",
+    ],
     title: "Granola",
   },
   {
@@ -441,8 +449,21 @@ const recipeCatalog: RecipeSummary[] = [
   {
     Screen: PorkTenderloinScreen,
     path: PORK_TENDERLOIN_RECIPE,
-    tags: ["chipotle", "cilantro", "garlic powder", "lime", "maple syrup", "pork"],
+    tags: [
+      "chipotle",
+      "cilantro",
+      "garlic powder",
+      "lime",
+      "maple syrup",
+      "pork",
+    ],
     title: "Pork Tenderloin with Chipotle Lime Marinade",
+  },
+  {
+    Screen: ReverseSearTriTipScreen,
+    path: REVERSE_SEAR_TRI_TIP_RECIPE,
+    tags: ["beef", "garlic", "ghee", "rosemary"],
+    title: "Reverse Sear Tri Tip",
   },
   {
     Screen: RicePilafScreen,
@@ -461,7 +482,15 @@ const recipeCatalog: RecipeSummary[] = [
   {
     Screen: SkagenroraScreen,
     path: SKAGENRORA_RECIPE,
-    tags: ["dill", "hot sauce", "mayonnaise", "onion", "potato", "sour cream", "vegetarian"],
+    tags: [
+      "dill",
+      "hot sauce",
+      "mayonnaise",
+      "onion",
+      "potato",
+      "sour cream",
+      "vegetarian",
+    ],
     title: "Skagenrora (Swedish)",
   },
   {
@@ -545,5 +574,5 @@ const recipeCatalog: RecipeSummary[] = [
 ];
 
 export const recipes = [...recipeCatalog].sort((leftRecipe, rightRecipe) =>
-  leftRecipe.title.localeCompare(rightRecipe.title)
+  leftRecipe.title.localeCompare(rightRecipe.title),
 );

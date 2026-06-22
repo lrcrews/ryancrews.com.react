@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run add-recipe -- scripts/json-recipes/<recipe-name>.json
+
 const fs = require("fs");
 const path = require("path");
 
@@ -137,7 +139,9 @@ function validateRecipe(recipe) {
 
   if (
     recipe.tags &&
-    recipe.tags.some((tag) => typeof tag !== "string" || tag.trim().length === 0)
+    recipe.tags.some(
+      (tag) => typeof tag !== "string" || tag.trim().length === 0,
+    )
   ) {
     throw new Error("Recipe tags must be non-empty strings.");
   }
