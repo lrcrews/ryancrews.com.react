@@ -219,6 +219,31 @@ function updateRecipesRegistry(names) {
   fs.writeFileSync(RECIPES_PATH, content);
 }
 
+function validateUniqueRecipeFields(recipe, fileName) {
+  const dataFiles = fs
+    .readdirSync(DATA_DIR)
+    .filter((candidateFileName) =>
+      candidateFileName.endsWith(".json") && candidateFileName !== fileName
+    );
+
+  dataFiles.forEach((candidateFileName) => {
+    const candidatePath = path.join(DATA_DIR, candidateFileName);
+    const candidateRecipe = readRecipe(candidatePath);
+
+    if (candidateRecipe.path === recipe.path) {
+      throw new Error(
+        `Recipe path ${recipe.path} is already used by ${candidateFileName}.`,
+      );
+    }
+
+    if (candidateRecipe.title === recipe.title) {
+      throw new Error(
+        `Recipe title ${recipe.title} is already used by ${candidateFileName}.`,
+      );
+    }
+  });
+}
+
 function main() {
   const recipePath = getRecipePath();
   const fileName = path.basename(recipePath);
@@ -227,6 +252,7 @@ function main() {
   const recipe = readRecipe(recipePath);
 
   validateRecipe(recipe, fileName);
+  validateUniqueRecipeFields(recipe, fileName);
   updateRecipesRegistry({ fileName, importName });
 
   console.log(`Registered ${path.relative(ROOT_DIR, recipePath)}`);

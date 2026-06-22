@@ -10,6 +10,7 @@ import BraisedChickenRecipe from "./data/braised-chicken.json";
 import CauliflowerHotWingsRecipe from "./data/cauliflower-hot-wings.json";
 import ChickenMarsalaRecipe from "./data/chicken-marsala.json";
 import ChickenTikkaMasalaRecipe from "./data/chicken-tikka-masala.json";
+import ColaBraisedPorkButtRecipe from "./data/cola-braised-pork-butt.json";
 import CreamyChickenRecipe from "./data/creamy-chicken.json";
 import CrispyBakedChickenFlautasRecipe from "./data/crispy-baked-chicken-flautas.json";
 import FriedChickenNuggetsRecipe from "./data/fried-chicken-nuggets.json";
@@ -24,7 +25,6 @@ import LemonGarlicBokChoyRecipe from "./data/lemon-garlic-bok-choy.json";
 import MisoGarlicCauliflowerBitesRecipe from "./data/miso-garlic-cauliflower-bites.json";
 import NobuMisoMarinatedFishRecipe from "./data/nobu-miso-marinated-fish.json";
 import OnePanOrecchiettePastaRecipe from "./data/one-pan-orecchiette-pasta.json";
-import OvenRoastedColaBraisedPulledPorkRecipe from "./data/oven-roasted-cola-braised-pulled-pork.json";
 import PadThaiRecipe from "./data/pad-thai.json";
 import PorkTenderloinRecipe from "./data/pork-tenderloin.json";
 import ReverseSearTriTipRecipe from "./data/reverse-sear-tri-tip.json";
@@ -85,6 +85,7 @@ export const recipeData: RecipeData[] = [
   CauliflowerHotWingsRecipe as RecipeData,
   ChickenMarsalaRecipe as RecipeData,
   ChickenTikkaMasalaRecipe as RecipeData,
+  ColaBraisedPorkButtRecipe as RecipeData,
   CreamyChickenRecipe as RecipeData,
   CrispyBakedChickenFlautasRecipe as RecipeData,
   FriedChickenNuggetsRecipe as RecipeData,
@@ -99,7 +100,6 @@ export const recipeData: RecipeData[] = [
   MisoGarlicCauliflowerBitesRecipe as RecipeData,
   NobuMisoMarinatedFishRecipe as RecipeData,
   OnePanOrecchiettePastaRecipe as RecipeData,
-  OvenRoastedColaBraisedPulledPorkRecipe as RecipeData,
   PadThaiRecipe as RecipeData,
   PorkTenderloinRecipe as RecipeData,
   ReverseSearTriTipRecipe as RecipeData,

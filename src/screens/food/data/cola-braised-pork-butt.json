@@ -1,78 +1,43 @@
 {
-  "title": "Oven Roasted Cola-Braised Pulled Pork",
-  "path": "/food/oven-roasted-cola-braised-pulled-pork",
+  "title": "Cola-Braised Pork Butt",
+  "path": "/food/cola-braised-pork-butt",
   "tags": [
+    "pork",
+    "cola",
+    "beer",
+    "onion",
     "brown sugar",
     "chili powder",
     "dry mustard",
     "garlic powder",
-    "onion",
     "oregano",
-    "paprika",
-    "pork"
+    "paprika"
   ],
-  "sourceLink": "https://www.askchefdennis.com/perfect-pulled-pork/#wprm-recipe-container-83915",
   "ingredientSections": [
     {
       "title": "Dry Rub",
       "items": [
-        {
-          "count": "1",
-          "description": "tablespoon brown sugar"
-        },
-        {
-          "count": "1/2",
-          "description": "tablespoon chili powder"
-        },
-        {
-          "count": "1/2",
-          "description": "teaspoon sea salt"
-        },
-        {
-          "count": "1/2",
-          "description": "teaspoon smoked paprika"
-        },
-        {
-          "count": "1/4",
-          "description": "teaspoon black pepper"
-        },
-        {
-          "count": "1/4",
-          "description": "teaspoon dry mustard"
-        },
-        {
-          "count": "1/4",
-          "description": "teaspoon oregano"
-        },
-        {
-          "count": "1/4",
-          "description": "teaspoon garlic powder"
-        },
-        {
-          "count": "1/4",
-          "description": "teaspoon onion powder"
-        }
+        { "count": "1", "description": "tablespoon brown sugar" },
+        { "count": "1/2", "description": "tablespoon chili powder" },
+        { "count": "1/2", "description": "teaspoon sea salt" },
+        { "count": "1/2", "description": "teaspoon smoked paprika" },
+        { "count": "1/4", "description": "teaspoon black pepper" },
+        { "count": "1/4", "description": "teaspoon dry mustard" },
+        { "count": "1/4", "description": "teaspoon oregano" },
+        { "count": "1/4", "description": "teaspoon garlic powder" },
+        { "count": "1/4", "description": "teaspoon onion powder" }
       ]
     },
     {
       "title": "Pulled Pork",
       "items": [
-        {
-          "count": "2",
-          "description": "pounds boneless pork shoulder"
-        },
-        {
-          "count": "1",
-          "description": "tablespoon olive oil"
-        },
+        { "count": "2", "description": "pounds boneless pork shoulder" },
+        { "count": "1", "description": "tablespoon olive oil" },
         {
           "count": "1",
           "description": "cup beer, or substitute Dr. Pepper, root beer, or Coke"
         },
-        {
-          "count": "1/2",
-          "description": "onion, diced"
-        }
+        { "count": "1/2", "description": "onion, diced" }
       ]
     }
   ],
@@ -91,5 +56,6 @@
     "Shred the pork with two forks.",
     "Toss the shredded pork with barbecue sauce, adding pan juices if desired to keep it moist.",
     "Serve in tacos, sandwiches, or other pulled pork dishes."
-  ]
+  ],
+  "sourceLink": "https://www.askchefdennis.com/perfect-pulled-pork/#wprm-recipe-container-83915"
 }

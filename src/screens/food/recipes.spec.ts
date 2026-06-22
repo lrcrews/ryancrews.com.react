@@ -3,9 +3,13 @@ import { recipeData, recipes } from "./recipes";
 describe("recipeData", () => {
   test("contains valid recipe records", () => {
     const paths = new Set<string>();
+    const titles = new Set<string>();
 
     recipeData.forEach((recipe) => {
       expect(recipe.title.trim()).not.toBe("");
+      expect(titles.has(recipe.title)).toBe(false);
+      titles.add(recipe.title);
+
       expect(recipe.path).toMatch(/^\/food\/[a-z0-9-]+$/);
       expect(paths.has(recipe.path)).toBe(false);
       paths.add(recipe.path);
