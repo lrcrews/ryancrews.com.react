@@ -1,12 +1,11 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
 
 import { USEFUL_TOOLS_AND_CODE_HOME_PATH } from "../../../routes/paths";
-import { PageWrapper } from "../../../shared-components";
+import CodeContentWrapper from "../components/CodeContentWrapper";
 import {
   UsefulToolCategory,
   UsefulToolCategoryDisplayName,
-} from "./UsefulToolsAndCodeHome";
+} from "./usefulToolCategories";
 
 import "./UsefulToolCategoryLabel.scss";
 
@@ -22,22 +21,18 @@ function UsefulToolWrapper(props: UsefulToolWrapperProps) {
   const { category, children, subTitle, title } = props;
 
   return (
-    <PageWrapper>
-      <main className="useful-tool-screen">
-        <p>
-          👈{" "}
-          <Link to={USEFUL_TOOLS_AND_CODE_HOME_PATH}>
-            Back to useful tools & code
-          </Link>
-        </p>
-        <h1>{title}</h1>
-        {subTitle && <div className="subheader">({subTitle})</div>}
-        <div className={`label usefulToolCategoryLabel ${category}`}>
-          {UsefulToolCategoryDisplayName(category)}
-        </div>
-        {children}
-      </main>
-    </PageWrapper>
+    <CodeContentWrapper
+      backLabel="Back to useful tools & code"
+      backPath={USEFUL_TOOLS_AND_CODE_HOME_PATH}
+      category={category}
+      categoryClassName="usefulToolCategoryLabel"
+      displayName={UsefulToolCategoryDisplayName}
+      screenClassName="useful-tool-screen"
+      subTitle={subTitle}
+      title={title}
+    >
+      {children}
+    </CodeContentWrapper>
   );
 }
 

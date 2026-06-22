@@ -95,7 +95,6 @@ function FoodHomeScreen() {
           </div>
         </section>
         <ul className="u-list-of-links">
-          {/* NEW_RECIPE: like a T0D0 comment for myself so I remember where I do the manual things */}
           {displayedRecipes.map((recipe) => (
             <li key={recipe.path}>
               <Link to={recipe.path} className="large-label">

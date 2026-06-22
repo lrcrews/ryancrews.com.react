@@ -1,77 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import {
-  CODE_HOME_PATH,
-  COLOR_CONVERT_POST,
-  HELLO_ISSUES_POST,
-  HELLO_WORLD_POST,
-  MY_FIRST_REAL_VIBE_POST,
-} from "../../../routes/paths";
+import { CODE_HOME_PATH } from "../../../routes/paths";
 import {
   CategoryFilter,
   EmptyContentState,
   PageWrapper,
+  useCategorizedItems,
 } from "../../../shared-components";
 import { PostPreviewTile } from "../../../shared-components/tiles";
+import {
+  PostCategory,
+  PostCategoryDisplayName,
+  postCategories,
+} from "./postCategories";
+import { posts } from "./posts";
 
 import "./PostsHome.scss";
-
-export enum PostCategory {
-  CoolThing = "cool_thing",
-  HowTo = "how_to",
-  TheArt = "the_art",
-  TheJob = "the_job",
-  VibeCoding = "vibe_coding",
-}
-
-export function PostCategoryDisplayName(category: PostCategory) {
-  return category.replaceAll("_", " ");
-}
-
-const postCategories = Object.values(PostCategory);
-
-const posts = [
-  {
-    category: PostCategory.VibeCoding,
-    route: COLOR_CONVERT_POST,
-    teaser:
-      "A color converter session that moved from first pass to mockup polish to tiny UX corrections.",
-    title: "Color Convert",
-  },
-  {
-    category: PostCategory.VibeCoding,
-    route: MY_FIRST_REAL_VIBE_POST,
-    teaser:
-      "A look at the first session that felt less like prompting and more like collaborating.",
-    title: "My first real vibe",
-  },
-  {
-    category: PostCategory.HowTo,
-    route: HELLO_ISSUES_POST,
-    teaser:
-      "A lightweight workflow from issue label to local branch to verified change.",
-    title: "Hello issues!",
-  },
-  {
-    category: PostCategory.CoolThing,
-    route: HELLO_WORLD_POST,
-    teaser: "In a world, where teasers have a voice, we have some writing.",
-    title: "Hello World",
-  },
-];
 
 function PostsHomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState<PostCategory | null>(
     null,
   );
-  const filteredPosts = selectedCategory
-    ? posts.filter((post) => post.category === selectedCategory)
-    : posts;
-  const latestPost = filteredPosts[0];
-  const remainingPosts = latestPost
-    ? filteredPosts.filter((post) => post.route !== latestPost.route)
-    : filteredPosts;
+  const { latestItem: latestPost, remainingItems: remainingPosts } =
+    useCategorizedItems(posts, selectedCategory);
 
   return (
     <PageWrapper>
@@ -90,11 +42,10 @@ function PostsHomeScreen() {
           setSelectedCategory={setSelectedCategory}
         />
         <h2>Latest Post</h2>
-        {/* NEW_POST: like a T0D0 comment for myself so I remember where I do the manual things */}
         {latestPost ? (
           <PostPreviewTile
             category={latestPost.category}
-            route={latestPost.route}
+            route={latestPost.path}
             teaser={latestPost.teaser}
             title={latestPost.title}
           />
@@ -109,8 +60,8 @@ function PostsHomeScreen() {
           {remainingPosts.map((post) => (
             <PostPreviewTile
               category={post.category}
-              key={post.route}
-              route={post.route}
+              key={post.path}
+              route={post.path}
               teaser={post.teaser}
               title={post.title}
             />

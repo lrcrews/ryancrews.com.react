@@ -54,6 +54,7 @@ export const OVEN_ROASTED_COLA_BRAISED_PULLED_PORK_RECIPE =
   "/food/oven-roasted-cola-braised-pulled-pork";
 export const PAD_THAI_RECIPE = "/food/pad-thai";
 export const PORK_TENDERLOIN_RECIPE = "/food/pork-tenderloin";
+export const REVERSE_SEAR_TRI_TIP_RECIPE = "/food/reverse-sear-tri-tip";
 export const RICE_PILAF_RECIPE = "/food/rice-pilaf";
 export const SKAGENRORA_RECIPE = "/food/skagenrora";
 export const SPAGHETTI_BOLOGNESE_RECIPE = "/food/spaghetti-bolognese";

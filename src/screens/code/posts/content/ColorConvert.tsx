@@ -2,7 +2,7 @@ import "./MyFirstRealVibe.scss";
 
 import { VibeMessage } from "../components";
 import PostWrapper from "../PostWrapper";
-import { PostCategory } from "../PostsHome";
+import { PostCategory } from "../postCategories";
 
 function ColorConvertScreen() {
   return (

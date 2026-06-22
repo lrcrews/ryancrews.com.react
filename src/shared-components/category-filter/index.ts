@@ -1,3 +1,4 @@
 import CategoryFilter from "./CategoryFilter";
+import { useCategorizedItems } from "./useCategorizedItems";
 
-export { CategoryFilter };
+export { CategoryFilter, useCategorizedItems };

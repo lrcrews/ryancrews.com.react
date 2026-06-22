@@ -9,7 +9,7 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "./buttons";
-import { CategoryFilter } from "./category-filter";
+import { CategoryFilter, useCategorizedItems } from "./category-filter";
 import { EmptyContentState } from "./empty-content-state";
 
 import {
@@ -36,4 +36,5 @@ export {
   SiteFooter,
   SiteHeader,
   TileContainer,
+  useCategorizedItems,
 };
