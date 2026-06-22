@@ -1,6 +1,6 @@
 export function useCategorizedItems<
-  TItem extends { category: TCategory; path: string },
   TCategory extends string,
+  TItem extends { category: TCategory; path: string },
 >(items: TItem[], selectedCategory: TCategory | null) {
   const filteredItems = selectedCategory
     ? items.filter((item) => item.category === selectedCategory)
