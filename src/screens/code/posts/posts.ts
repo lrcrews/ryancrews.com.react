@@ -5,12 +5,14 @@ import {
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
   MY_FIRST_REAL_VIBE_POST,
+  MY_FIRST_VIBE_REFACTOR_POST,
 } from "../../../routes/paths";
 
 import ColorConvertScreen from "./content/ColorConvert";
 import HelloIssuesScreen from "./content/HelloIssues";
 import HelloWorldScreen from "./content/HelloWorld";
 import MyFirstRealVibeScreen from "./content/MyFirstRealVibe";
+import MyFirstVibeRefactorScreen from "./content/MyFirstVibeRefactor";
 import { PostCategory } from "./postCategories";
 
 export interface PostSummary {
@@ -23,6 +25,14 @@ export interface PostSummary {
 
 export const posts: PostSummary[] = [
   // NEW_POST: Posts section of preview data
+  {
+    Screen: MyFirstVibeRefactorScreen,
+    category: PostCategory.VibeCoding,
+    path: MY_FIRST_VIBE_REFACTOR_POST,
+    teaser:
+      "I always knew I would refactor things, I didn't know it'd be this quick and easy",
+    title: "My first (vibe) refactor",
+  },
   {
     Screen: ColorConvertScreen,
     category: PostCategory.VibeCoding,

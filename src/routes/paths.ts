@@ -12,6 +12,8 @@ export const USEFUL_TOOLS_AND_CODE_HOME_PATH = "/code/useful-tools-and-code";
 export const COLOR_CONVERT_POST = "/code/posts/color-convert";
 export const HELLO_ISSUES_POST = "/code/posts/hello-issues";
 export const HELLO_WORLD_POST = "/code/posts/hello-world";
+export const MY_FIRST_VIBE_REFACTOR_POST =
+  "/code/posts/my-first-vibe-refactor";
 export const MY_FIRST_REAL_VIBE_POST = "/code/posts/my-first-real-vibe";
 
 // NEW_USEFUL_TOOL: Useful tools and code section of routes

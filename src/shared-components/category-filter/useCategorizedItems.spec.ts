@@ -1,6 +1,8 @@
 import { useCategorizedItems } from "./useCategorizedItems";
 
-const items = [
+type TestCategory = "primary" | "secondary" | "missing";
+
+const items: { category: TestCategory; path: string; title: string }[] = [
   {
     category: "primary",
     path: "/first",
@@ -20,7 +22,10 @@ const items = [
 
 describe("useCategorizedItems", () => {
   test("returns the first item as latest and the rest as remaining without a selected category", () => {
-    const result = useCategorizedItems(items, null);
+    const result = useCategorizedItems<TestCategory, (typeof items)[number]>(
+      items,
+      null,
+    );
 
     expect(result.filteredItems).toEqual(items);
     expect(result.latestItem).toEqual(items[0]);
@@ -28,7 +33,10 @@ describe("useCategorizedItems", () => {
   });
 
   test("filters by selected category before choosing latest and remaining items", () => {
-    const result = useCategorizedItems(items, "primary");
+    const result = useCategorizedItems<TestCategory, (typeof items)[number]>(
+      items,
+      "primary",
+    );
 
     expect(result.filteredItems).toEqual([items[0], items[2]]);
     expect(result.latestItem).toEqual(items[0]);
@@ -36,7 +44,10 @@ describe("useCategorizedItems", () => {
   });
 
   test("returns no latest item when a selected category has no matches", () => {
-    const result = useCategorizedItems(items, "missing");
+    const result = useCategorizedItems<TestCategory, (typeof items)[number]>(
+      items,
+      "missing",
+    );
 
     expect(result.filteredItems).toEqual([]);
     expect(result.latestItem).toBeUndefined();
