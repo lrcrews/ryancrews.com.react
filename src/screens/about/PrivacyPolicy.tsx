@@ -25,9 +25,8 @@ function PrivacyPolicyScreen() {
         <p>Zero seconds. I have no data about you.</p>
         <h2>Advertisements</h2>
         <p>
-          The only ads on this website are to my wife's shop. I share no data
-          with her (I don't have any), just link directly to her shop as I think
-          she sells cool stuff.
+          The only ads on this website are to my book. Eventually. I really am
+          writing one!
         </p>
       </main>
     </PageWrapper>
