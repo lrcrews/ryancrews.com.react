@@ -1,4 +1,4 @@
-import { PostCategory } from "../PostsHome";
+import { PostCategory } from "../postCategories";
 import PostWrapper from "../PostWrapper";
 
 function HelloWorldScreen() {

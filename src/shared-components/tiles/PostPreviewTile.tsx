@@ -1,6 +1,10 @@
-import BaseTile, { TileKind, TileProps } from "./BaseTile";
+import CategorizedPreviewTile from "./CategorizedPreviewTile";
+import { TileProps } from "./BaseTile";
 
-import { PostCategory, PostCategoryDisplayName } from "../../screens";
+import {
+  PostCategory,
+  PostCategoryDisplayName,
+} from "../../screens/code/posts/postCategories";
 
 type _PostPreviewTileProps = Omit<TileProps, "kind">;
 
@@ -11,20 +15,18 @@ type PostPreviewTileProps = _PostPreviewTileProps & {
 };
 
 function PostPreviewTile(props: PostPreviewTileProps) {
-  const { category, route, teaser, title, children, ...otherProps } = props;
+  const { category, route, teaser, title, ...otherProps } = props;
 
   return (
-    <BaseTile kind={TileKind.PostPreview} route={route} {...otherProps}>
-      <div className={`postPreview ${category}`}>
-        <div className="headline">{title}</div>
-        <div className="teaser">
-          <div className={`label ${category}`}>
-            {PostCategoryDisplayName(category)}
-          </div>
-          <div className="text">{teaser}</div>
-        </div>
-      </div>
-    </BaseTile>
+    <CategorizedPreviewTile
+      category={category}
+      displayName={PostCategoryDisplayName}
+      previewClassName="postPreview"
+      route={route}
+      teaser={teaser}
+      title={title}
+      {...otherProps}
+    />
   );
 }
 

@@ -1,67 +1,31 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import {
-  BUTTON_WITH_SELECT_TOOL,
-  CODE_HOME_PATH,
-  COLOR_CONVERTER_TOOL,
-} from "../../../routes/paths";
+import { CODE_HOME_PATH } from "../../../routes/paths";
 import {
   CategoryFilter,
   EmptyContentState,
   PageWrapper,
+  useCategorizedItems,
 } from "../../../shared-components";
 import { UsefulToolPreviewTile } from "../../../shared-components/tiles";
+import {
+  UsefulToolCategory,
+  UsefulToolCategoryDisplayName,
+  usefulToolCategories,
+} from "./usefulToolCategories";
+import { usefulToolsAndCode } from "./usefulToolsAndCode";
 
 import "./UsefulToolCategoryLabel.scss";
 import "./UsefulToolsAndCodeHome.scss";
 
-export enum UsefulToolCategory {
-  CSSSnippet = "css_snippet",
-  DebuggingNote = "debugging_note",
-  Reference = "reference",
-  Tool = "tool",
-  UtilityMethod = "utility_method",
-}
-
-export function UsefulToolCategoryDisplayName(category: UsefulToolCategory) {
-  return category.replaceAll("_", " ");
-}
-
-const usefulToolCategories = Object.values(UsefulToolCategory);
-const usefulToolsAndCode: {
-  category: UsefulToolCategory;
-  route: string;
-  teaser: string;
-  title: string;
-}[] = [
-  // NEW_USEFUL_TOOL: Useful tools and code section of preview data
-  {
-    category: UsefulToolCategory.Tool,
-    route: BUTTON_WITH_SELECT_TOOL,
-    teaser: "A split button with a default action and an accessible chooser.",
-    title: "Button with Select",
-  },
-  {
-    category: UsefulToolCategory.Tool,
-    route: COLOR_CONVERTER_TOOL,
-    teaser: "Convert between hex and RGB with a live swatch.",
-    title: "Color Converter",
-  },
-];
-
 function UsefulToolsAndCodeHomeScreen() {
   const [selectedCategory, setSelectedCategory] =
     useState<UsefulToolCategory | null>(null);
-  const filteredUsefulToolsAndCode = selectedCategory
-    ? usefulToolsAndCode.filter((item) => item.category === selectedCategory)
-    : usefulToolsAndCode;
-  const latestUsefulToolOrCode = filteredUsefulToolsAndCode[0];
-  const remainingUsefulToolsAndCode = latestUsefulToolOrCode
-    ? filteredUsefulToolsAndCode.filter(
-        (item) => item.route !== latestUsefulToolOrCode.route
-      )
-    : filteredUsefulToolsAndCode;
+  const {
+    latestItem: latestUsefulToolOrCode,
+    remainingItems: remainingUsefulToolsAndCode,
+  } = useCategorizedItems(usefulToolsAndCode, selectedCategory);
 
   return (
     <PageWrapper>
@@ -82,11 +46,10 @@ function UsefulToolsAndCodeHomeScreen() {
           setSelectedCategory={setSelectedCategory}
         />
         <h2>Latest Useful Tool or Code</h2>
-        {/* NEW_USEFUL_TOOL: like a T0D0 comment for myself so I remember where I do the manual things */}
         {latestUsefulToolOrCode ? (
           <UsefulToolPreviewTile
             category={latestUsefulToolOrCode.category}
-            route={latestUsefulToolOrCode.route}
+            route={latestUsefulToolOrCode.path}
             teaser={latestUsefulToolOrCode.teaser}
             title={latestUsefulToolOrCode.title}
           />
@@ -98,12 +61,11 @@ function UsefulToolsAndCodeHomeScreen() {
         )}
         <div className="useful-tools-and-code">
           <h2>Other Tools or Code</h2>
-          {/* NEW_USEFUL_TOOL: Useful tools and code section of tiles */}
           {remainingUsefulToolsAndCode.map((item) => (
             <UsefulToolPreviewTile
               category={item.category}
-              key={item.route}
-              route={item.route}
+              key={item.path}
+              route={item.path}
               teaser={item.teaser}
               title={item.title}
             />

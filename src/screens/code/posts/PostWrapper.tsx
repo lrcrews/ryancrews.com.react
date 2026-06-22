@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
 
 import { POSTS_HOME_PATH } from "../../../routes/paths";
-import { AdTile, PageWrapper } from "../../../shared-components";
-import { PostCategory, PostCategoryDisplayName } from "./PostsHome";
+import { AdTile } from "../../../shared-components";
+import CodeContentWrapper from "../components/CodeContentWrapper";
+import { PostCategory, PostCategoryDisplayName } from "./postCategories";
 
 import "./PostWrapper.scss";
 
@@ -19,22 +19,21 @@ function PostWrapper(props: PostWrapperProps) {
   const { category, children, subTitle, title } = props;
 
   return (
-    <PageWrapper>
-      <main className="post-screen">
-        <p>
-          👈 <Link to={POSTS_HOME_PATH}>Back to posts</Link>
-        </p>
-        <h1>{title}</h1>
-        {subTitle && <div className="subheader">({subTitle})</div>}
-        <div className={`label categoryLabel ${category}`}>
-          {PostCategoryDisplayName(category)}
-        </div>
-        <div className="post-wrapper">
-          <AdTile />
-          <div>{children}</div>
-        </div>
-      </main>
-    </PageWrapper>
+    <CodeContentWrapper
+      backLabel="Back to posts"
+      backPath={POSTS_HOME_PATH}
+      category={category}
+      categoryClassName="categoryLabel"
+      displayName={PostCategoryDisplayName}
+      screenClassName="post-screen"
+      subTitle={subTitle}
+      title={title}
+    >
+      <div className="post-wrapper">
+        <AdTile />
+        <div>{children}</div>
+      </div>
+    </CodeContentWrapper>
   );
 }
 

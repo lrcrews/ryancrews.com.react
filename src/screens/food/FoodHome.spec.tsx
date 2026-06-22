@@ -1,25 +1,13 @@
 import { act } from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
 
-import { CookModeProvider } from "../../cook-mode";
-import { ThemeProvider } from "../../themes";
+import { renderWithProviders } from "../../test-utils/renderWithProviders";
 
 import FoodHomeScreen from "./FoodHome";
 
 function renderFoodHome() {
-  window.scrollTo = jest.fn();
-
-  return render(
-    <MemoryRouter>
-      <ThemeProvider themeName="light">
-        <CookModeProvider>
-          <FoodHomeScreen />
-        </CookModeProvider>
-      </ThemeProvider>
-    </MemoryRouter>
-  );
+  return renderWithProviders(<FoodHomeScreen />);
 }
 
 describe("FoodHomeScreen", () => {

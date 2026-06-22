@@ -1,9 +1,10 @@
-import BaseTile, { TileKind, TileProps } from "./BaseTile";
+import CategorizedPreviewTile from "./CategorizedPreviewTile";
+import { TileProps } from "./BaseTile";
 
 import {
   UsefulToolCategory,
   UsefulToolCategoryDisplayName,
-} from "../../screens";
+} from "../../screens/code/useful-tools-and-code/usefulToolCategories";
 
 import "../../screens/code/useful-tools-and-code/UsefulToolCategoryLabel.scss";
 
@@ -16,20 +17,19 @@ type UsefulToolPreviewTileProps = _UsefulToolPreviewTileProps & {
 };
 
 function UsefulToolPreviewTile(props: UsefulToolPreviewTileProps) {
-  const { category, route, teaser, title, children, ...otherProps } = props;
+  const { category, route, teaser, title, ...otherProps } = props;
 
   return (
-    <BaseTile kind={TileKind.PostPreview} route={route} {...otherProps}>
-      <div className={`usefulToolPreview ${category}`}>
-        <div className="headline">{title}</div>
-        <div className="teaser">
-          <div className={`label usefulToolCategoryLabel ${category}`}>
-            {UsefulToolCategoryDisplayName(category)}
-          </div>
-          <div className="text">{teaser}</div>
-        </div>
-      </div>
-    </BaseTile>
+    <CategorizedPreviewTile
+      category={category}
+      categoryClassName="usefulToolCategoryLabel"
+      displayName={UsefulToolCategoryDisplayName}
+      previewClassName="usefulToolPreview"
+      route={route}
+      teaser={teaser}
+      title={title}
+      {...otherProps}
+    />
   );
 }
 

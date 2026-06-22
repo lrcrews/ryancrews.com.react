@@ -1,15 +1,14 @@
 import { act } from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { CookModeProvider } from "../../cook-mode";
 import {
   BRAISED_CHICKEN_RECIPE,
   FOOD_HOME_PATH,
   HOME_PATH,
 } from "../../routes/paths";
-import { ThemeProvider } from "../../themes";
+import { renderWithProviders } from "../../test-utils/renderWithProviders";
 
 import SiteFooter from "./SiteFooter";
 
@@ -45,15 +44,7 @@ function mockWakeLock() {
 }
 
 function renderFooter(initialEntries: string[]) {
-  return render(
-    <MemoryRouter initialEntries={initialEntries}>
-      <ThemeProvider themeName="light">
-        <CookModeProvider>
-          <TestHarness />
-        </CookModeProvider>
-      </ThemeProvider>
-    </MemoryRouter>
-  );
+  return renderWithProviders(<TestHarness />, { initialEntries });
 }
 
 describe("SiteFooter", () => {

@@ -6,8 +6,6 @@ const path = require("path");
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT_DIR, "src/screens/food/content");
 const PATHS_PATH = path.join(ROOT_DIR, "src/routes/paths.ts");
-const ROUTES_PATH = path.join(ROOT_DIR, "src/routes/routes.tsx");
-const SCREENS_INDEX_PATH = path.join(ROOT_DIR, "src/screens/index.ts");
 const RECIPES_PATH = path.join(ROOT_DIR, "src/screens/food/recipes.ts");
 
 function usage() {
@@ -221,24 +219,6 @@ export default ${names.screenName};
 `;
 }
 
-function replaceAfterMarker(content, marker, insertion) {
-  if (content.includes(insertion.trim())) {
-    return content;
-  }
-
-  const index = content.indexOf(marker);
-
-  if (index === -1) {
-    throw new Error(`Could not find marker: ${marker}`);
-  }
-
-  const lineEnd = content.indexOf("\n", index);
-
-  return `${content.slice(0, lineEnd + 1)}${insertion}${content.slice(
-    lineEnd + 1,
-  )}`;
-}
-
 function getRange(content, startMarker, endMarker) {
   const startMarkerIndex = content.indexOf(startMarker);
 
@@ -361,39 +341,6 @@ function insertSortedBlocks(
   )}`;
 }
 
-function updateRoutes(names) {
-  let content = fs.readFileSync(ROUTES_PATH, "utf8");
-
-  const screenImportInsertion = `  ${names.screenName},`;
-  const pathImportInsertion = `  ${names.constantName},`;
-  const routeInsertion = `  {
-    path: ${names.constantName},
-    element: <${names.screenName} />,
-  },
-`;
-
-  content = insertSortedNamedImportMember(
-    content,
-    "../screens",
-    screenImportInsertion,
-  );
-  content = insertSortedNamedImportMember(
-    content,
-    "./paths",
-    pathImportInsertion,
-  );
-  content = insertSortedBlocks(
-    content,
-    "// NEW_RECIPES: Recipes section of routes... too.",
-    "  // Catch all",
-    routeInsertion,
-    /  \{\n[\s\S]*?  \},\n/g,
-    (block) => block.match(/path: ([A-Z0-9_]+)/)?.[1] || block,
-  );
-
-  fs.writeFileSync(ROUTES_PATH, content);
-}
-
 function updateRoutePaths(names) {
   let content = fs.readFileSync(PATHS_PATH, "utf8");
 
@@ -411,30 +358,6 @@ function updateRoutePaths(names) {
   fs.writeFileSync(PATHS_PATH, content);
 }
 
-function updateScreensIndex(names) {
-  let content = fs.readFileSync(SCREENS_INDEX_PATH, "utf8");
-
-  const importInsertion = `import ${names.screenName} from "./food/content/${names.fileName}";
-`;
-  const exportInsertion = `  ${names.screenName},
-`;
-
-  content = insertSortedLines(
-    content,
-    "// NEW_RECIPE: Recipes section of imports",
-    "export {",
-    importInsertion,
-  );
-  content = insertSortedLines(
-    content,
-    "// NEW_RECIPE: Recipes section of screens",
-    "};",
-    exportInsertion,
-  );
-
-  fs.writeFileSync(SCREENS_INDEX_PATH, content);
-}
-
 function updateRecipesCatalog(recipe, names) {
   let content = fs.readFileSync(RECIPES_PATH, "utf8");
 
@@ -442,7 +365,10 @@ function updateRecipesCatalog(recipe, names) {
     .map((tag) => tag.trim().toLowerCase())
     .sort((left, right) => left.localeCompare(right));
   const importInsertion = `  ${names.constantName},`;
+  const screenImportInsertion = `import ${names.screenName} from "./content/${names.fileName}";
+`;
   const recipeInsertion = `  {
+    Screen: ${names.screenName},
     path: ${names.constantName},
     tags: [${tags.map(escapeString).join(", ")}],
     title: ${escapeString(recipe.title)},
@@ -453,6 +379,12 @@ function updateRecipesCatalog(recipe, names) {
     content,
     "../../routes/paths",
     importInsertion,
+  );
+  content = insertSortedLines(
+    content,
+    '} from "../../routes/paths";',
+    "export const QUICK_FILTER_TAGS",
+    screenImportInsertion,
   );
   content = insertSortedBlocks(
     content,
@@ -484,8 +416,6 @@ function main() {
 
   fs.writeFileSync(recipePath, generateRecipeScreen(recipe, names));
   updateRoutePaths(names);
-  updateRoutes(names);
-  updateScreensIndex(names);
   updateRecipesCatalog(recipe, names);
 
   console.log(`Created ${path.relative(ROOT_DIR, recipePath)}`);

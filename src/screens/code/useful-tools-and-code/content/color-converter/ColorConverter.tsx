@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 
 import UsefulToolWrapper from "../../UsefulToolWrapper";
-import { UsefulToolCategory } from "../../UsefulToolsAndCodeHome";
+import { UsefulToolCategory } from "../../usefulToolCategories";
 
 import "./ColorConverter.scss";
 import {

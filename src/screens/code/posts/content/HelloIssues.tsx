@@ -1,7 +1,7 @@
 import "./HelloIssues.scss";
 
 import PostWrapper from "../PostWrapper";
-import { PostCategory } from "../PostsHome";
+import { PostCategory } from "../postCategories";
 
 function HelloIssuesScreen() {
   return (
