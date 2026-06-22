@@ -42,7 +42,7 @@ function ReverseSearTriTipScreen() {
           steps={[
             "Preheat oven to 250°F.",
             "Place tri tip on a rack atop a large baking sheet. Season generously with salt.",
-            "Transfer the baking sheet to the oven and cook the tri tip until the internal temperature is 10-15°F below your desired doneness. Use a reliable digital instant read thermometer for best results.",
+            "Transfer the baking sheet to the oven and cook the tri tip until the internal temperature is 10-15°F below your desired doneness. Use a reliable digital instant read thermometer for best results. (Rare: 100-105°F, Medium-rare: 110-115°F,Medium: 120-125°F, Medium-well: 130-135°F, Well: 140-145°F)",
             "Heat a large cast iron skillet over high heat until very hot, almost smoking.",
             "Add the butter or ghee and swirl it around the pan.",
             "Place the smashed garlic, rosemary sprigs, and tri tip into the pan.",
