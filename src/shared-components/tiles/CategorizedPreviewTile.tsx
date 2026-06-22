@@ -23,7 +23,6 @@ function CategorizedPreviewTile<TCategory extends string>(
     route,
     teaser,
     title,
-    children,
     ...otherProps
   } = props;
   const labelClassName = ["label", categoryClassName, category]
