@@ -36,7 +36,7 @@ function RecipeWrapper(props: RecipeWrapperProps) {
           </div>
         </div>
         {originalRecipeLink && (
-          <p>
+          <p className="recipe-source">
             <span className="small-label">source:</span>{" "}
             <a href={originalRecipeLink} target="_blank" rel="noreferrer">
               {originalRecipeLink}
