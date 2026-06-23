@@ -1,53 +1,40 @@
 #!/usr/bin/env node
 
-// npm run add-recipe -- scripts/json-recipes/<recipe-name>.json
+// npm run add-recipe -- src/screens/food/data/<recipe-name>.json
 
 const fs = require("fs");
 const path = require("path");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
-const CONTENT_DIR = path.join(ROOT_DIR, "src/screens/food/content");
-const PATHS_PATH = path.join(ROOT_DIR, "src/routes/paths.ts");
+const DATA_DIR = path.join(ROOT_DIR, "src/screens/food/data");
 const RECIPES_PATH = path.join(ROOT_DIR, "src/screens/food/recipes.ts");
 
 function usage() {
-  console.error(`Usage: npm run add-recipe -- path/to/recipe.json
+  console.error(`Usage: npm run add-recipe -- src/screens/food/data/<recipe-name>.json
 
-Example recipe.json:
+Recipe JSON files should already use the app data shape:
 {
   "title": "Tomato Soup",
+  "path": "/food/tomato-soup",
   "tags": ["vegetarian", "onion"],
-  "ingredients": [
-    "2 tablespoons olive oil",
-    "1 onion, diced",
-    "28 ounces canned tomatoes"
-  ],
-  "steps": [
-    "Cook the onion in olive oil until softened.",
-    "Add tomatoes and simmer for 20 minutes.",
-    "Blend until smooth."
-  ],
-  "sourceLink": "https://example.com/tomato-soup"
-}
-
-Ingredient sections are also supported:
-{
-  "title": "Pad Thai",
-  "ingredients": [
+  "sourceLink": "https://example.com/tomato-soup",
+  "ingredientSections": [
     {
-      "title": "Sauce",
+      "title": "Soup",
       "items": [
-        { "count": "1/4", "description": "cup fresh lime juice" },
-        "3 tablespoons fish sauce"
+        { "count": "2", "description": "tablespoons olive oil" },
+        { "count": "1", "description": "onion, diced" }
       ]
     }
   ],
-  "steps": ["Make the sauce.", "Cook the noodles."],
-  "sourceLink": "https://example.com/pad-thai"
+  "steps": [
+    "Cook the onion in olive oil until softened.",
+    "Add tomatoes and simmer for 20 minutes."
+  ]
 }`);
 }
 
-function readRecipe() {
+function getRecipePath() {
   const inputPath = process.argv[2];
 
   if (!inputPath) {
@@ -56,7 +43,26 @@ function readRecipe() {
   }
 
   const fullPath = path.resolve(process.cwd(), inputPath);
-  const raw = fs.readFileSync(fullPath, "utf8");
+
+  if (!fullPath.startsWith(`${DATA_DIR}${path.sep}`)) {
+    throw new Error(
+      `Recipe JSON must already be in ${path.relative(ROOT_DIR, DATA_DIR)}.`,
+    );
+  }
+
+  if (path.extname(fullPath) !== ".json") {
+    throw new Error("Recipe file must be a JSON file.");
+  }
+
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Recipe data does not exist: ${fullPath}`);
+  }
+
+  return fullPath;
+}
+
+function readRecipe(recipePath) {
+  const raw = fs.readFileSync(recipePath, "utf8");
 
   return JSON.parse(raw);
 }
@@ -73,157 +79,106 @@ function toPascalCase(value) {
     .join("");
 }
 
-function toKebabCase(value) {
-  return value
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/&/g, " and ")
-    .replace(/[^a-zA-Z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-+/g, "-")
-    .toLowerCase();
+function getSlugFromFileName(fileName) {
+  return path.basename(fileName, ".json");
 }
 
-function toConstantName(value) {
-  return `${toKebabCase(value).replace(/-/g, "_").toUpperCase()}_RECIPE`;
+function getExpectedPath(fileName) {
+  return `/food/${getSlugFromFileName(fileName)}`;
 }
 
-function escapeString(value) {
-  return JSON.stringify(value);
-}
-
-function normalizeIngredient(ingredient) {
-  if (typeof ingredient === "string") {
-    const match = ingredient.match(/^(\S+)\s+(.+)$/);
-
-    return {
-      count: match ? match[1] : "",
-      description: match ? match[2] : ingredient,
-    };
-  }
-
-  return {
-    count: ingredient.count || "",
-    description: ingredient.description,
-  };
-}
-
-function normalizeIngredientSections(recipe) {
-  if (!Array.isArray(recipe.ingredients) || recipe.ingredients.length === 0) {
-    throw new Error("Recipe must include at least one ingredient.");
-  }
-
-  if (recipe.ingredients.every((ingredient) => !ingredient.items)) {
-    return [
-      {
-        title: recipe.ingredientsTitle || recipe.title,
-        items: recipe.ingredients.map(normalizeIngredient),
-      },
-    ];
-  }
-
-  return recipe.ingredients.map((section) => ({
-    title: section.title || recipe.title,
-    items: section.items.map(normalizeIngredient),
-  }));
-}
-
-function validateRecipe(recipe) {
+function validateRecipe(recipe, fileName) {
   if (!recipe.title) {
     throw new Error("Recipe must include a title.");
   }
 
-  if (recipe.tags && !Array.isArray(recipe.tags)) {
-    throw new Error("Recipe tags must be an array of strings.");
+  const expectedPath = getExpectedPath(fileName);
+
+  if (recipe.path !== expectedPath) {
+    throw new Error(`Recipe path must be ${expectedPath}.`);
   }
 
   if (
-    recipe.tags &&
+    !Array.isArray(recipe.tags) ||
     recipe.tags.some(
       (tag) => typeof tag !== "string" || tag.trim().length === 0,
     )
   ) {
-    throw new Error("Recipe tags must be non-empty strings.");
+    throw new Error("Recipe tags must be an array of non-empty strings.");
   }
+
+  if (
+    !Array.isArray(recipe.ingredientSections) ||
+    recipe.ingredientSections.length === 0
+  ) {
+    throw new Error("Recipe must include at least one ingredient section.");
+  }
+
+  recipe.ingredientSections.forEach((section) => {
+    if (!section.title || !Array.isArray(section.items)) {
+      throw new Error("Ingredient sections must include a title and items.");
+    }
+
+    section.items.forEach((item) => {
+      if (typeof item.count !== "string" || typeof item.description !== "string") {
+        throw new Error(
+          "Ingredient items must include count and description strings.",
+        );
+      }
+
+      if (item.description.trim().length === 0) {
+        throw new Error("Ingredient descriptions must be non-empty strings.");
+      }
+    });
+  });
 
   if (!Array.isArray(recipe.steps) || recipe.steps.length === 0) {
     throw new Error("Recipe must include at least one step.");
   }
+
+  if (
+    recipe.steps.some(
+      (step) => typeof step !== "string" || step.trim().length === 0,
+    )
+  ) {
+    throw new Error("Recipe steps must be non-empty strings.");
+  }
 }
 
-function formatIngredients(sections) {
-  return sections
-    .map((section) => {
-      const ingredients = section.items
-        .map(
-          (ingredient) => `            {
-              count: ${escapeString(ingredient.count)},
-              description: ${escapeString(ingredient.description)},
-            },`,
-        )
-        .join("\n");
-
-      return `        <Ingredients
-          ingredients={[
-${ingredients}
-          ]}
-          title=${escapeString(section.title)}
-        />`;
-    })
-    .join("\n");
-}
-
-function formatSteps(steps) {
-  return steps.map((step) => `            ${escapeString(step)},`).join("\n");
-}
-
-function generateRecipeScreen(recipe, names) {
-  const sections = normalizeIngredientSections(recipe);
-  const originalRecipeLink = recipe.sourceLink || recipe.originalRecipeLink;
-  const sourceLine = originalRecipeLink
-    ? `      originalRecipeLink=${escapeString(originalRecipeLink)}
-`
-    : "";
-
-  return `import Ingredients from "../components/Ingredients";
-import Preparation from "../components/Preparation";
-import RecipeWrapper from "../RecipeWrapper";
-
-function ${names.screenName}() {
-  function ingredients() {
-    return (
-      <>
-${formatIngredients(sections)}
-      </>
-    );
+function insertSortedImport(content, importLine) {
+  if (content.includes(importLine)) {
+    return content;
   }
 
-  function preparation() {
-    return (
-      <>
-        <Preparation
-          steps={[
-${formatSteps(recipe.steps)}
-          ]}
-        />
-      </>
-    );
-  }
-
-  return (
-    <RecipeWrapper
-      ingredients={ingredients()}
-${sourceLine}      preparation={preparation()}
-      title=${escapeString(recipe.title)}
-    />
+  const importPattern = /^import .* from "\.\/data\/.*\.json";$/gm;
+  const imports = content.match(importPattern) || [];
+  const sortedImports = [...imports, importLine].sort((left, right) =>
+    left.localeCompare(right),
   );
+
+  if (imports.length === 0) {
+    return content.replace(
+      'import RecipeScreen from "./RecipeScreen";',
+      `import RecipeScreen from "./RecipeScreen";\n${importLine}`,
+    );
+  }
+
+  const firstImportIndex = content.indexOf(imports[0]);
+  const lastImport = imports[imports.length - 1];
+  const lastImportIndex = content.indexOf(lastImport, firstImportIndex);
+  const endIndex = lastImportIndex + lastImport.length;
+
+  return `${content.slice(0, firstImportIndex)}${sortedImports.join(
+    "\n",
+  )}${content.slice(endIndex)}`;
 }
 
-export default ${names.screenName};
-`;
-}
+function insertSortedRecipeDataEntry(content, entryLine) {
+  if (content.includes(entryLine.trim())) {
+    return content;
+  }
 
-function getRange(content, startMarker, endMarker) {
+  const startMarker = "export const recipeData: RecipeData[] = [";
   const startMarkerIndex = content.indexOf(startMarker);
 
   if (startMarkerIndex === -1) {
@@ -231,199 +186,77 @@ function getRange(content, startMarker, endMarker) {
   }
 
   const startIndex = content.indexOf("\n", startMarkerIndex) + 1;
-  const endIndex = content.indexOf(endMarker, startIndex);
+  const endIndex = content.indexOf("];", startIndex);
 
   if (endIndex === -1) {
-    throw new Error(`Could not find marker: ${endMarker}`);
+    throw new Error("Could not find end of recipeData.");
   }
 
-  return { startIndex, endIndex };
-}
-
-function insertSortedLines(content, startMarker, endMarker, insertion) {
-  if (content.includes(insertion.trim())) {
-    return content;
-  }
-
-  const { startIndex, endIndex } = getRange(content, startMarker, endMarker);
-  const section = content.slice(startIndex, endIndex);
-  const lines = section
+  const entries = content
+    .slice(startIndex, endIndex)
     .split("\n")
     .filter((line) => line.trim().length > 0)
-    .concat(insertion.trimEnd())
+    .concat(entryLine)
     .sort((left, right) => left.trim().localeCompare(right.trim()));
-  const replacement = `${lines.join("\n")}\n`;
 
-  return `${content.slice(0, startIndex)}${replacement}${content.slice(
+  return `${content.slice(0, startIndex)}${entries.join("\n")}\n${content.slice(
     endIndex,
   )}`;
 }
 
-function insertSortedNamedImportMember(content, importFrom, insertion) {
-  if (content.includes(insertion.trim())) {
-    return content;
-  }
-
-  const importPattern = new RegExp(
-    `import \\{\\n([\\s\\S]*?)\\n\\} from ${escapeRegExp(
-      JSON.stringify(importFrom),
-    )};`,
-  );
-  const match = content.match(importPattern);
-
-  if (!match) {
-    throw new Error(`Could not find named import from ${importFrom}`);
-  }
-
-  const memberLines = match[1]
-    .split("\n")
-    .filter((line) => line.trim().length > 0)
-    .concat(insertion.trimEnd())
-    .sort((left, right) => left.trim().localeCompare(right.trim()));
-  const replacement = `import {\n${memberLines.join("\n")}\n} from ${JSON.stringify(
-    importFrom,
-  )};`;
-
-  return content.replace(importPattern, replacement);
-}
-
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function insertSortedBlocksToEOF(
-  content,
-  startMarker,
-  insertion,
-  blockPattern,
-  getKey,
-) {
-  if (content.includes(insertion.trim())) {
-    return content;
-  }
-
-  const startMarkerIndex = content.indexOf(startMarker);
-
-  if (startMarkerIndex === -1) {
-    throw new Error(`Could not find marker: ${startMarker}`);
-  }
-
-  const startIndex = content.indexOf("\n", startMarkerIndex) + 1;
-  const section = content.slice(startIndex);
-  const blocks = section.match(blockPattern) || [];
-  const sortedBlocks = blocks
-    .filter((block) => block.trim().length > 0)
-    .concat(insertion)
-    .sort((left, right) => getKey(left).localeCompare(getKey(right)));
-
-  return `${content.slice(0, startIndex)}${sortedBlocks.join("")}`;
-}
-
-function insertSortedBlocks(
-  content,
-  startMarker,
-  endMarker,
-  insertion,
-  blockPattern,
-  getKey,
-) {
-  if (content.includes(insertion.trim())) {
-    return content;
-  }
-
-  const { startIndex, endIndex } = getRange(content, startMarker, endMarker);
-  const section = content.slice(startIndex, endIndex);
-  const blocks = section.match(blockPattern) || [];
-  const sortedBlocks = blocks
-    .filter((block) => block.trim().length > 0)
-    .concat(insertion)
-    .sort((left, right) => getKey(left).localeCompare(getKey(right)));
-  const replacement = sortedBlocks.join("");
-
-  return `${content.slice(0, startIndex)}${replacement}${content.slice(
-    endIndex,
-  )}`;
-}
-
-function updateRoutePaths(names) {
-  let content = fs.readFileSync(PATHS_PATH, "utf8");
-
-  const constantInsertion = `export const ${names.constantName} = "/food/${names.slug}";
-`;
-
-  content = insertSortedBlocksToEOF(
-    content,
-    "// NEW_RECIPES: Recipes section of routes",
-    constantInsertion,
-    /export const [A-Z0-9_]+[\s\S]*?;\n/g,
-    (block) => block.match(/export const ([A-Z0-9_]+)/)?.[1] || block,
-  );
-
-  fs.writeFileSync(PATHS_PATH, content);
-}
-
-function updateRecipesCatalog(recipe, names) {
+function updateRecipesRegistry(names) {
   let content = fs.readFileSync(RECIPES_PATH, "utf8");
 
-  const tags = (recipe.tags || [])
-    .map((tag) => tag.trim().toLowerCase())
-    .sort((left, right) => left.localeCompare(right));
-  const importInsertion = `  ${names.constantName},`;
-  const screenImportInsertion = `import ${names.screenName} from "./content/${names.fileName}";
-`;
-  const recipeInsertion = `  {
-    Screen: ${names.screenName},
-    path: ${names.constantName},
-    tags: [${tags.map(escapeString).join(", ")}],
-    title: ${escapeString(recipe.title)},
-  },
-`;
-
-  content = insertSortedNamedImportMember(
+  content = insertSortedImport(
     content,
-    "../../routes/paths",
-    importInsertion,
+    `import ${names.importName} from "./data/${names.fileName}";`,
   );
-  content = insertSortedLines(
+  content = insertSortedRecipeDataEntry(
     content,
-    '} from "../../routes/paths";',
-    "export const QUICK_FILTER_TAGS",
-    screenImportInsertion,
-  );
-  content = insertSortedBlocks(
-    content,
-    "const recipeCatalog: RecipeSummary[] = [",
-    "];",
-    recipeInsertion,
-    /  \{\n[\s\S]*?  \},\n/g,
-    (block) => block.match(/title: "([^"]+)"/)?.[1] || block,
+    `  ${names.importName} as RecipeData,`,
   );
 
   fs.writeFileSync(RECIPES_PATH, content);
 }
 
+function validateUniqueRecipeFields(recipe, fileName) {
+  const dataFiles = fs
+    .readdirSync(DATA_DIR)
+    .filter((candidateFileName) =>
+      candidateFileName.endsWith(".json") && candidateFileName !== fileName
+    );
+
+  dataFiles.forEach((candidateFileName) => {
+    const candidatePath = path.join(DATA_DIR, candidateFileName);
+    const candidateRecipe = readRecipe(candidatePath);
+
+    if (candidateRecipe.path === recipe.path) {
+      throw new Error(
+        `Recipe path ${recipe.path} is already used by ${candidateFileName}.`,
+      );
+    }
+
+    if (candidateRecipe.title === recipe.title) {
+      throw new Error(
+        `Recipe title ${recipe.title} is already used by ${candidateFileName}.`,
+      );
+    }
+  });
+}
+
 function main() {
-  const recipe = readRecipe();
-  validateRecipe(recipe);
+  const recipePath = getRecipePath();
+  const fileName = path.basename(recipePath);
+  const slug = getSlugFromFileName(fileName);
+  const importName = `${toPascalCase(slug)}Recipe`;
+  const recipe = readRecipe(recipePath);
 
-  const names = {
-    constantName: toConstantName(recipe.title),
-    fileName: toPascalCase(recipe.title),
-    screenName: `${toPascalCase(recipe.title)}Screen`,
-    slug: toKebabCase(recipe.title),
-  };
-  const recipePath = path.join(CONTENT_DIR, `${names.fileName}.tsx`);
+  validateRecipe(recipe, fileName);
+  validateUniqueRecipeFields(recipe, fileName);
+  updateRecipesRegistry({ fileName, importName });
 
-  if (fs.existsSync(recipePath)) {
-    throw new Error(`Recipe screen already exists: ${recipePath}`);
-  }
-
-  fs.writeFileSync(recipePath, generateRecipeScreen(recipe, names));
-  updateRoutePaths(names);
-  updateRecipesCatalog(recipe, names);
-
-  console.log(`Created ${path.relative(ROOT_DIR, recipePath)}`);
-  console.log(`Added route /food/${names.slug}`);
+  console.log(`Registered ${path.relative(ROOT_DIR, recipePath)}`);
+  console.log(`Route available at ${recipe.path}`);
 }
 
 main();

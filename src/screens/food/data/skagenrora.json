@@ -1,0 +1,59 @@
+{
+  "title": "Skagenrora (Swedish)",
+  "path": "/food/skagenrora",
+  "tags": [
+    "dill",
+    "hot sauce",
+    "mayonnaise",
+    "onion",
+    "potato",
+    "sour cream",
+    "vegetarian"
+  ],
+  "sourceLink": "https://globalkitchentravels.com/skagenrora-swedish-shrimp-salad/",
+  "ingredientSections": [
+    {
+      "title": "Skagenrora",
+      "items": [
+        {
+          "count": "2",
+          "description": "Russet potatoes"
+        },
+        {
+          "count": "3",
+          "description": "tablespoons sour cream"
+        },
+        {
+          "count": "3",
+          "description": "tablespoons mayonnaise"
+        },
+        {
+          "count": "3",
+          "description": "tablespoons dill (finely chopped)"
+        },
+        {
+          "count": "2",
+          "description": "teaspoons red onion (minced)"
+        },
+        {
+          "count": "1/8",
+          "description": "teaspoon (or more) salt"
+        },
+        {
+          "count": "1/8",
+          "description": "teaspoon (or more) ground white pepper"
+        },
+        {
+          "count": "",
+          "description": "a few drops of hot sauce"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "Bake russet potatoes.",
+    "Combine remaining ingredients in a medium bowl and mix thoroughly. Refrigerate.",
+    "Top baked potatoes with Skagenrora.",
+    "Serve with additional hot sauce (Frank's) to taste."
+  ]
+}

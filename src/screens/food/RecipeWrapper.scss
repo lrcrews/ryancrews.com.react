@@ -4,6 +4,15 @@
 @import "../../themes/theme-handler.scss";
 
 .recipe-screen {
+  > .recipe-source {
+    overflow-wrap: anywhere;
+
+    > a {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+  }
+
   > .content {
     @include themify($themes) {
       color: themed("on-background");
