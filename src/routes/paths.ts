@@ -21,6 +21,7 @@ export const VIBE_TUNE_TOO_POST = "/code/posts/vibe-tune-too";
 export const BUTTON_WITH_SELECT_TOOL =
   "/code/useful-tools-and-code/button-with-select";
 export const COLOR_CONVERTER_TOOL = "/code/useful-tools-and-code/color-converter";
+export const CONFETTI_TOOL = "/code/useful-tools-and-code/confetti";
 
 export const FOOD_HOME_PATH = "/food";
 

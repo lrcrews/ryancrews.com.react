@@ -1,0 +1,78 @@
+@import "../../../../../themes/themes.scss";
+@import "../../../../../themes/theme-handler.scss";
+@import "../../../../../sass-mixins/fonts.scss";
+
+.confettiToolSurface {
+  display: grid;
+  gap: 24px;
+}
+
+.confetti-trigger {
+  width: 100%;
+}
+
+.confetti-code {
+  @include font-code;
+  @include themify($themes) {
+    background-color: themed("background-hover");
+    border-color: themed("border");
+    box-shadow: 0 0 8px 1px rgba(themed("on-background"), 8%) inset;
+    color: themed("on-background");
+  }
+
+  border: 1px solid;
+  border-left-width: 4px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px 20px;
+  white-space: pre;
+  width: 100%;
+}
+
+.confetti {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+}
+
+.confetti-piece {
+  animation:
+    confetti-drop var(--duration) linear var(--delay) forwards,
+    confetti-sway 900ms ease-in-out var(--delay) infinite alternate;
+  background: var(--color);
+  height: calc(var(--size) * 1.6);
+  left: var(--left);
+  opacity: 0;
+  position: absolute;
+  top: -10vh;
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  width: var(--size);
+}
+
+@keyframes confetti-drop {
+  0% {
+    opacity: 1;
+    top: -10vh;
+  }
+
+  100% {
+    opacity: 0.9;
+    top: 110vh;
+    transform: translate3d(var(--sway), 0, 0) rotate(720deg);
+  }
+}
+
+@keyframes confetti-sway {
+  from {
+    margin-left: calc(var(--sway) * -0.5);
+  }
+
+  to {
+    margin-left: calc(var(--sway) * 0.5);
+  }
+}
