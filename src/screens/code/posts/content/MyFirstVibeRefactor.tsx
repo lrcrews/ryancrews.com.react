@@ -23,7 +23,7 @@ function MyFirstVibeRefactorScreen() {
         better. It's one I would suggest making for any new project.
       </p>
 
-      <h3>What? Any new project?!?! Knowingly take on tech-debt day one?!</h3>
+      <h3>What? Any new project?!?! Knowingly take on tech debt day one?!</h3>
 
       <p>Yes.</p>
 
