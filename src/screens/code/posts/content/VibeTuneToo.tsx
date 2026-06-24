@@ -14,21 +14,23 @@ function VibeTuneTooScreen() {
       <h3>So we're sticking with "Vibe Tune", eh?</h3>
 
       <p>
-        Yes! It's as good a name as any! Anyway, let's talk about vibe tuning...
+        Yes! It's as good a name as any! Now, let's talk about vibe tuning...
       </p>
 
       <p>
         The minute I realized the first refactor was going well (while still in
-        the middle of it), I couldn't wait to start this one. This was bothering
-        me every time I copy-pasted a recipe then just changed the content. I
-        wanted something better.
+        the middle of it), I couldn't wait to start this one: the recipes
+        refactor! This was bothering me every time I copy-pasted an existing
+        recipe to then just change the content to the new recipe (and hope I
+        didn't miss anything). I wanted something better.
       </p>
 
       <p>
         I knew (from experience, I suppose 😅) that the best thing to do here
-        was to load in data that the same core components then render... but I
-        also knew (from budget sheets and unwanted complexity) that I didn't
-        want an actual backend and/or database.
+        was to load in recipe data and use the existing core components to
+        render it... but I also knew (from budget sheets and unwanted
+        complexity) that I didn't want an actual backend and/or database to
+        store and manage the data.
       </p>
 
       <h3>So, what did you do?</h3>
@@ -41,9 +43,9 @@ function VibeTuneTooScreen() {
       </p>
 
       <p>
-        A nice bonus here is that chatGPT (just the web version) is quite good
-        at generating this JSON from a link I provide, so when I do find a
-        recipe I want to add it's a very quick process end-to-end.
+        A nice bonus here is that ChatGPT (just the web version) is quite good
+        at generating recipe JSON from a link I provide, so when I do find a
+        recipe I want to add, it's a very quick process end-to-end.
       </p>
 
       <p>
@@ -51,12 +53,12 @@ function VibeTuneTooScreen() {
         request for a "plan", and then tweaked the updates to match my end goal.
       </p>
 
-      <p>This does feel like a good pattern.</p>
+      <p>This (still) feels like a good pattern.</p>
 
       <p>
         As long as we know what tech debt we have, or become aware of ways that
-        we could improve our codebase through time and iteration, than we can do
-        larger refactors with confidence and ease. (and it's that ease part that
+        we could improve our codebase through time and iteration, then we can do
+        larger refactors with confidence and ease. (And it's that ease part that
         rocks 😎)
       </p>
 

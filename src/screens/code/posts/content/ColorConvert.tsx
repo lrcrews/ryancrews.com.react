@@ -14,7 +14,7 @@ function ColorConvertScreen() {
       <h3>AKA: Vibe Coding 2: Electric Boogaloo</h3>
 
       <p>
-        This session was a test of "code while I sleep", where I setup{" "}
+        This session was a test of "code while I sleep", where I set up{" "}
         <a
           href="https://github.com/lrcrews/ryancrews.com.react/issues/9"
           target="_blank"
@@ -38,12 +38,12 @@ function ColorConvertScreen() {
         >
           see here
         </a>{" "}
-        if you're curious. In the meantime I gave it the image in Codex itself
+        if you're curious. In the meantime, I gave it the image in Codex itself,
         and it updated the UI it guessed at to match the mock 🎉
       </p>
 
       <p>
-        From there I reviewed the code (there was a bit more than I wanted) and
+        From there, I reviewed the code (there was a bit more than I wanted) and
         the user experience (which had a horrible autocomplete feature that was
         infuriating when trying to type in a hex code) and we iterated back and
         forth on simplifying the code and improving the experience. The final

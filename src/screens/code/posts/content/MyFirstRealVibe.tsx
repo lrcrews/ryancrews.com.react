@@ -17,8 +17,8 @@ function MyFirstRealVibeScreen() {
 
       <p>
         My initial use of AI tools has been more specific prompts for a known
-        task, which created a small update that was easy to slot into my
-        existing code.
+        task, creating a small update that was easy to slot into my existing
+        code.
       </p>
 
       <p>
@@ -39,9 +39,9 @@ function MyFirstRealVibeScreen() {
       <p>
         I did still review the changes at every step, and (when I remembered) I
         kept the commits separate so it's easy to follow along in that way as
-        well. (I'll add in some links below to those commits). So maybe not yet
-        the full "vibe and ride" that it seems others are doing, but vibing none
-        the less.
+        well. (I'll add in some links below to those commits). So, maybe not yet
+        the full "vibe and ride" that it seems others are doing, but vibing
+        nonetheless.
       </p>
 
       <p>What follows is the vibe conversation that did the following:</p>

@@ -14,25 +14,25 @@ function MyFirstVibeRefactorScreen() {
       <p>
         I knew from the beginning of this iteration of my blog that I would end
         up refactoring things. I just didn't want to slow down my initial goals,
-        so I accepted the tech-debt.
+        so I accepted the tech debt.
       </p>
 
       <p>
         What I didn't know was that I would be using Codex when it came time to
         refactor, and if anything I think it makes that initial decision even
-        better. One I would suggest is made for any new project.
+        better. It's one I would suggest making for any new project.
       </p>
 
       <h3>What? Any new project?!?! Knowingly take on tech-debt day one?!</h3>
 
       <p>Yes.</p>
 
-      <p>Or better stated, Hell yeah!</p>
+      <p>Or, better stated, Hell yeah!</p>
 
       <p>
         I think any new project would be better served by loosely setting up the
         structure and general patterns that line up with the project's goals,
-        but then implement the initial code in a totally quick and dirty way
+        but then implementing the initial code in a totally quick and dirty way
         that doesn't consider any ways to make things reusable, cleaner,
         single-purpose, etc.
       </p>
@@ -40,22 +40,21 @@ function MyFirstVibeRefactorScreen() {
       <p>
         Then, when you get enough code in place that the structure and patterns
         are clear, (and you can see if your original structure and patterns make
-        sense), well then you can refactor rather easily via the "plan" pattern
-        and focused vibe sessions.
+        sense), you can refactor rather easily via the "plan" pattern and
+        focused vibe sessions.
       </p>
 
       <p>
-        The big part here being that you are not asking the agent to just look
-        at a bunch of random code and make its own decisions, but instead giving
-        it clear structure/patterns to work within (event if they are
-        repetitive, or otherwise imperfect). And you can make informed requests
-        based on the tech debt tradeoffs that you purposefully made in the
-        beginning.
+        The big part here is that you are not asking the agent to just look at a
+        bunch of random code and make its own decisions, but instead giving it
+        clear structure/patterns to work within (even if they are repetitive or
+        otherwise imperfect). And you can make informed requests based on the
+        tech debt tradeoffs that you purposefully made in the beginning.
       </p>
 
       <p>
         This was my first re-vibification (nope... still not a good term), but I
-        already know a couple more I'm about to kick off 🥳
+        already know there are a couple more I'm about to kick off 🥳
       </p>
 
       <p>Vibetuning? Vibe Tuning... 🤷</p>
