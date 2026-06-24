@@ -6,6 +6,7 @@ import {
   HELLO_WORLD_POST,
   MY_FIRST_REAL_VIBE_POST,
   MY_FIRST_VIBE_REFACTOR_POST,
+  VIBE_TUNE_TOO_POST,
 } from "../../../routes/paths";
 
 import ColorConvertScreen from "./content/ColorConvert";
@@ -13,6 +14,7 @@ import HelloIssuesScreen from "./content/HelloIssues";
 import HelloWorldScreen from "./content/HelloWorld";
 import MyFirstRealVibeScreen from "./content/MyFirstRealVibe";
 import MyFirstVibeRefactorScreen from "./content/MyFirstVibeRefactor";
+import VibeTuneTooScreen from "./content/VibeTuneToo";
 import { PostCategory } from "./postCategories";
 
 export interface PostSummary {
@@ -25,6 +27,14 @@ export interface PostSummary {
 
 export const posts: PostSummary[] = [
   // NEW_POST: Posts section of preview data
+  {
+    Screen: VibeTuneTooScreen,
+    category: PostCategory.VibeCoding,
+    path: VIBE_TUNE_TOO_POST,
+    teaser:
+      "If we already use a script to generate recipes from JSON, why not just use JSON?",
+    title: "Vibe Tune Too",
+  },
   {
     Screen: MyFirstVibeRefactorScreen,
     category: PostCategory.VibeCoding,

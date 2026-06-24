@@ -15,6 +15,7 @@ export const HELLO_WORLD_POST = "/code/posts/hello-world";
 export const MY_FIRST_VIBE_REFACTOR_POST =
   "/code/posts/my-first-vibe-refactor";
 export const MY_FIRST_REAL_VIBE_POST = "/code/posts/my-first-real-vibe";
+export const VIBE_TUNE_TOO_POST = "/code/posts/vibe-tune-too";
 
 // NEW_USEFUL_TOOL: Useful tools and code section of routes
 export const BUTTON_WITH_SELECT_TOOL =
