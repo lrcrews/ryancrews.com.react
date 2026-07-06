@@ -1,3 +1,4 @@
+import { CodeSnippet } from "../../../../shared-components";
 import PostWrapper from "../PostWrapper";
 import { PostCategory } from "../postCategories";
 
@@ -35,13 +36,13 @@ function RecursionScreen() {
         condition is fuzzy. If you forget the base case, or make it too broad,
         the function keeps calling itself until it blows up.
       </p>
-      <pre>
-        <code>{`sum(list):
+      <CodeSnippet label="pseudo-code">
+        {`sum(list):
   if list is empty:
     return 0
 
-  return first(list) + sum(rest(list))`}</code>
-      </pre>
+  return first(list) + sum(rest(list))`}
+      </CodeSnippet>
       <p>
         The base case is the empty list. Every other call gets a smaller list,
         so the function eventually stops instead of falling forever.
@@ -53,13 +54,13 @@ function RecursionScreen() {
         comments, crawling directories, evaluating expression trees, and parsing
         menus with submenus inside submenus.
       </p>
-      <pre>
-        <code>{`renderComments(comment):
+      <CodeSnippet label="pseudo-code">
+        {`renderComments(comment):
   show(comment.message)
 
   for each reply in comment.replies:
-    renderComments(reply)`}</code>
-      </pre>
+    renderComments(reply)`}
+      </CodeSnippet>
       <p>
         That example scales without changing the shape of the code. Whether a
         comment has one reply or fifty layers of replies, the function stays

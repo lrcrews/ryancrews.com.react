@@ -10,6 +10,7 @@ import {
   SecondaryButton,
 } from "./buttons";
 import { CategoryFilter, useCategorizedItems } from "./category-filter";
+import { CodeSnippet } from "./code-snippet";
 import { EmptyContentState } from "./empty-content-state";
 
 import {
@@ -27,6 +28,7 @@ export {
   ButtonContainer,
   ButtonKind,
   CategoryFilter,
+  CodeSnippet,
   EmptyContentState,
   FullImageTile,
   LinkButton,
