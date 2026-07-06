@@ -6,6 +6,7 @@ import {
   HELLO_WORLD_POST,
   MY_FIRST_REAL_VIBE_POST,
   MY_FIRST_VIBE_REFACTOR_POST,
+  RECURSION_POST,
   VIBE_TUNE_TOO_POST,
 } from "../../../routes/paths";
 
@@ -14,6 +15,7 @@ import HelloIssuesScreen from "./content/HelloIssues";
 import HelloWorldScreen from "./content/HelloWorld";
 import MyFirstRealVibeScreen from "./content/MyFirstRealVibe";
 import MyFirstVibeRefactorScreen from "./content/MyFirstVibeRefactor";
+import RecursionScreen from "./content/Recursion";
 import VibeTuneTooScreen from "./content/VibeTuneToo";
 import { PostCategory } from "./postCategories";
 
@@ -27,6 +29,14 @@ export interface PostSummary {
 
 export const posts: PostSummary[] = [
   // NEW_POST: Posts section of preview data
+  {
+    Screen: RecursionScreen,
+    category: PostCategory.TheArt,
+    path: RECURSION_POST,
+    teaser:
+      "A clean way to solve nested problems by repeating the same smaller step.",
+    title: "Recursion",
+  },
   {
     Screen: VibeTuneTooScreen,
     category: PostCategory.VibeCoding,

@@ -1,6 +1,6 @@
 import { CSSProperties, useEffect, useState } from "react";
 
-import { PrimaryButton } from "../../../../../shared-components";
+import { CodeSnippet, PrimaryButton } from "../../../../../shared-components";
 import UsefulToolWrapper from "../../UsefulToolWrapper";
 import { UsefulToolCategory } from "../../usefulToolCategories";
 
@@ -209,9 +209,9 @@ function ConfettiScreen() {
           Drop the confetti
         </PrimaryButton>
 
-        <pre className="confetti-code">
-          <code>{confettiCss}</code>
-        </pre>
+        <CodeSnippet className="confetti-code" label="css">
+          {confettiCss}
+        </CodeSnippet>
       </div>
     </UsefulToolWrapper>
   );

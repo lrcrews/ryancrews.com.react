@@ -1,0 +1,101 @@
+@import "../../themes/themes.scss";
+@import "../../themes/theme-handler.scss";
+@import "../../sass-mixins/fonts.scss";
+
+.codeSnippet {
+  @include themify($themes) {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(themed("on-background"), 5%) 0%,
+        rgba(themed("on-background"), 2%) 100%
+      ),
+      themed("background-hover");
+    border-color: themed("border");
+    box-shadow:
+      0 0 0 1px rgba(themed("on-background"), 4%) inset,
+      0 16px 32px rgba(themed("on-background"), 10%);
+    color: themed("on-background");
+  }
+
+  border: 1px solid;
+  border-radius: 12px;
+  margin: 24px 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.codeSnippet-toolbar {
+  @include themify($themes) {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(themed("on-background"), 8%) 0%,
+        rgba(themed("on-background"), 3%) 100%
+      );
+    border-bottom-color: rgba(themed("on-background"), 10%);
+    color: rgba(themed("on-background"), 70%);
+  }
+
+  align-items: center;
+  border-bottom: 1px solid;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 0 16px;
+}
+
+.codeSnippet-copy {
+  @include font-code;
+  @include themify($themes) {
+    color: themed("brand-secondary");
+
+    &:hover,
+    &:focus-visible {
+      color: themed("brand-secondary-hover");
+    }
+  }
+
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  text-decoration: underline;
+  text-transform: lowercase;
+}
+
+.codeSnippet-label {
+  @include font-code;
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.codeSnippet-status {
+  height: 0;
+  overflow: hidden;
+}
+
+.codeSnippet-pre {
+  @include font-code;
+  @include themify($themes) {
+    color: themed("on-background");
+  }
+
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px 20px 20px;
+  white-space: pre;
+  width: 100%;
+
+  &.wrap {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+}

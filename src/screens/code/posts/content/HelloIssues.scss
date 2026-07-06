@@ -1,27 +1,9 @@
 @import "../../../../themes/themes.scss";
 @import "../../../../themes/theme-handler.scss";
-@import "../../../../sass-mixins/fonts.scss";
 @import "../../../../sass-mixins/sizes.scss";
 
 .prompt {
-  @include font-code;
-  @include themify($themes) {
-    background-color: themed("background-hover");
-    border-color: themed("border");
-    box-shadow: 0 0 8px 1px rgba(themed("on-background"), 8%) inset;
-    color: themed("on-background");
-  }
-
-  border: 1px solid;
-  border-left-width: 4px;
-  border-radius: 8px;
-  box-sizing: border-box;
   margin: 24px 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  padding: 16px 20px;
-  white-space: pre-wrap;
-  width: 100%;
 }
 
 .hello-issues-flow {
