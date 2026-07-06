@@ -46,28 +46,25 @@
   padding: 0 16px;
 }
 
-.codeSnippet-dots {
-  display: inline-flex;
-  gap: 8px;
+.codeSnippet-copy {
+  @include font-code;
+  @include themify($themes) {
+    color: themed("brand-secondary");
 
-  span {
-    border-radius: 999px;
-    display: block;
-    height: 10px;
-    width: 10px;
-
-    &:nth-child(1) {
-      background-color: #ff5f57;
-    }
-
-    &:nth-child(2) {
-      background-color: #febc2e;
-    }
-
-    &:nth-child(3) {
-      background-color: #28c840;
+    &:hover,
+    &:focus-visible {
+      color: themed("brand-secondary-hover");
     }
   }
+
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  text-decoration: underline;
+  text-transform: lowercase;
 }
 
 .codeSnippet-label {
@@ -76,6 +73,11 @@
   font-size: 12px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.codeSnippet-status {
+  height: 0;
+  overflow: hidden;
 }
 
 .codeSnippet-pre {
