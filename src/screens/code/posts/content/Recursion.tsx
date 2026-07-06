@@ -15,9 +15,9 @@ function RecursionScreen() {
       <h3>ELI5</h3>
       <p>
         Imagine a stack of nesting dolls. To see the smallest one, you open the
-        biggest doll, then the next one, then the next one, using the same move
-        to open each one. Recursion is code doing that same repeated "move"
-        until it reaches the tiniest doll.
+        biggest doll, then the next one, then the next one, using the same
+        "move" to open each one. Recursion is code doing that same repeated
+        "move" until it reaches the tiniest doll.
       </p>
       <p>
         <img
@@ -69,8 +69,11 @@ function RecursionScreen() {
         Both functions do the same thing, and with such a trivial example they
         don't look that different from eachother. But even at this scale we can
         notice that the recursive version is using less code / variables to
-        handle the same task. The recursive version also states what it is doing
-        more directly, "add the first value and the sum of the rest of the
+        handle the same task.
+      </p>
+      <p>
+        The recursive version also states what it is doing more directly, "add
+        the first value in the list to the sum of the rest of the values in the
         list." The non-recursive version is more focused on how to do it, and
         would require more mental effort to read / trace through on a more
         complex task.
@@ -80,7 +83,7 @@ function RecursionScreen() {
       <p>
         Recursion is great for things like rendering nested comments, crawling
         directories, evaluating trees, parsing menus with submenus inside
-        submenus (inside of submenus).
+        submenus (inside submenus).
       </p>
       <p>
         Some programmers also find it great for naming things, like "PHP", which
