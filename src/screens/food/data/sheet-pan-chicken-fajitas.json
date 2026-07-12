@@ -1,0 +1,73 @@
+{
+  "title": "Sheet Pan Chicken Fajitas",
+  "path": "/food/sheet-pan-chicken-fajitas",
+  "tags": [
+    "chicken",
+    "bell peppers",
+    "onion",
+    "garlic",
+    "lime",
+    "cilantro",
+    "flour tortillas",
+    "chili powder",
+    "paprika",
+    "cumin",
+    "oregano",
+    "cayenne pepper",
+    "fajitas"
+  ],
+  "ingredientSections": [
+    {
+      "title": "Fajitas",
+      "items": [
+        {
+          "count": "3/4",
+          "description": "pound boneless skinless chicken breasts, sliced against the grain into 1/2-inch thick strips"
+        },
+        {
+          "count": "1-2",
+          "description": "bell peppers, cored and sliced into strips"
+        },
+        { "count": "1/2", "description": "yellow onion, thinly sliced" },
+        { "count": "1", "description": "clove garlic, minced" },
+        { "count": "1.5", "description": "tablespoons olive oil" },
+        { "count": "1/2", "description": "lime" },
+        { "count": "2", "description": "tablespoons fresh cilantro, chopped" },
+        { "count": "4-5", "description": "small flour tortillas" },
+        {
+          "count": "",
+          "description": "fajita toppings such as sour cream, sliced avocado or guacamole, pico de gallo, and shredded cheese"
+        }
+      ]
+    },
+    {
+      "title": "Seasoning",
+      "items": [
+        { "count": "1.5", "description": "teaspoons chili powder" },
+        { "count": "3/4", "description": "teaspoon paprika" },
+        { "count": "3/4", "description": "teaspoon cumin" },
+        { "count": "1/4", "description": "teaspoon onion powder" },
+        { "count": "1/4", "description": "teaspoon garlic powder" },
+        { "count": "1/8", "description": "teaspoon dried oregano" },
+        { "count": "1/8", "description": "teaspoon cayenne pepper, optional" },
+        { "count": "3/4", "description": "teaspoon salt" },
+        {
+          "count": "1/4",
+          "description": "teaspoon freshly ground black pepper"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "Line sheet pan with foil and Preheat oven to 425°F.",
+    "Combine the fajita seasoning ingredients together in a small jar with a lid, shake well.",
+    "Place strips of chicken in a large bowl, drizzle with 1 tablespoon of oil, and sprinkle with enough seasoning to coat the chicken. Toss to coat.",
+    "Add vegetables to the bowl, sprinkle lightly with additional seasoning, toss to coat. Spoon minced garlic on top of the chicken and drizzle olive oil over the entire pan.",
+    "Add garlic to bowl and toss to incorporate.",
+    "Spread chicken and vegetables into a single layer on the prepared sheet pan. Add remaining oil if needed (and any remaining seasoning if desired).",
+    "Cook for 15-20 minutes, or until the chicken is cooked through and reaches 165°F. Wrap the flour tortillas in foil and place them in the oven to warm during the last 5 minutes of cooking.",
+    "Remove everything from the oven. Squeeze fresh lime juice over the chicken and vegetables and sprinkle with cilantro.",
+    "Serve in warm tortillas with extra toppings, if desired."
+  ],
+  "sourceLink": "https://tastesbetterfromscratch.com/sheet-pan-chicken-fajitas/#wprm-recipe-container-11820"
+}

@@ -29,6 +29,7 @@ import PadThaiRecipe from "./data/pad-thai.json";
 import PorkTenderloinRecipe from "./data/pork-tenderloin.json";
 import ReverseSearTriTipRecipe from "./data/reverse-sear-tri-tip.json";
 import RicePilafRecipe from "./data/rice-pilaf.json";
+import SheetPanChickenFajitasRecipe from "./data/sheet-pan-chicken-fajitas.json";
 import SkagenroraRecipe from "./data/skagenrora.json";
 import SpaghettiBologneseRecipe from "./data/spaghetti-bolognese.json";
 import StoveToOvenSteakRecipe from "./data/stove-to-oven-steak.json";
@@ -104,6 +105,7 @@ export const recipeData: RecipeData[] = [
   PorkTenderloinRecipe as RecipeData,
   ReverseSearTriTipRecipe as RecipeData,
   RicePilafRecipe as RecipeData,
+  SheetPanChickenFajitasRecipe as RecipeData,
   SkagenroraRecipe as RecipeData,
   SpaghettiBologneseRecipe as RecipeData,
   StoveToOvenSteakRecipe as RecipeData,
