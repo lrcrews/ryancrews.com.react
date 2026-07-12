@@ -9,6 +9,11 @@ function ValidParenthesesScreen() {
       subTitle="Using a stack to check whether brackets close in the right order"
       title="Valid Parentheses"
     >
+      <p className="italic">
+        This post is an AI generated post. It felt like a fun use of AI to
+        generate a post about a common coding interview question once a week,
+        just to (re)learn some things 🤓
+      </p>
       <h3>The Question</h3>
       <p>
         This question usually asks whether a string made of brackets is valid.

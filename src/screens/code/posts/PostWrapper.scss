@@ -26,6 +26,10 @@
       }
     }
 
+    .italic {
+      font-style: italic;
+    }
+
     > * {
       &:first-child {
         float: left;
