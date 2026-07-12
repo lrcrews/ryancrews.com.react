@@ -7,6 +7,7 @@ import {
   MY_FIRST_REAL_VIBE_POST,
   MY_FIRST_VIBE_REFACTOR_POST,
   RECURSION_POST,
+  VALID_PARENTHESES_POST,
   VIBE_TUNE_TOO_POST,
 } from "../../../routes/paths";
 
@@ -16,6 +17,7 @@ import HelloWorldScreen from "./content/HelloWorld";
 import MyFirstRealVibeScreen from "./content/MyFirstRealVibe";
 import MyFirstVibeRefactorScreen from "./content/MyFirstVibeRefactor";
 import RecursionScreen from "./content/Recursion";
+import ValidParenthesesScreen from "./content/ValidParentheses";
 import VibeTuneTooScreen from "./content/VibeTuneToo";
 import { PostCategory } from "./postCategories";
 
@@ -29,6 +31,14 @@ export interface PostSummary {
 
 export const posts: PostSummary[] = [
   // NEW_POST: Posts section of preview data
+  {
+    Screen: ValidParenthesesScreen,
+    category: PostCategory.TheJob,
+    path: VALID_PARENTHESES_POST,
+    teaser:
+      "A stack-based way to check whether brackets close in the order they opened.",
+    title: "Valid Parentheses",
+  },
   {
     Screen: RecursionScreen,
     category: PostCategory.TheArt,
