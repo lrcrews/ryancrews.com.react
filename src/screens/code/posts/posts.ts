@@ -1,6 +1,7 @@
 import { ComponentType } from "react";
 
 import {
+  DEPENDENCY_INJECTION_POST,
   COLOR_CONVERT_POST,
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
@@ -11,6 +12,7 @@ import {
   VIBE_TUNE_TOO_POST,
 } from "../../../routes/paths";
 
+import DependencyInjectionScreen from "./content/DependencyInjection";
 import ColorConvertScreen from "./content/ColorConvert";
 import HelloIssuesScreen from "./content/HelloIssues";
 import HelloWorldScreen from "./content/HelloWorld";
@@ -31,6 +33,14 @@ export interface PostSummary {
 
 export const posts: PostSummary[] = [
   // NEW_POST: Posts section of preview data
+  {
+    Screen: DependencyInjectionScreen,
+    category: PostCategory.TheArt,
+    path: DEPENDENCY_INJECTION_POST,
+    teaser:
+      "Passing dependencies in from the outside so code stays easier to test, swap, and reason about.",
+    title: "Dependency Injection",
+  },
   {
     Screen: ValidParenthesesScreen,
     category: PostCategory.TheJob,
