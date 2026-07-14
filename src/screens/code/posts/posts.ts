@@ -5,6 +5,7 @@ import {
   COLOR_CONVERT_POST,
   HELLO_ISSUES_POST,
   HELLO_WORLD_POST,
+  MERGE_INTERVALS_POST,
   MY_FIRST_REAL_VIBE_POST,
   MY_FIRST_VIBE_REFACTOR_POST,
   RECURSION_POST,
@@ -16,6 +17,7 @@ import DependencyInjectionScreen from "./content/DependencyInjection";
 import ColorConvertScreen from "./content/ColorConvert";
 import HelloIssuesScreen from "./content/HelloIssues";
 import HelloWorldScreen from "./content/HelloWorld";
+import MergeIntervalsScreen from "./content/MergeIntervals";
 import MyFirstRealVibeScreen from "./content/MyFirstRealVibe";
 import MyFirstVibeRefactorScreen from "./content/MyFirstVibeRefactor";
 import RecursionScreen from "./content/Recursion";
@@ -33,6 +35,14 @@ export interface PostSummary {
 
 export const posts: PostSummary[] = [
   // NEW_POST: Posts section of preview data
+  {
+    Screen: MergeIntervalsScreen,
+    category: PostCategory.TheJob,
+    path: MERGE_INTERVALS_POST,
+    teaser:
+      "Sorting ranges so overlapping meetings, bookings, and windows collapse into one pass.",
+    title: "Merge Intervals",
+  },
   {
     Screen: DependencyInjectionScreen,
     category: PostCategory.TheArt,

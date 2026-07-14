@@ -9,6 +9,7 @@ export const POSTS_HOME_PATH = "/code/posts";
 export const USEFUL_TOOLS_AND_CODE_HOME_PATH = "/code/useful-tools-and-code";
 
 // NEW_POST: Posts section of routes
+export const MERGE_INTERVALS_POST = "/code/posts/merge-intervals";
 export const DEPENDENCY_INJECTION_POST = "/code/posts/dependency-injection";
 export const VALID_PARENTHESES_POST = "/code/posts/valid-parentheses";
 export const RECURSION_POST = "/code/posts/recursion";
