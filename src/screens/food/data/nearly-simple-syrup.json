@@ -1,0 +1,28 @@
+{
+  "title": "Nearly Simple Syrup",
+  "path": "/food/nearly-simple-syrup",
+  "tags": ["sugar", "water"],
+  "ingredientSections": [
+    {
+      "title": "Simple Syrup",
+      "items": [
+        {
+          "count": "1",
+          "description": "part hot water (460 grams)"
+        },
+        {
+          "count": "~0.6",
+          "description": "part sugar (284 grams, instead of the traditional 1:1 ratio)"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "Have a large non-reactive bowl and a large mason jar ready.",
+    "Measure out the sugar, 284 grams (0.6 parts).",
+    "Measure out the hot water from an electric kettle or other source, 460 grams (1 part), in the large non-reactive bowl.",
+    "Add the sugar to the hot water and stir until the sugar is completely dissolved.",
+    "Let cool.",
+    "Pour into mason jar and seal, store in the refrigerator for up to 1 month."
+  ]
+}

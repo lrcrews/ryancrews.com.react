@@ -17,12 +17,14 @@ import FriedChickenNuggetsRecipe from "./data/fried-chicken-nuggets.json";
 import FriedPotatoesAndOnionsRecipe from "./data/fried-potatoes-and-onions.json";
 import GamjaJorimKoreanBraisedPotatoesRecipe from "./data/gamja-jorim-korean-braised-potatoes.json";
 import GeneralTsosChickenRecipe from "./data/general-tsos-chicken.json";
+import GingerBeefStirFryRecipe from "./data/ginger-beef-stir-fry.json";
 import GranolaRecipe from "./data/granola.json";
 import JapaneseChickenDonRecipe from "./data/japanese-chicken-don.json";
 import KoreanLettuceWrapsRecipe from "./data/korean-lettuce-wraps.json";
 import KungPaoChickenRecipe from "./data/kung-pao-chicken.json";
 import LemonGarlicBokChoyRecipe from "./data/lemon-garlic-bok-choy.json";
 import MisoGarlicCauliflowerBitesRecipe from "./data/miso-garlic-cauliflower-bites.json";
+import NearlySimpleSyrupRecipe from "./data/nearly-simple-syrup.json";
 import NobuMisoMarinatedFishRecipe from "./data/nobu-miso-marinated-fish.json";
 import OnePanOrecchiettePastaRecipe from "./data/one-pan-orecchiette-pasta.json";
 import PadThaiRecipe from "./data/pad-thai.json";
@@ -93,12 +95,14 @@ export const recipeData: RecipeData[] = [
   FriedPotatoesAndOnionsRecipe as RecipeData,
   GamjaJorimKoreanBraisedPotatoesRecipe as RecipeData,
   GeneralTsosChickenRecipe as RecipeData,
+  GingerBeefStirFryRecipe as RecipeData,
   GranolaRecipe as RecipeData,
   JapaneseChickenDonRecipe as RecipeData,
   KoreanLettuceWrapsRecipe as RecipeData,
   KungPaoChickenRecipe as RecipeData,
   LemonGarlicBokChoyRecipe as RecipeData,
   MisoGarlicCauliflowerBitesRecipe as RecipeData,
+  NearlySimpleSyrupRecipe as RecipeData,
   NobuMisoMarinatedFishRecipe as RecipeData,
   OnePanOrecchiettePastaRecipe as RecipeData,
   PadThaiRecipe as RecipeData,

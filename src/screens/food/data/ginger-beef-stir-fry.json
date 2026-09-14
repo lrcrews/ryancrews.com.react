@@ -1,0 +1,99 @@
+{
+  "title": "Ginger Beef Stir Fry",
+  "path": "/food/ginger-beef-stir-fry",
+  "tags": [
+    "beef",
+    "bell pepper",
+    "garlic",
+    "green onion",
+    "miso",
+    "onion",
+    "ginger",
+    "oyster sauce",
+    "soy sauce",
+    "sugar"
+  ],
+  "sourceLink": "https://hot-thai-kitchen.com/gai-pad-king/",
+  "ingredientSections": [
+    {
+      "title": "Stir Fry",
+      "items": [
+        {
+          "count": "1/2",
+          "description": "pound thinly sliced lean beef"
+        },
+        {
+          "count": "1/2",
+          "description": "red bell pepper, stemmed, cored, and thinly sliced"
+        },
+        {
+          "count": "1/2",
+          "description": "bunch green onion, green ends cut on the bias"
+        },
+        {
+          "count": "1/2",
+          "description": "small onion, thinly sliced"
+        },
+        {
+          "count": "1",
+          "description": "3-inch piece ginger, matchsticked"
+        },
+        {
+          "count": "4",
+          "description": "cloves garlic, finely chopped"
+        },
+        {
+          "count": "1",
+          "description": "tablespoon vegetable oil"
+        }
+      ]
+    },
+    {
+      "title": "Sauce",
+      "items": [
+        {
+          "count": "2",
+          "description": "tablespoon chicken broth"
+        },
+        {
+          "count": "1",
+          "description": "tablespoon oyster sauce"
+        },
+        {
+          "count": "1",
+          "description": "tablespoon white miso paste"
+        },
+        {
+          "count": "1",
+          "description": "teaspoon sugar"
+        },
+        {
+          "count": "2",
+          "description": "teaspoons soy sauce"
+        },
+        {
+          "count": "1",
+          "description": "teaspoon sugar"
+        },
+        {
+          "count": "1",
+          "description": "teaspoon toasted sesame oil"
+        },
+        {
+          "count": "1/4",
+          "description": "teaspoon fresh ground black pepper"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "Start the rice.",
+    "Combine all sauce ingredients, whisking until smooth, set aside.",
+    "In a hot pan, add oil and heat until shimmering. Cook the beef for about 3 minutes. Tenderize first if needed.",
+    "Remove the beef and lightly season with salt. Wipe out pan, leaving some oil behind.",
+    "Over medium heat, adding a drizzle of oil if needed, saute chopped garlic until fragrant.",
+    "Increase heat to medium-high and add the bell pepper, onion, and ginger. Stir-fry for 3-5 minutes until vegetables are tender-crisp.",
+    "Return the beef to the pan, pour in the sauce, and toss everything together until well coated and heated through.",
+    "Turn the heat off, add green onions, and stir well. Serve stir fry with white rice."
+  ]
+}
